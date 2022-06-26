@@ -101,14 +101,30 @@ const config = {
                 label: 'Validate',
                 to: '/docs/validate',
               },
+              {
+                label: 'Nominate',
+                to: '/docs/Nominate',
+              },
             ],
           },
           {
-            title: 'Community',
+            title: 'Kusama',
             items: [
               {
-                label: 'Polkachu Thousand Validator',
+                label: 'Official Thousand Validator website',
+                href: 'https://thousand-validators.kusama.network/#/leaderboard',
+              },
+              {
+                label: 'Polkachu Thousand Validator resources',
                 href: 'https://polkachu.com/kusama/thousand_validators/',
+              },
+              {
+                label: 'Polkachu Payout Guard',
+                href: 'https://polkachu.com/accounts',
+              },
+              {
+                label: 'Decentradot',
+                href: 'https://decentradot.com/tools/dashboard/',
               },
             ],
           },
@@ -116,8 +132,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Mail',
+                href: 'mailto:info@stakeworld.nl',
               },
               {
                 label: 'GitHub',

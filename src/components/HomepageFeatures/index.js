@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/agree.svg').default,
     description: (
       <>
-        We offers an install instruction and an example node/monitoring setup with configuration files.
+        We try to exchange information with other validators and offer documentation to strengthen the polkadot ecosystem.
       </>
     ),
   },

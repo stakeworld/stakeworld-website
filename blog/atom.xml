@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://www.stakeworld.nl/blog</id>
+    <title>STAKEWORLD Blog</title>
+    <updated>2022-06-26T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://www.stakeworld.nl/blog"/>
+    <subtitle>STAKEWORLD Blog</subtitle>
+    <icon>https://www.stakeworld.nl/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>Welcome</id>
+        <link href="https://www.stakeworld.nl/blog/Welcome"/>
+        <updated>2022-06-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[More to follow.]]></summary>
+        <content type="html"><![CDATA[<p>More to follow.</p>]]></content>
+        <author>
+            <name>STAKEWORLD</name>
+            <uri>https://github.com/stakeworld</uri>
+        </author>
+    </entry>
+</feed>

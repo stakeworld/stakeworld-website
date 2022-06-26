@@ -1,0 +1,39 @@
+[Unit]
+Description=Kusama yourhost/01
+After=network.target
+Documentation=https://github.com/paritytech/polkadot
+OnFailure=unit-status-mail@%n.service
+StartLimitIntervalSec=200
+StartLimitBurst=2
+
+[Service]
+EnvironmentFile=-/home/polkadot/polkadot.env
+ExecStart=/usr/bin/polkadot --chain kusama --name yourhost/01 --validator --pruning 1000 --port 30333 --rpc-port 9901 --ws-port 9801 --prometheus-port 9601 --prometheus-external --base-path /home/kusama/yourhost-01k --database paritydb --telemetry-url 'wss://telemetry.polkadot.io/submit/ 1' 
+User=polkadot
+Group=polkadot
+Restart=always
+RestartSec=30
+CapabilityBoundingSet=
+LockPersonality=true
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateMounts=true
+PrivateTmp=true
+PrivateUsers=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHostname=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+RemoveIPC=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK AF_UNIX
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@clock @module @mount @reboot @swap @privileged
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

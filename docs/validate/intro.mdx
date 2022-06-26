@@ -1,0 +1,107 @@
+---
+id: intro
+title: Setting up a validator node
+description: Setting up a validator node
+slug: /validate
+sidebar_position: 1
+---
+
+:::tip
+Setting up a validator is a lot of fun but also a lot of work
+:::
+
+
+## Setup a server
+
+First you will need a working server setup. We advise an ubuntu 20.04 LTS on dedicated [hardware](./hardware)
+
+The [polkadot wiki](https://wiki.polkadot.network/docs/maintain-guides-how-to-validate-kusama) also has a lot of good information about seting up a validator node. 
+
+It is wise to start setting your hostname (preferably matched bij the reverse dns on your provider), copying your ssh keys to your server and disable plain password authentication.
+
+```bash
+vi /etc/hostname
+```
+`yourhostname.yourhostdomain`
+
+```bash
+vi /etc/ssh/sshd_config
+```
+`PasswordAuthentication no`
+```bash
+systemctl restart sshd.service
+```
+
+## Firewall
+
+:::tip
+Polkadot needs some ports open in the firewall, especially the p2p port
+* 30333: p2p port
+* 9933: HTTP RPC
+* 9944: WS RPC
+* 9615: prometheus port
+:::
+
+If you open a range of ports you can choose to run a second validator or change ports in your systemctl config.
+
+```bash
+ufw allow openssh
+ufw enable
+ufw allow from any port 30300:30399 proto tcp
+```
+
+## Packages
+
+I prefer to lock the kernel updates so I have to manually upgrade them (which requires a restart)
+
+```bash
+apt-mark hold linux-generic linux-headers-generic linux-image-generic
+```
+
+## Install polkadot
+
+```bash
+# Import the security@parity.io GPG key
+gpg --recv-keys --keyserver hkps://keys.mailvelope.com 9D4B2B6EB8F97156D19669A9FF0812D491B96798
+gpg --export 9D4B2B6EB8F97156D19669A9FF0812D491B96798 > /usr/share/keyrings/parity.gpg
+# Add the Parity repository and update the package index
+echo 'deb [signed-by=/usr/share/keyrings/parity.gpg] https://releases.parity.io/deb release main' > /etc/apt/sources.list.d/parity.list
+apt update
+# Install the `parity-keyring` package - This will ensure the GPG key
+# used by APT remains up-to-date
+apt install parity-keyring
+# Install polkadot
+apt install polkadot
+```
+
+## Systemctl service scripts
+
+By default there is a `/usr/lib/systemd/system/polkadot.service` systemctl script which reads its defaults from `/etc/default/polkadot`.
+
+Below an adapted systemctl script. It gives the possibility for different ports, if you run more instances you need to adapt the ports and base directories alongside the “Description” in the .service file.
+
+You can download it here: [`yourvalidator.service`](/files/yourvalidator.service) and copy it to `/etc/systemd/system/`.
+
+After you have installed your adapted service you can start and enable it by
+
+```bash
+systemctl daemon-reload
+systemctl start yourvalidator.service
+systemctl enable yourvalidator.service
+journalctl -u yourvalidator.service -f
+```
+
+## Database sync
+
+If you fire up a fresh polkadot it starts to sync from scratch, which will take a while.
+
+Using an up to date database you can speed up the process. Best is to shortly start the relevant polkadot binary, so the file structure gets created, then stop it and execute the code below. After this you can start the binary and it will only need a short period to sync and start validating.
+
+:::tip
+There are different size databases, a “pruned” database is sufficient for a validator node.
+:::
+
+### Snapshot providers
+
+The are multiple snapshots providers, for example [polkashots.io](https://polkashots.io/) and [polkachu.com](https://polkachu.com/snapshots), which give instructions how to download the database.
+

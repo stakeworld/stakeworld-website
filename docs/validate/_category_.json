@@ -1,0 +1,8 @@
+{
+  "label": "Validate",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Tips for polkadot and kusama node operators"
+  }
+}

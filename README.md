@@ -38,7 +38,7 @@ The website files are in branch master and are deployed to branch gh-pages, whic
 
 To deploy:
 ```
-GIT_USER=stakeworld USE_SSH=true CURRENT_BRANCH=master DEPLOYMENT_BRANCH=gh-pages yarn deploy
+GIT_USER=stakeworld USE_SSH=true CURRENT_BRANCH=master DEPLOYMENT_BRANCH=gh-pages npm run deploy
 ```
 
 ### Using GIT

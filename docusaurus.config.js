@@ -37,14 +37,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/stakeworld/website/tree/master/packages/create-docusaurus/templates/shared/',
+            'https://github.com/stakeworld/website/edit/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/stakeworld/website/tree/master/packages/create-docusaurus/templates/shared/',
+            'https://github.com/stakeworld/website/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

@@ -32,6 +32,7 @@ npx create-docusaurus@latest my-website classic
 
 * You can test your site by `npm run start`
 * You can build a static version by `npm run build`
+* You can try it on [stackblitz](https://stackblitz.com/github/stakeworld/website/tree/master/?file=README.md)
 
 ### Deploy to github
 The website files are in branch master and are deployed to branch gh-pages, which is hosted on github. See [github deploymant](https://docusaurus.io/docs/next/deployment#deploying-to-github-pages)

@@ -4,8 +4,8 @@ This website is build using [Docusaurus 2](https://docusaurus.io/)
 
 ### Installation guide
 
-*[Docusaurus](https://docusaurus.io/docs/next/installation) installation guide
-*[NVM install](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04) option 3
+* [Docusaurus](https://docusaurus.io/docs/next/installation) installation guide
+* [NVM install](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04) option 3
 
 Install node.js via nvm (node version manager, choose latest stable)
 
@@ -22,7 +22,7 @@ Install git
 apt install git
 ```
 
-### Fresh Install 
+### Fresh Install of Docusaurus
 
 ```
 npx create-docusaurus@latest my-website classic

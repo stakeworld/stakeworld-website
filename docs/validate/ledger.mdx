@@ -3,7 +3,7 @@ id: ledger
 title: Using a Ledger Wallet
 description: Validator resources for polkadot and kusama
 slug: /ledger
-sidebar_position: 4
+sidebar_position: 8
 ---
 
 If you are serious about validating and maybe want to fire up more instances in the future the best setup is a stash account on a cold (hardware/ledger) wallet which you don’t have to use often, combined with a controller account on a hot wallet with easy (password) access. The idea is you use the hot wallet more often with more risk for exposure of the keys, while your stash account with the most value on it is relatively safe.
@@ -14,10 +14,23 @@ Problem with the setup using a ledger is that a lot of functions are more compli
 
 A ledger account cannot have an “on chain identity” by itself. The workaround is giving a native account an identity (STAKEWORLD) and specifying the ledger accounts as sub-identities. In the validator lists they show as STAKEWORLD/01 , where the /01 is a sub-identity of stakeworld. The next one is STAKEWORLD/02 and so on. Every identity and sub identity locks up dot/ksm (polkadot: 20 dots, which you get back after clearing the identity).
 
+
 ## Democracy
 
 A ledger account misses the democracy and council voting possibilities. Since this is a factor in the validator selection protocol and you want your validators to get elected it is wise to participate in democracy votes. The workaround here is to use a proxy. You can via ledger proxy your stash account to a native account, and with that native account can cast votes in democracy on behalf of the ledger stash account. Every proxy also locks up a certain amount of dot/ksm.
 If you have a proxy setup, you can also delegate democracy votes to a hot wallet or even another account you trust.
+
+## Steps to take
+![ledger](/img/ledger.png)
+
+1. Go to your [accounts](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io#/accounts)
+2. On your hot wallet account: `Set on-chain identity`
+3. On your hot wallet account: `Set on-chain sub-identities`
+
+Now you have sub-identities active
+
+4. On your ledger account: `Add proxy` account to be able to delegate democracy votes, if needed
+5. On your ledger account: `Delegate democracy votes`
 
 :::tip
 STAKEWORLD uses this setup for it’s validators.

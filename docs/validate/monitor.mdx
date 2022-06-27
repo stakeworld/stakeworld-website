@@ -1,0 +1,47 @@
+---
+id: monitor
+title: Monitoring a validator node
+description: Monitoring a validator node
+slug: /monitor
+sidebar_position: 7
+---
+
+## Monitoring
+The monitoring wiki seems outdated; especially the described grafana templates don’t work. There is a project ongoing for updated templates. We made our own template which you can find here: [https://grafana.com/grafana/dashboards/16421](https://grafana.com/grafana/dashboards/16421).
+
+The monitoring setup exists of:
+
+* a monitoring instance which uses grafana, loki, node-exporter and alertmanager
+* validator nodes with promtail and node-exporter from which the data, including the build-in prometheus endpoint in polkadot/kusama is send to the monitoring node.
+
+![Grafana](/img/grafana.png)
+
+### Setting up grafana
+
+The wiki uses binaries but there is a apt repository available. To install the latest grafana server
+
+```bash
+sudo apt-get install -y apt-transport-https
+sudo apt-get install -y software-properties-common wget
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+sudo apt-get update
+sudo apt-get install grafana
+sudo systemctl daemon-reload
+sudo systemctl start grafana-server
+sudo systemctl status grafana-server
+sudo systemctl enable grafana-server.service
+```
+
+If you are running behind a proxy adjust grafana config:
+
+```bash
+vi /etc/grafana/grafana.ini
+```
+
+```
+[server]
+domain = stakeworld.nl
+root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana/
+serve_from_sub_path = true
+```

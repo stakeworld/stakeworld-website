@@ -15,6 +15,11 @@ nvm list-remote
 nvm install v16.15.1
 ```
 
+Install yarn
+
+```
+npm install yarn
+```
 
 Install git
 

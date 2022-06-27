@@ -36,7 +36,7 @@ npx create-docusaurus@latest my-website classic
 ### Development
 
 * You can test your site by `npm run start`
-* You can build a static version by `npm run build`
+* You can build a static version by `npm run build` (localhost) or `npm run start -- --port 30399 --host 0.0.0.0` via internet
 
 ### Deploy to github
 The website files are in branch master and are deployed to branch gh-pages, which is hosted on github. See [github deploymant](https://docusaurus.io/docs/next/deployment#deploying-to-github-pages)

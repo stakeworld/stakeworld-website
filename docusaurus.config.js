@@ -13,6 +13,7 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+  trailingSlash: 'false',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -84,11 +85,11 @@ const config = {
             label: 'Nominate',
           },
 	 {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/stakeworld',
-            label: 'GitHub',
-            position: 'right',
-          },
+//          {
+//            href: 'https://github.com/stakeworld',
+//            label: 'GitHub',
+//            position: 'right',
+//          },
         ],
       },
       footer: {
@@ -129,15 +130,19 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'Contact',
             items: [
               {
-                label: 'Mail',
+                label: 'info@stakeworld.nl',
                 href: 'mailto:info@stakeworld.nl',
               },
               {
-                label: 'GitHub',
+		label: 'github.com/stakeworld',
                 href: 'https://github.com/stakeworld',
+              },
+              {
+                label: '@stakeworld.matrix.org',
+                href: 'https://app.element.io/#/user%2F%40stakeworld%3Amatrix.org',
               },
             ],
           },

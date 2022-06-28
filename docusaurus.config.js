@@ -84,7 +84,7 @@ const config = {
             position: 'left',
             label: 'Nominate',
           },
-	 {to: '/blog', label: 'Blog', position: 'left'},
+//	 {to: '/blog', label: 'Blog', position: 'left'},
 //          {
 //            href: 'https://github.com/stakeworld',
 //            label: 'GitHub',

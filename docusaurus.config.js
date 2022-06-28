@@ -61,10 +61,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
        announcementBar: {
-         id: 'announcementBar-1', // Increment on change
+         id: 'announcementBar', 
          backgroundColor: '#f5f7bc',
 	 content: `⭐️ If you like STAKEWORLD, nominate it on <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?filter=stakeworld">Polkadot.js</a>`,
 	},
+      colorMode: {
+        disableSwitch: true,
+      },
       navbar: {
         title: 'STAKEWORLD',
         logo: {

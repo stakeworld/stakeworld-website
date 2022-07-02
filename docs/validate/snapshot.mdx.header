@@ -3,6 +3,6 @@ id: snapshot
 title: Paritydb snapshots
 description: Polkadot and Kusama paritydb snapshots
 slug: /snapshot
-sidebar_position: 8
+sidebar_position: 2
 ---
 

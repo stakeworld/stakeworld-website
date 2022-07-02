@@ -52,7 +52,7 @@ ufw allow from any port 30300:30399 proto tcp
 
 ## Packages
 
-I prefer to lock the kernel updates so I have to manually upgrade them (which requires a restart)
+Optionally lock the kernel updates so you have to manually upgrade them (which requires a restart)
 
 ```bash
 apt-mark hold linux-generic linux-headers-generic linux-image-generic
@@ -103,5 +103,5 @@ There are different size databases, a “pruned” database is sufficient for a 
 
 ### Snapshot providers
 
-The are multiple snapshots providers, for example [polkashots.io](https://polkashots.io/) and [polkachu.com](https://polkachu.com/snapshots), which give instructions how to download the database.
+Stakeworld hosts a pruned snapshot in paritydb format for quick deployment, you can find details [here](./snapshot). There are also other providers like [polkashots.io](https://polkashots.io/) and [polkachu.com](https://polkachu.com/snapshots).
 

@@ -1,5 +1,7 @@
 :::info
 Snapshots are backups of the database directory of a polkadot or kusama node. If you start a node it wil start building from start (genesis), which wil take a while. If you download an up to date database your node wil be running quicker.
+
+The snapshots are in paritydb format `--database paritydb` and pruned `--pruning 1000`, which is sufficient for a validator node.
 :::
 
 ## Kusama paritydb snapshot

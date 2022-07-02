@@ -1,0 +1,32 @@
+:::info
+Snapshots are backups of the database directory of a polkadot or kusama node. If you start a node it wil start building from start (genesis), which wil take a while. If you download an up to date database your node wil be running quicker.
+:::
+
+## Kusama paritydb snapshot
+
+### Download the database
+Download for later extraction.
+```bash
+wget http://snapshot.stakeworld.nl/paritydb-ksm.lz4
+```
+
+### Install the database directly
+Install to `/home/polkadot/.local/share/polkadot/chains/ksmcc3` or change to your target directory.
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksm.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
+```
+
+## Polkadot paritydb snapshot
+
+### Download the database
+Download for later extraction.
+```bash
+wget http://snapshot.stakeworld.nl/paritydb-dot.lz4
+```
+
+### Install the database directly
+Install to `/home/polkadot/.local/share/polkadot/chains/polkadot` or change to your target directory.
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/paritydb-dot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
+```
+

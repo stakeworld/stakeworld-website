@@ -63,7 +63,7 @@ const config = {
        announcementBar: {
          id: 'announcementBar', 
          backgroundColor: '#f5f7bc',
-	 content: `⭐️ If you like STAKEWORLD, nominate it on <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io#/staking/targets?filter=stakeworld">Kusama</a> or <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frpc.polkadot.io#/staking/targets?filter=stakeworld">Polkadot</a>⭐️`,
+	 content: `⭐️ If you like STAKEWORLD, nominate it on <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io#/staking/targets?filter=stakeworld">Kusama</a> or <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frpc.polkadot.io#/staking/targets?filter=stakeworld">Polkadot</a> ⭐️`,
 	},
       colorMode: {
         disableSwitch: true,
@@ -117,7 +117,7 @@ const config = {
               },
               {
                 label: 'Snapshots',
-                to: '/docs/validate/snapshot',
+                to: '/docs/snapshot',
               },
             ],
           },

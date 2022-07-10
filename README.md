@@ -24,9 +24,9 @@ apt install git
 * `yarn`
 
 #### Scripts
-* scripts/serve.sh to serve a development copy
-* scripts/build.sh
-* scripts/deploy.sh The website files are in branch master and are deployed to branch gh-pages, which is hosted on github. See [github deploymant](https://docusaurus.io/docs/next/deployment#deploying-to-github-pages)
+* `scripts/serve.sh` to serve a development copy
+* `scripts/build.sh`
+* `scripts/deploy.sh` The website files are in branch master and are deployed to branch gh-pages, which is hosted on github. See [github deploymant](https://docusaurus.io/docs/next/deployment#deploying-to-github-pages)
 * You can try it on [stackblitz](https://stackblitz.com/github/stakeworld/stakeworld-website/tree/master/?file=README.md)
 
 ### Some git tips

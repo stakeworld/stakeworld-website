@@ -38,7 +38,7 @@ function snapshot {
 	size=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
 	fullsize=`du -sh "$datadir/$1/chains/$chain/$dbdir" | cut -f1`
 	systemctl start $i
-	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruning | $blockheight | $size | $fullsize | $date |" >> $workdir/docs/validate/snapshot.mdx
+	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $size | $fullsize | $date |" >> $workdir/docs/validate/snapshot.mdx
 }
 
 echo "Starting snapshot service..."
@@ -46,7 +46,7 @@ echo "Starting snapshot service..."
 echo "Setting website header"
 cat $workdir/docs/validate/snapshot.mdx.header > $workdir/docs/validate/snapshot.mdx
 cat << EOF >> $workdir/docs/validate/snapshot.mdx
-|  | Chain    | Database   | Pruning | Blockheight | Size       | Full         | Backup date     |
+|  | Chain    | Database   | Format | Blockheight | Size       | Full         | Backup date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
 EOF
 

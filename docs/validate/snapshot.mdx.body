@@ -4,31 +4,48 @@ Snapshots are backups of the database directory of a polkadot or kusama node. If
 The snapshots are in paritydb format `--database paritydb` and pruned `--pruning 1000`, which is sufficient for a validator node.
 :::
 
-## Kusama paritydb snapshot
+## Download the database
 
-### Download the database
-Download for later extraction.
+### Paritydb kusama
 ```bash
-wget http://snapshot.stakeworld.nl/paritydb-ksm.lz4
+wget http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4
 ```
 
-### Install the database directly
-Install to `/home/polkadot/.local/share/polkadot/chains/ksmcc3` or change to your target directory.
+### Paritydb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksm.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
+wget http://snapshot.stakeworld.nl/paritydb-polkadot.lz4
 ```
 
-## Polkadot paritydb snapshot
-
-### Download the database
-Download for later extraction.
+### Rocksdb polkadot
 ```bash
-wget http://snapshot.stakeworld.nl/paritydb-dot.lz4
+wget http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4
 ```
 
-### Install the database directly
-Install to `/home/polkadot/.local/share/polkadot/chains/polkadot` or change to your target directory.
+### Rocksdb polkadot
+```bash
+wget http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4
+```
+
+## Install the database directly
+
+Install to `/home/polkadot/.local/share/polkadot/chains/<chain>` or change to your target directory.
+
+### Paritydb kusama
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
+```
+
+### Paritydb polkadot
 ```bash
 curl -o - -L http://snapshot.stakeworld.nl/paritydb-dot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```
 
+### Rocksdb kusama
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
+```
+
+### Rocksdb polkadot
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-dot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
+```

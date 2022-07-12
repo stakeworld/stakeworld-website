@@ -34,7 +34,7 @@ function snapshot {
 	elif [[ "$db" == "paritydb" ]]; then
     		dbdir="paritydb/full"
 	fi
-	#tar cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
+	tar cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
 	size=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
 	fullsize=`du -sh "$datadir/$1/chains/$chain/$dbdir" | cut -f1`
 	systemctl start $i

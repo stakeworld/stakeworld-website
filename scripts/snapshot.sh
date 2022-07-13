@@ -76,7 +76,7 @@ done
 
 echo "Setting website body"
 cat $workdir/docs/validate/snapshot.mdx.body >> $workdir/docs/validate/snapshot.mdx
-echo "Publishing website
+echo "Publishing website"
 cd $workdir
 scripts/deploy.sh
 echo Finished

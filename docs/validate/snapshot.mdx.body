@@ -37,7 +37,7 @@ curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4 | lz4 -c -d - | t
 
 ### Paritydb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/paritydb-dot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.nl/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```
 
 ### Rocksdb kusama
@@ -47,5 +47,5 @@ curl -o - -L http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4 | lz4 -c -d - | ta
 
 ### Rocksdb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/rocksdb-dot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```

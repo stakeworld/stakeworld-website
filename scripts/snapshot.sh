@@ -15,7 +15,7 @@ trap 'error $LINENO' ERR
 # Setup variables
 snapshotdir="/var/www/snapshot"
 datadir="/home/polkadot"
-workdir="/root/stakeworld-website"
+workdir="/opt/stakeworld-website"
 
 # Snaphot targets
 targets=(stakeworld-00p stakeworld-03p stakeworld-00k stakeworld-03k)

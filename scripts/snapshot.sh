@@ -46,7 +46,7 @@ function snapshot {
 	size=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
 	fullsize=`du -sh "$datadir/$1/chains/$chain/$dbdir" | cut -f1`
 	if [[ "$chilled" == "false" ]]; then
-		echo "Node not chilles, activating $i again"
+		echo "Node not chilled, activating $i again"
 		systemctl start $i
 	fi
 	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $size | $fullsize | $date |" >> $workdir/docs/validate/snapshot.mdx

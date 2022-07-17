@@ -1,3 +1,6 @@
+
+![snapsize](http://snapshot.stakeworld.nl/snapsize.png)
+
 :::info
 Snapshots are backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building from start (genesis), which will take a while. If you download an up to date database your node will be running quicker.
 

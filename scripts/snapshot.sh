@@ -22,12 +22,20 @@ targets=(stakeworld-00p stakeworld-03p stakeworld-00k stakeworld-03k)
 
 # Main snapshot function
 function snapshot {
-        echo "Snapshot of $i db=$db chain=$chain, port=$port"
+	chilled=false
+	status="$(systemctl is-active $i)"
+	echo "Snapshot of $i db=$db chain=$chain, port=$port, status=$status"
+	if [[ "$status" == "inactive" ]]; then
+		echo "Node seems chilled, activating $i and waiting for sync"
+		systemctl start $i
+		chilled=true
+		sleep 10m
+	fi
 	# Get block height from prometheus metrics
 	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
 	date=`date +"%a %d %b @ %H:%M"`
 	systemctl stop $i
-	sleep 5
+	sleep 10
 	cd $datadir/$1/chains/$chain
 	if [[ "$db" == "rocksdb" ]]; then
     		dbdir="db/full"
@@ -37,8 +45,14 @@ function snapshot {
 	tar cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
 	size=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
 	fullsize=`du -sh "$datadir/$1/chains/$chain/$dbdir" | cut -f1`
-	systemctl start $i
+	if [[ "$chilled" == "false" ]]; then
+		echo "Node not chilles, activating $i again"
+		systemctl start $i
+	fi
 	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $size | $fullsize | $date |" >> $workdir/docs/validate/snapshot.mdx
+	snapdate=`date "+%d/%m/%Y"`
+	snapsize=`du -sh "$datadir/$1/chains/$chain/$dbdir" | cut -f1 | cut -d "G" -f1`
+	echo "$snapdate,$snapsize" >> $workdir/scripts/snapsize.$chain.$db.dat
 }
 
 echo "Starting snapshot service..."
@@ -76,7 +90,10 @@ done
 
 echo "Setting website body"
 cat $workdir/docs/validate/snapshot.mdx.body >> $workdir/docs/validate/snapshot.mdx
+# Change to workdir
+cd $workdir/scripts
+echo "Making snapsize graph"
+snapsize.sh
 echo "Publishing website"
-cd $workdir
-scripts/deploy.sh
+deploy.sh
 echo Finished

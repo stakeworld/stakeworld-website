@@ -35,24 +35,25 @@ function snapshot {
 	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
 	date=`date +"%a %d %b @ %H:%M"`
 	systemctl stop $i
-	sleep 10
+	sleep 5
 	cd $datadir/$1/chains/$chain
 	if [[ "$db" == "rocksdb" ]]; then
     		dbdir="db/full"
 	elif [[ "$db" == "paritydb" ]]; then
     		dbdir="paritydb/full"
 	fi
-	tar cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
+	tar --exclude='parachains' -cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
 	size=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
-	fullsize=`du -sh "$datadir/$1/chains/$chain/$dbdir" | cut -f1`
+	fullsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
 	if [[ "$chilled" == "false" ]]; then
 		echo "Node not chilled, activating $i again"
 		systemctl start $i
 	fi
 	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $size | $fullsize | $date |" >> $workdir/docs/validate/snapshot.mdx
 	snapdate=`date "+%d/%m/%Y"`
-	snapsize=`du -sh "$datadir/$1/chains/$chain/$dbdir" | cut -f1 | cut -d "G" -f1`
-	echo "$snapdate,$snapsize" >> $workdir/scripts/snapsize.$chain.$db.dat
+	snapsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
+	echo "$snapdate,$snapsize" >> $workdir/var/snapsize.$chain.$db.dat
+	echo "Snapshot of $i fullsize=$fullsize, tarsize=$size, snapsize=$snapsize"
 }
 
 echo "Starting snapshot service..."
@@ -60,7 +61,7 @@ echo "Starting snapshot service..."
 echo "Setting website header"
 cat $workdir/docs/validate/snapshot.mdx.header > $workdir/docs/validate/snapshot.mdx
 cat << EOF >> $workdir/docs/validate/snapshot.mdx
-|  | Chain    | Database   | Format | Blockheight | Size       | Full         | Backup date     |
+|  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
 EOF
 
@@ -93,7 +94,7 @@ cat $workdir/docs/validate/snapshot.mdx.body >> $workdir/docs/validate/snapshot.
 # Change to workdir
 cd $workdir/scripts
 echo "Making snapsize graph"
-snapsize.sh
-echo "Publishing website"
-deploy.sh
+./snapsize.sh
+# echo "Publishing website"
+./deploy.sh
 echo Finished

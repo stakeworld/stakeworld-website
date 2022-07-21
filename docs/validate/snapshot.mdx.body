@@ -1,10 +1,10 @@
 
-![snapsize](http://snapshot.stakeworld.nl/snapsize.png)
+![snapsize](/img/snapsize.png)
 
 :::info
-Snapshots are backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building from start (genesis), which will take a while. If you download an up to date database your node will be running quicker.
+Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building from start (genesis), which will take a while. If you download an up to date database your node will be up and running quicker.
 
-The snapshots are available in `--database paritydb` and `--database rocksdb` format (rocksdb is the default) with `--pruning 1000`, which is sufficient for a validator node.
+The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and rocksdb `--database rocksdb` format (rocksdb being the default). They are pruned with `--pruning 1000`, which is sufficient for a validator node.
 :::
 
 ## Download the database

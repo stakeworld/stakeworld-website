@@ -17,3 +17,4 @@ datadir="/home/polkadot"
 workdir="/opt/stakeworld-website"
 
 gnuplot snapsize.p
+cp $workdir/static/img/snapsize.png $snapshotdir/

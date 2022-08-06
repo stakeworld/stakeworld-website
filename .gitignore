@@ -5,7 +5,7 @@
 /build
 
 # Var
-/var
+# /var
 
 # Generated files
 .docusaurus

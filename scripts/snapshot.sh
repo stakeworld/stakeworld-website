@@ -17,13 +17,20 @@ snapshotdir="/var/www/snapshot"
 datadir="/home/polkadot"
 workdir="/opt/stakeworld-website"
 
+# STDOUT to logfile
+exec 1>>$workdir/var/snapshot.log
+
 # Snaphot targets
 targets=(stakeworld-00p stakeworld-03p stakeworld-00k stakeworld-03k)
+
+# START
+echo `date` "Starting snapshot run for $targets"
 
 # Main snapshot function
 function snapshot {
 	chilled=false
 	status="$(systemctl is-active $i)"
+	echo "--------------------------------------------------------------"
 	echo "Snapshot of $i db=$db chain=$chain, port=$port, status=$status"
 	if [[ "$status" == "inactive" ]]; then
 		echo "Node seems chilled, activating $i and waiting for sync"

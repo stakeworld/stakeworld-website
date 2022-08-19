@@ -16,5 +16,11 @@ snapshotdir="/var/www/snapshot"
 datadir="/home/polkadot"
 workdir="/opt/stakeworld-website"
 
+# STDOUT to logfile
+exec 1>>$workdir/var/snapsize.log
+
+# Start 
+echo `date` "Plotting size graph"
+
 gnuplot snapsize.p
 cp $workdir/static/img/snapsize.png $snapshotdir/

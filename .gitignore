@@ -4,9 +4,6 @@
 # Production
 /build
 
-# Var
-# /var
-
 # Generated files
 .docusaurus
 .cache-loader
@@ -21,6 +18,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+snapsize.log
+snapshot.log
 
 # Dynamically generated files
 docs/validate/snapshot.mdx

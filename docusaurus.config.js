@@ -125,6 +125,10 @@ const config = {
             title: 'Kusama/Polkadot',
             items: [
               {
+                label: 'Official Polkadot Wiki',
+                href: 'https://wiki.polkadot.network/',
+              },
+              {
                 label: 'Official Thousand Validator website',
                 href: 'https://thousand-validators.kusama.network/#/leaderboard',
               },
@@ -133,11 +137,7 @@ const config = {
                 href: 'https://polkachu.com/kusama/thousand_validators/',
               },
               {
-                label: 'Polkachu Payout Guard',
-                href: 'https://polkachu.com/accounts',
-              },
-              {
-                label: 'Decentradot',
+                label: 'Decentradot validator dashboard',
                 href: 'https://decentradot.com/tools/dashboard/',
               },
             ],

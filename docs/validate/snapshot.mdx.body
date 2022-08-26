@@ -7,7 +7,17 @@ Snapshots are compressed backups of the database directory of a polkadot or kusa
 The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and rocksdb `--database rocksdb` format (rocksdb being the default). They are pruned with `--pruning 1000`, which is sufficient for a validator node.
 :::
 
-## Download the database
+## Automatic install
+
+The following script can restore a snapshot for a quickstart. If you want you can first review it on [github](https://github.com/stakeworld/stakeworld-scripts/blob/master/node-install.sh). You can choose "snapinstall" for a snapshot restore. The script will ask some questions and create an restore script which you can review before executing.
+
+The script is for ubuntu/debian flavoured servers.
+
+```bash
+curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/master/node-install.sh | bash
+```
+
+## Manually download the database and install later
 
 ### Paritydb kusama
 ```bash
@@ -31,24 +41,24 @@ wget http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4
 
 ## Install the database directly
 
-Install to `/home/polkadot/.local/share/polkadot/chains/<chain>` or change to your target directory.
+Install to `/root/.local/share/polkadot/chains/<chain>` or change to your target directory.
 
 ### Paritydb kusama
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
+curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
 ```
 
 ### Paritydb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.nl/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
 ```
 
 ### Rocksdb kusama
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
 ```
 
 ### Rocksdb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
 ```

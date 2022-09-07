@@ -13,7 +13,8 @@ error() {
 trap 'error $LINENO' ERR
 
 # Setup variables
-snapshotdir="/var/www/snapshot"
+#snapshotdir="/var/www/snapshot"
+snapshotdir="/backup/snapshot"
 datadir="/home/polkadot"
 workdir="/opt/stakeworld-website"
 
@@ -21,7 +22,7 @@ workdir="/opt/stakeworld-website"
 exec 1>>$workdir/var/snapshot.log
 
 # Snaphot targets
-targets=(stakeworld-00p stakeworld-03p stakeworld-00k stakeworld-03k)
+targets=(stakeworld-00p stakeworld-00k)
 
 # START
 echo `date` "Starting snapshot run for $targets"

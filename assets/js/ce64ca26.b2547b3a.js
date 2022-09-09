@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstakeworld=self.webpackChunkstakeworld||[]).push([[354],{3632:o=>{o.exports=JSON.parse('{"title":"Pool","description":"Tips for pools","slug":"/category/pool","permalink":"/docs/category/pool","navigation":{"previous":{"title":"Nominating","permalink":"/docs/nominate"},"next":{"title":"Pools","permalink":"/docs/pool"}}}')}}]);

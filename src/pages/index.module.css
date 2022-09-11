@@ -4,7 +4,10 @@
  */
 
 .heroBanner {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
+  font-size: 3.5em;
+  line-height: normal;
+  color: var(--ifm-color-white) !important;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -20,4 +23,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.heroSlogan {
+   font-size: 3em;
+   line-height: normal;
+   color: var(--ifm-color-white) !important;
+}
+
+.heroBanner strong {
+   color: #ebeb34;
 }

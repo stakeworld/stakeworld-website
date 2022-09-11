@@ -70,7 +70,8 @@ const config = {
       },
       navbar: {
         title: 'STAKEWORLD',
-        logo: {
+        style: 'dark',
+	logo: {
           alt: 'STAKEWORLD',
           src: 'img/sw.png',
         },
@@ -86,6 +87,12 @@ const config = {
             docId: 'nominate/intro',
             position: 'left',
             label: 'Nominate',
+          },
+          {
+            type: 'doc',
+            docId: 'pool/intro',
+            position: 'left',
+            label: 'Pool',
           },
           {
             type: 'doc',
@@ -119,19 +126,15 @@ const config = {
                 label: 'Snapshots',
                 to: '/docs/snapshot',
               },
+              {
+                label: 'Pool',
+                to: '/pool',
+              },
             ],
           },
           {
             title: 'Kusama/Polkadot',
             items: [
-              {
-                label: 'Official Polkadot Wiki',
-                href: 'https://wiki.polkadot.network/',
-              },
-              {
-                label: 'Official Thousand Validator website',
-                href: 'https://thousand-validators.kusama.network/#/leaderboard',
-              },
               {
                 label: 'Polkachu Thousand Validator resources',
                 href: 'https://polkachu.com/kusama/thousand_validators/',

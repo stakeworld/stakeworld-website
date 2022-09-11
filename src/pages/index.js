@@ -12,21 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--info"
-            to="/docs/nominate">
-            How to nominate
-          </Link>	
-	  <Link>---</Link>
-          <Link
-            className="button button--info"
-            to="/docs/validate">
-            How to validate
-          </Link>
-        </div>
+	  Stakeworld offers <strong>reliable</strong> validator services on the <strong>kusama</strong> and <strong>polkadot</strong> network 
       </div>
     </header>
   );

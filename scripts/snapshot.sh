@@ -57,7 +57,7 @@ function snapshot {
 		echo "Node not chilled, activating $i again"
 		systemctl start $i
 	fi
-	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $size | $fullsize | $date |" >> $workdir/docs/validate/snapshot.mdx
+	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $size | $fullsize | $date |" >> $workdir/docs/snapshot.mdx
 	snapdate=`date "+%d/%m/%Y"`
 	snapsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
 	echo "$snapdate,$snapsize" >> $workdir/var/snapsize.$chain.$db.dat
@@ -68,7 +68,7 @@ echo "Starting snapshot service..."
 
 echo "Setting website header"
 cat $workdir/docs/snapshot.mdx.header > $workdir/docs/snapshot.mdx
-cat << EOF >> $workdir/docs/validate/snapshot.mdx
+cat << EOF >> $workdir/docs/snapshot.mdx
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
 EOF

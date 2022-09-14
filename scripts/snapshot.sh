@@ -67,7 +67,7 @@ function snapshot {
 echo "Starting snapshot service..."
 
 echo "Setting website header"
-cat $workdir/docs/validate/snapshot.mdx.header > $workdir/docs/validate/snapshot.mdx
+cat $workdir/docs/snapshot.mdx.header > $workdir/docs/snapshot.mdx
 cat << EOF >> $workdir/docs/validate/snapshot.mdx
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
@@ -98,7 +98,7 @@ do
 done
 
 echo "Setting website body"
-cat $workdir/docs/validate/snapshot.mdx.body >> $workdir/docs/validate/snapshot.mdx
+cat $workdir/docs/snapshot.mdx.body >> $workdir/docs/snapshot.mdx
 # Change to workdir
 cd $workdir/scripts
 echo "Making snapsize graph"

@@ -21,3 +21,8 @@ lscpu --all --extended
 ```bash
 tune2fs -m0 /dev/<disk>
 ```
+
+## check session keys
+```bash
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_hasSessionKeys", "params":["<session key 0x.....>"]}' http://localhost:<rpc port>
+```

@@ -1,0 +1,119 @@
+---
+id: validate
+title: Setting up a validator node
+description: Setting up a validator node
+slug: /validate
+sidebar_position: 1
+keywords: [validator setup, validator, validate, polkadot, kusama]
+---
+
+:::tip
+Setting up a validator is a lot of fun but also a lot of work
+:::
+
+## Automatic install
+
+The following script will install a node with systemctl script, firewall and optionally restore a snapshot for a quickstart. If you want you can first review it on [github](https://github.com/stakeworld/stakeworld-scripts/blob/master/node-install.sh), the script will ask some questions and create an installer script which you can review before executing.
+
+The script is for ubuntu/debian flavoured servers.
+
+```bash
+curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/master/node-install.sh | bash
+```
+
+![node-install](/img/node-install.gif)
+
+## Manually setup a server
+
+First you will need a working server setup. We advise an ubuntu 22.04 LTS on dedicated [hardware](./hardware)
+
+The [polkadot wiki](https://wiki.polkadot.network/docs/maintain-guides-how-to-validate-kusama) also has a lot of good information about seting up a validator node. 
+
+It is wise to start setting your hostname (preferably matched bij the reverse dns on your provider), copying your ssh keys to your server and disable plain password authentication.
+
+```bash
+vi /etc/hostname
+```
+`yourhostname.yourhostdomain`
+
+```bash
+vi /etc/ssh/sshd_config
+```
+`PasswordAuthentication no`
+```bash
+systemctl restart sshd.service
+```
+
+## Firewall
+
+:::tip
+Polkadot needs some ports open in the firewall, especially the p2p port
+* 30333: p2p port
+* 9933: HTTP RPC
+* 9944: WS RPC
+* 9615: prometheus port
+:::
+
+If you open a range of ports you can choose to run a second validator or change ports in your systemctl config.
+
+```bash
+ufw allow openssh
+ufw enable
+ufw allow from any port 30300:30399 proto tcp
+```
+
+## Packages
+
+Optionally lock the kernel updates so you have to manually upgrade them (which requires a restart)
+
+```bash
+apt-mark hold linux-generic linux-headers-generic linux-image-generic
+```
+
+## Install polkadot
+
+```bash
+# Import the security@parity.io GPG key
+gpg --recv-keys --keyserver hkps://keys.mailvelope.com 9D4B2B6EB8F97156D19669A9FF0812D491B96798
+gpg --export 9D4B2B6EB8F97156D19669A9FF0812D491B96798 > /usr/share/keyrings/parity.gpg
+# Add the Parity repository and update the package index
+echo 'deb [signed-by=/usr/share/keyrings/parity.gpg] https://releases.parity.io/deb release main' > /etc/apt/sources.list.d/parity.list
+apt update
+# Install the `parity-keyring` package - This will ensure the GPG key
+# used by APT remains up-to-date
+apt install parity-keyring
+# Install polkadot
+apt install polkadot
+```
+
+## Systemctl service scripts
+
+By default there is a `/usr/lib/systemd/system/polkadot.service` systemctl script which reads its defaults from `/etc/default/polkadot`.
+
+Below an adapted systemctl script. It gives the possibility for different ports, if you run more instances you need to adapt the ports and base directories alongside the “Description” in the .service file.
+
+You can download it here: [`yourvalidator.service`](/files/yourvalidator.service) and copy it to `/etc/systemd/system/`.
+
+After you have installed your adapted service you can start and enable it by
+
+```bash
+systemctl daemon-reload
+systemctl start yourvalidator.service
+systemctl enable yourvalidator.service
+journalctl -u yourvalidator.service -f
+```
+
+## Database sync
+
+If you fire up a fresh polkadot it starts to sync from scratch, which will take a while.
+
+Using an up to date database you can speed up the process. Best is to shortly start the relevant polkadot binary, so the file structure gets created, then stop it and execute the code below. After this you can start the binary and it will only need a short period to sync and start validating.
+
+:::tip
+There are different size databases, a “pruned” database is sufficient for a validator node.
+:::
+
+### Snapshot providers
+
+Stakeworld hosts a pruned snapshot in paritydb format for quick deployment, you can find details [here](./snapshot). There are also other providers like [polkashots.io](https://polkashots.io/) and [polkachu.com](https://polkachu.com/snapshots).
+

@@ -136,12 +136,8 @@ const config = {
             title: 'Kusama/Polkadot',
             items: [
               {
-                label: 'Polkachu Thousand Validator resources',
-                href: 'https://polkachu.com/kusama/thousand_validators/',
-              },
-              {
-                label: 'Decentradot validator dashboard',
-                href: 'https://decentradot.com/tools/dashboard/',
+                label: 'Thousand Validator resources',
+                href: 'https://stakeworld.nl/docs/1kv',
               },
             ],
           },

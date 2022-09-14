@@ -73,14 +73,14 @@ const config = {
         style: 'dark',
 	logo: {
           alt: 'STAKEWORLD',
-          src: 'img/sw.png',
+          src: 'img/sw.svg',
         },
         items: [
           {
             type: 'doc',
             docId: 'validate/validate',
-            position: 'left',
-            label: 'Validate',
+            position: 'right',
+            label: 'Information',
           },
           {
             type: 'doc',
@@ -90,15 +90,27 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'pool',
+            docId: 'snapshot',
+            position: 'right',
+            label: 'Snapshots',
+          },
+          {
+	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io&filter=stakeworld',
             position: 'left',
-            label: 'Pool',
+            className: 'button button--group',
+            label: 'on Polkadot',
+          },
+          {
+	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io&filter=stakeworld',
+            position: 'left',
+            className: 'button button--group',
+            label: 'on Kusama',
           },
           {
             type: 'doc',
-            docId: 'snapshot',
+            docId: 'pool',
             position: 'left',
-            label: 'Snapshots',
+            label: 'Pool',
           },
 //	 {to: '/blog', label: 'Blog', position: 'left'},
 //          {

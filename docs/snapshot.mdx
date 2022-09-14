@@ -1,0 +1,57 @@
+---
+id: snapshot
+title:  Snapshots
+description: Polkadot and Kusama snapshots in paritydb and rocksdb format
+slug: /snapshot
+sidebar_position: 1
+keywords: [validator setup, validator, validate, snapshot, rocksdb, paritydb, pruning, polkadot, kusama]
+---
+
+|  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
+| ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 12030457 | 95G | 114G | Tue 13 Sep @ 12:20 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 14433138 | 147G | 167G | Tue 13 Sep @ 12:34 |
+
+![snapsize](/img/snapsize.png)
+
+:::info
+Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building from start (genesis), which will take a while. If you download an up to date database your node will be up and running quicker.
+
+The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--pruning 1000`, which is sufficient for a validator node.
+:::
+
+## Automatic install
+
+The following script can restore a snapshot for a quickstart. If you want you can first review it on [github](https://github.com/stakeworld/stakeworld-scripts/blob/master/node-install.sh). You can choose "snapinstall" for a snapshot restore. The script will ask some questions and create an restore script which you can review before executing.
+
+The script is for ubuntu/debian flavoured servers.
+
+```bash
+curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/master/node-install.sh | bash
+```
+
+## Manually download the database and install later
+
+### Paritydb kusama
+```bash
+wget http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4
+```
+
+### Paritydb polkadot
+```bash
+wget http://snapshot.stakeworld.nl/paritydb-polkadot.lz4
+```
+
+## Install the database directly
+
+Install to `/root/.local/share/polkadot/chains/<chain>` or change to your target directory.
+
+### Paritydb kusama
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
+```
+
+### Paritydb polkadot
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
+```

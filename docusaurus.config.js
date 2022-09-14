@@ -78,25 +78,25 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'validate/intro',
+            docId: 'validate/validate',
             position: 'left',
             label: 'Validate',
           },
           {
             type: 'doc',
-            docId: 'nominate/intro',
+            docId: 'nominate',
             position: 'left',
             label: 'Nominate',
           },
           {
             type: 'doc',
-            docId: 'pool/intro',
+            docId: 'pool',
             position: 'left',
             label: 'Pool',
           },
           {
             type: 'doc',
-            docId: 'validate/snapshot',
+            docId: 'snapshot',
             position: 'left',
             label: 'Snapshots',
           },

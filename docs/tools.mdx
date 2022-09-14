@@ -1,0 +1,23 @@
+---
+id: tools
+title: Usefull commands
+description: Handy commands and tools managiging a validator/server.
+slug: /tools
+sidebar_position: 20
+keywords: [validator setup, validator, validate, polkadot, kusama, tools]
+---
+
+## check if ports are open
+```bash
+nc -vz <host> <port>
+```
+
+## see cpu frequencies
+```bash
+lscpu --all --extended
+```
+
+## get more disk space by limiting reserved space for root
+```bash
+tune2fs -m0 /dev/<disk>
+```

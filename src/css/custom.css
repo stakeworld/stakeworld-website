@@ -1,10 +1,9 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@font-face {
+  font-family: "Unbounded";
+  src: url("../../static/fonts/Unbounded-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+}
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #235787;
   --ifm-color-primary-dark: #29784c;
@@ -15,6 +14,7 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --headingFontFamily: "Unbounded", sans-serif !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,6 +27,7 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --headingFontFamily: "Unbounded", sans-serif !important;
 }
 
 .hero__title {

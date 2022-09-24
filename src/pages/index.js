@@ -12,7 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-	  <strong>STAKEWORLD</strong> offers <strong>reliable</strong> validator services on the <strong>kusama</strong> and <strong>polkadot</strong> network 
+	  <strong>STAKEWORLD</strong> offers <strong>reliable</strong> validator services with <strong>low commission</strong> on the <strong>kusama</strong> and <strong>polkadot</strong> network 
       </div>
     </header>
   );

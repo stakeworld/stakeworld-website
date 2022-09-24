@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/nominate.svg').default,
     description: (
       <>
-      Polkadot offers 13%-15% APR and Kusama 18%-20% APR. You can nominate STAKEWORLD as one of your validators.
+      STAKEWORLD uses low commissions (Polkadot 1% Kusama 3%), gives daily nominator payouts and has never had a slash.
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/agree.svg').default,
     description: (
       <>
-        We try to exchange information with other validators and offer documentation to strengthen the polkadot ecosystem.
+        We try to exchange and share information with other validators to strengthen the polkadot ecosystem.
       </>
     ),
   },

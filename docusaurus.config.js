@@ -95,7 +95,7 @@ const config = {
             label: 'Snapshots',
           },
           {
-	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io&filter=stakeworld',
+	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Frpc.polkadot.io&filter=stakeworld',
             position: 'left',
             className: 'button button--group',
             label: 'on Polkadot',

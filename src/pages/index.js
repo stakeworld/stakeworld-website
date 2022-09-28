@@ -12,7 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-	  <strong>STAKEWORLD</strong> offers <strong>reliable</strong> validator services with <strong>low commission</strong> on the <strong>kusama</strong> and <strong>polkadot</strong> network 
+	  <strong>STAKEWORLD</strong> offers <strong>reliable</strong> validators with <strong>low commission</strong> on the <strong>kusama</strong> and <strong>polkadot</strong> network 
       </div>
     </header>
   );
@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <Layout
       title={`Home`}
-      description="Reliable validator services for polkadot and kusama">
+      description="Reliable validators for polkadot and kusama">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

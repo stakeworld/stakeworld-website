@@ -1,7 +1,7 @@
 ---
 id: snapshot
 title:  Snapshot
-description: Polkadot and Kusama snapshots in paritydb and rocksdb format
+description: Polkadot and Kusama snapshots in paritydb format
 slug: /snapshot
 sidebar_position: 3
 keywords: [validator setup, validator, validate, snapshot, rocksdb, paritydb, pruning, polkadot, kusama]

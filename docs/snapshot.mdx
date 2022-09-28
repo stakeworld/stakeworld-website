@@ -1,7 +1,7 @@
 ---
 id: snapshot
 title:  Snapshot
-description: Polkadot and Kusama snapshots in paritydb and rocksdb format
+description: Polkadot and Kusama snapshots in paritydb format
 slug: /snapshot
 sidebar_position: 3
 keywords: [validator setup, validator, validate, snapshot, rocksdb, paritydb, pruning, polkadot, kusama]
@@ -9,8 +9,8 @@ keywords: [validator setup, validator, validate, snapshot, rocksdb, paritydb, pr
 
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 12182144 | 98G | 118G | Sat 24 Sep @ 01:20 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 14584393 | 152G | 172G | Sat 24 Sep @ 01:35 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 12239612 | 99G | 120G | Wed 28 Sep @ 01:20 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 14641635 | 153G | 174G | Wed 28 Sep @ 01:35 |
 
 ![snapsize](/img/snapsize.png)
 
@@ -30,19 +30,11 @@ The script is for ubuntu/debian flavoured servers.
 curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/master/node-install.sh | bash
 ```
 
-## Manually download the database and install later
-
-### Paritydb kusama
-```bash
-wget http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4
-```
-
-### Paritydb polkadot
-```bash
-wget http://snapshot.stakeworld.nl/paritydb-polkadot.lz4
-```
-
 ## Install the database directly
+
+:::caution
+The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot paritydb`
+:::
 
 Install to `/root/.local/share/polkadot/chains/<chain>` or change to your target directory.
 

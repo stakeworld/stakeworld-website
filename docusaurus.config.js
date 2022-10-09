@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'STAKEWORLD',
-  tagline: 'Kusama and Polkadot Validator Service',
+  tagline: 'Kusama and Polkadot Validator Services',
   url: 'https://www.stakeworld.nl',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -73,26 +73,26 @@ const config = {
         style: 'dark',
 	logo: {
           alt: 'STAKEWORLD',
-          src: 'img/sw.svg',
+          src: 'img/sw.png',
         },
         items: [
           {
             type: 'doc',
+            docId: 'snapshot',
+            position: 'left',
+            label: 'Snapshots',
+          },
+          {
+            type: 'doc',
             docId: 'validate/validate',
-            position: 'right',
-            label: 'Information',
+            position: 'left',
+            label: 'Validate',
           },
           {
             type: 'doc',
             docId: 'nominate',
             position: 'left',
             label: 'Nominate',
-          },
-          {
-            type: 'doc',
-            docId: 'snapshot',
-            position: 'right',
-            label: 'Snapshots',
           },
           {
 	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Frpc.polkadot.io&filter=stakeworld',

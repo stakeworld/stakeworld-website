@@ -6,6 +6,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  scripts: [ 
+    {	  
+	src: 'https://gn3bcsr3tsg9.statuspage.io/embed/script.js',
+	async: true,
+    },
+  ],
   title: 'STAKEWORLD',
   tagline: 'Kusama and Polkadot Validator Services',
   url: 'https://www.stakeworld.nl',
@@ -83,34 +89,84 @@ const config = {
             label: 'Snapshots',
           },
           {
-            type: 'doc',
-            docId: 'validate/validate',
+            type: 'dropdown',
+            docId: 'validate',
             position: 'left',
             label: 'Validate',
-          },
+	    items: [
+              {
+		type: 'doc',
+		docId: 'validate/validate',
+                label: 'Setting up a node',
+              },
+              {
+		type: 'doc',
+		docId: 'validate/monitor',
+                label: 'Monitoring a node',
+              },
+              {
+		type: 'doc',
+		docId: 'validate/1kv',
+                label: 'Thousand validator resources',
+              },
+	    ],
+	  },
           {
-            type: 'doc',
+            type: 'dropdown',
             docId: 'nominate',
             position: 'left',
             label: 'Nominate',
+	    items: [
+              {
+		type: 'doc',
+		docId: 'nominate',
+                label: 'Nominate',
+              },
+              {
+	    	href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Frpc.polkadot.io&filter=stakeworld',
+                className: 'button button--group',
+                label: 'on Polkadot',
+              },
+              {
+	        href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io&filter=stakeworld',
+                className: 'button button--group',
+                label: 'on Kusama',
+              },
+	    ],
           },
           {
-	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Frpc.polkadot.io&filter=stakeworld',
+            type: 'dropdown',
+            docId: 'RPC',
             position: 'left',
-            className: 'button button--group',
-            label: 'on Polkadot',
-          },
-          {
-	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io&filter=stakeworld',
-            position: 'left',
-            className: 'button button--group',
-            label: 'on Kusama',
+            label: 'Public RPC',
+	    items: [
+              {
+		type: 'doc',
+		docId: 'RPC',
+                label: 'Public RPC',
+              },
+              {
+	    	href: 'http://ksm.rpc.stakeworld.nl/',
+                className: 'button button--group',
+                label: 'ksm.rpc.stakeworld.nl',
+              },
+              {
+	    	href: 'http://dot.rpc.stakeworld.nl/',
+                className: 'button button--group',
+                label: 'dot.rpc.stakeworld.nl',
+              },
+	    ],
           },
           {
             type: 'doc',
             docId: 'pool',
             position: 'left',
             label: 'Pool',
+          },
+          {
+	    href: 'https://stakeworld.statuspage.io/',
+            position: 'right',
+            label: 'Status',
           },
 //	 {to: '/blog', label: 'Blog', position: 'left'},
 //          {
@@ -138,18 +194,18 @@ const config = {
                 label: 'Snapshots',
                 to: '/docs/snapshot',
               },
-              {
-                label: 'Pool',
-                to: '/pool',
-              },
             ],
           },
           {
             title: 'Kusama/Polkadot',
             items: [
               {
-                label: 'Thousand Validator resources',
-                href: 'https://stakeworld.nl/docs/1kv',
+                label: 'Polkadot wiki',
+                href: 'https://wiki.polkadot.network/',
+              },
+              {
+                label: 'Polkadot.js',
+                href: 'https://polkadot.js.org/apps/?rpc=wss://dot.rpc.stakeworld.nl',
               },
             ],
           },

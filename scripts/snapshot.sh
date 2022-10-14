@@ -15,7 +15,7 @@ trap 'error $LINENO' ERR
 # Setup variables
 #snapshotdir="/var/www/snapshot"
 snapshotdir="/backup/snapshot"
-datadir="/home/polkadot"
+datadir="/home/snapshots"
 workdir="/opt/stakeworld-website"
 
 # STDOUT to logfile

@@ -5,9 +5,9 @@ This website is build using [Docusaurus 2](https://docusaurus.io/)
 ### Installation guide
 
 #### Install nvm & yarn
-*`wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
-*`nvm install --lts`
-*`npm install -g yarn`
+* `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
+* `nvm install --lts`
+* `npm install -g yarn`
 
 
 #### Install git

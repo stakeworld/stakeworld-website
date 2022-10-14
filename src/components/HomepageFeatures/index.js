@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/software.svg').default,
     description: (
       <>
-        STAKEWORLD runs it nodes on dedicated hardware, monitors its nodes and participates in the polkadot ecosystem. 
+        STAKEWORLD runs it nodes on dedicated hardware and actively monitors its nodes. 
       </>
     ),
   },

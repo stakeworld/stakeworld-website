@@ -7,6 +7,7 @@
 error() {
     echo "Error on line $1"
     echo "Exiting"
+    tail -n100 $workdir/var/snapshot.log | mail -s "snapshot error" info@stakeworld.nl
     exit 1
 }
 
@@ -18,14 +19,21 @@ snapshotdir="/backup/snapshot"
 datadir="/home/snapshots"
 workdir="/opt/stakeworld-website"
 
-# STDOUT to logfile
+# STDOUT logfile
 exec 1>>$workdir/var/snapshot.log
 
 # Snaphot targets
-targets=(stakeworld-00p stakeworld-00k)
+targets=(stakeworld-00p stakeworld-00k stakeworld-04p stakeworld-04k)
 
 # START
 echo `date` "Starting snapshot run for $targets"
+
+# Check directories
+if [ ! -d $datadir ]
+then
+    echo "$datadir does not exist"
+    exit 1
+fi 
 
 # Main snapshot function
 function snapshot {
@@ -50,6 +58,12 @@ function snapshot {
 	elif [[ "$db" == "paritydb" ]]; then
     		dbdir="paritydb/full"
 	fi
+	
+	# Backup the existing tar
+	#rm $snapshotdir/$db-$chain-1.lz4
+	#mv $snapshotdir/$db-$chain.lz4 $snapshotdir/$db-$chain-1.lz4
+
+	# Create the compressed tar
 	tar --exclude='parachains' -cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
 	size=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
 	fullsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
@@ -99,10 +113,15 @@ done
 
 echo "Setting website body"
 cat $workdir/docs/snapshot.mdx.body >> $workdir/docs/snapshot.mdx
+
 # Change to workdir
 cd $workdir/scripts
+
+# Make graph
 echo "Making snapsize graph"
 ./snapsize.sh
+
 # echo "Publishing website"
 ./deploy.sh
+
 echo Finished

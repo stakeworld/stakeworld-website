@@ -2,7 +2,7 @@ set terminal png size 800,300
 set style data fsteps
 set datafile separator ","
 set output '../static/img/snapsize.png'
-set title 'Full database sizes'
+set title 'Full database sizes (size drops after rebuild)'
 set timefmt "%d/%m/%Y"
 set xdata time
 # https://stackoverflow.com/questions/13785832/month-tics-how-to-set
@@ -13,7 +13,7 @@ set format y "%.b %B"
 set format x "%d/%m"
 set key reverse Left outside
 set grid
-plot "../var/snapsize.ksmcc3.rocksdb.dat" using 1:2 title "Kusama Rocksdb" with linespoints pointtype 5 linewidth 2, \
+plot "../var/snapsize.ksmcc3.rocksdb.dat" using 1:2 title "Kusama Rocksdb" with linespoints pointtype 5 linewidth 4, \
      "../var/snapsize.ksmcc3.paritydb.dat" using 1:2 title "Kusama Paritydb" with linespoints pointtype 6 linewidth 2, \
-     "../var/snapsize.polkadot.rocksdb.dat" using 1:2 title "Polkadot Rocksdb" with linespoints pointtype 7 linewidth 2, \
-     "../var/snapsize.polkadot.paritydb.dat" using 1:2 title "Polkadot Paritydb" with linespoints pointtype 8 linewidth 2
+     "../var/snapsize.polkadot.rocksdb.dat" using 1:2 title "Polkadot Rocksdb" with linespoints pointtype 19 linewidth 4, \
+     "../var/snapsize.polkadot.paritydb.dat" using 1:2 title "Polkadot Paritydb" with linespoints pointtype 20 linewidth 2

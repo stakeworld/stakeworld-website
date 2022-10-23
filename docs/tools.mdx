@@ -22,6 +22,12 @@ lscpu --all --extended
 tune2fs -m0 /dev/<disk>
 ```
 
+## get disk space information
+```bash
+du -sh /home/polkadot/*
+df -h
+```
+
 ## check session keys
 ```bash
 curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_hasSessionKeys", "params":["<session key 0x.....>"]}' http://localhost:<rpc port>

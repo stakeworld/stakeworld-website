@@ -23,7 +23,7 @@ workdir="/opt/stakeworld-website"
 exec 1>>$workdir/var/snapshot.log
 
 # Snaphot targets
-targets=(stakeworld-00p stakeworld-00k stakeworld-04p stakeworld-04k)
+targets=(stakeworld-04k stakeworld-00k stakeworld-04p stakeworld-00p)
 
 # START
 echo `date` "Starting snapshot run for $targets"
@@ -50,8 +50,12 @@ function snapshot {
 	# Get block height from prometheus metrics
 	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
 	date=`date +"%a %d %b @ %H:%M"`
+	echo "Restart $i and wait 1 minute for db to settle"
+	systemctl restart $i
+	sleep 60
+	echo "Stopping $i and wait 1 minute for db to settle"
 	systemctl stop $i
-	sleep 5
+	sleep 60
 	cd $datadir/$1/chains/$chain
 	if [[ "$db" == "rocksdb" ]]; then
     		dbdir="db/full"
@@ -63,7 +67,7 @@ function snapshot {
 	#rm $snapshotdir/$db-$chain-1.lz4
 	#mv $snapshotdir/$db-$chain.lz4 $snapshotdir/$db-$chain-1.lz4
 
-	# Create the compressed tar
+	echo "Making $i tar backup"
 	tar --exclude='parachains' -cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
 	size=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
 	fullsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
@@ -75,7 +79,7 @@ function snapshot {
 	snapdate=`date "+%d/%m/%Y"`
 	snapsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
 	echo "$snapdate,$snapsize" >> $workdir/var/snapsize.$chain.$db.dat
-	echo "Snapshot of $i fullsize=$fullsize, tarsize=$size, snapsize=$snapsize"
+	echo "Snapshot of $i fullsize=$fullsize, tarsize=$size, snapsize=$snapsize finished"
 }
 
 echo "Starting snapshot service..."

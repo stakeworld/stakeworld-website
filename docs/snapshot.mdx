@@ -1,26 +1,26 @@
 ---
 id: snapshot
 title:  Snapshot
-description: Polkadot and Kusama snapshots in paritydb format
+description: Polkadot and Kusama snapshots in paritydb and rocksdb format
 slug: /snapshot
 sidebar_position: 3
 keywords: [validator setup, validator, validate, snapshot, rocksdb, paritydb, pruning, polkadot, kusama]
 ---
 
+:::info 
+Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed. 
+
+In principle building from scratch is the safest and cleanest; if there is an error in the snapshot database, this will propagate to the nodes who download the database. Also the database size increases with extended usage. STAKEWORLD checks for errors and periodically rebuilds its databases to ensure error free databases with minimum disk usage.
+ 
+The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--pruning 1000`, which is sufficient for a validator node.
+:::
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 12488122 | 105G | 127G | Sat 15 Oct @ 09:44 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 14889889 | 160G | 183G | Sat 15 Oct @ 09:44 |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 12488124 | 106G | 107G | Sat 15 Oct @ 09:44 |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 14889891 | 151G | 153G | Sat 15 Oct @ 09:44 |
-
+| [direct link](http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 15000516 | 149G | 156G | Sun 23 Oct @ 02:20 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15000782 | 149G | 154G | Sun 23 Oct @ 02:46 |
+| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 12598713 | 105G | 110G | Sun 23 Oct @ 03:12 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 12598901 | 106G | 110G | Sun 23 Oct @ 03:31 |
 ![snapsize](/img/snapsize.png)
-
-:::info
-Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building from start (genesis), which will take a while. If you download an up to date database your node will be up and running quicker.
-
-The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--pruning 1000`, which is sufficient for a validator node.
-:::
 
 ## Automatic install
 
@@ -35,7 +35,7 @@ curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/mast
 ## Install the database directly
 
 :::caution
-The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot paritydb`
+The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot <dbdir>`
 :::
 
 Install to `/root/.local/share/polkadot/chains/<chain>` or change to your target directory.
@@ -48,4 +48,14 @@ curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4 | lz4 -c -d - | t
 ### Paritydb polkadot
 ```bash
 curl -o - -L http://snapshot.stakeworld.nl/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
+```
+
+### Rocksdb kusama
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
+```
+
+### Rocksdb polkadot
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
 ```

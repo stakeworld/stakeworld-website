@@ -1,11 +1,4 @@
-
 ![snapsize](/img/snapsize.png)
-
-:::info
-Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building from start (genesis), which will take a while. If you download an up to date database your node will be up and running quicker.
-
-The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--pruning 1000`, which is sufficient for a validator node.
-:::
 
 ## Automatic install
 
@@ -20,7 +13,7 @@ curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/mast
 ## Install the database directly
 
 :::caution
-The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot paritydb`
+The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot <dbdir>`
 :::
 
 Install to `/root/.local/share/polkadot/chains/<chain>` or change to your target directory.
@@ -33,4 +26,14 @@ curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4 | lz4 -c -d - | t
 ### Paritydb polkadot
 ```bash
 curl -o - -L http://snapshot.stakeworld.nl/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
+```
+
+### Rocksdb kusama
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
+```
+
+### Rocksdb polkadot
+```bash
+curl -o - -L http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
 ```

@@ -35,6 +35,12 @@ then
     exit 1
 fi 
 
+if [ ! -d $snapshotdir ]
+then
+    echo "$snapshotdir does not exist"
+    exit 1
+fi 
+
 # Main snapshot function
 function snapshot {
 	chilled=false

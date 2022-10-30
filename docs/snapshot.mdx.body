@@ -2,7 +2,7 @@
 
 ## Automatic install
 
-The following script can restore a snapshot for a quickstart. If you want you can first review it on [github](https://github.com/stakeworld/stakeworld-scripts/blob/master/node-install.sh). You can choose "snapinstall" for a snapshot restore. The script will ask some questions and create an restore script which you can review before executing.
+The following script can restore a snapshot for a quickstart. If you want you can first review it on [github](https://github.com/stakeworld/stakeworld-scripts/blob/master/node-install.sh). You can choose "snapinstall" for a snapshot restore or "nodeinstall" to install a complete node. The script will ask some questions and create an install or restore script which you can review before executing.
 
 The script is for ubuntu/debian flavoured servers.
 

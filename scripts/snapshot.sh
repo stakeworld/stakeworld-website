@@ -14,8 +14,7 @@ error() {
 trap 'error $LINENO' ERR
 
 # Setup variables
-#snapshotdir="/var/www/snapshot"
-snapshotdir="/backup/snapshot"
+snapshotdir="/home/snapshots"
 datadir="/home/snapshots"
 workdir="/opt/stakeworld-website"
 

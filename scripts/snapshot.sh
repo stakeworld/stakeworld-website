@@ -15,7 +15,7 @@ trap 'error $LINENO' ERR
 
 # Setup variables
 snapshotdir="/home/snapshots"
-datadir="/home/snapshots"
+datadir="/home/polkadot"
 workdir="/opt/stakeworld-website"
 
 # STDOUT logfile
@@ -23,6 +23,7 @@ exec 1>>$workdir/var/snapshot.log
 
 # Snaphot targets
 targets=(stakeworld-04k stakeworld-00k stakeworld-04p stakeworld-00p)
+archivetargets=(stakeworld-rpc-ksm stakeworld-rpc-dot)
 
 # START
 echo `date` "Starting snapshot run for $targets"
@@ -68,23 +69,37 @@ function snapshot {
     		dbdir="paritydb/full"
 	fi
 	
-	# Backup the existing tar
-	#rm $snapshotdir/$db-$chain-1.lz4
-	#mv $snapshotdir/$db-$chain.lz4 $snapshotdir/$db-$chain-1.lz4
-
 	echo "Making $i tar backup"
 	tar --exclude='parachains' -cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
-	size=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
-	fullsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
+	dbsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
+	humansnapsize=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
+	humandbsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
+	snapdate=`date "+%d/%m/%Y"`
 	if [[ "$chilled" == "false" ]]; then
 		echo "Node not chilled, activating $i again"
 		systemctl start $i
 	fi
-	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $size | $fullsize | $date |" >> $workdir/docs/snapshot.mdx
+	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize | $date |" >> $workdir/docs/snapshot.mdx
+	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.dat
+	echo "Snapshot of $i fullsize=$humansnapsize, tarsize=$humansnapsize finished"
+}
+
+function sizeup {
+	# Get block height from prometheus metrics
+	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
+	date=`date +"%a %d %b @ %H:%M"`
+	cd $datadir/$1/chains/$chain
+	if [[ "$db" == "rocksdb" ]]; then
+    		dbdir="db/full"
+	elif [[ "$db" == "paritydb" ]]; then
+    		dbdir="paritydb/full"
+	fi
+	humandbsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
+	dbsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
 	snapdate=`date "+%d/%m/%Y"`
-	snapsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
-	echo "$snapdate,$snapsize" >> $workdir/var/snapsize.$chain.$db.dat
-	echo "Snapshot of $i fullsize=$fullsize, tarsize=$size, snapsize=$snapsize finished"
+	echo "| | $chain | $db | archive | $blockheight | | $humandbsize | $date |" >> $workdir/docs/snapshot.mdx
+	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.archive.dat
+	echo "Sizeup of $i fullsize=$humandbsize finished"
 }
 
 echo "Starting snapshot service..."
@@ -118,6 +133,21 @@ do
 	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`
 
 	snapshot "$i"
+done
+
+for i in "${archivetargets[@]}"
+do
+	db=paritydb
+	if grep -q 'chain kusama' "/etc/systemd/system/$i.service"; then
+		chain="ksmcc3"
+	fi
+	if grep -q 'chain polkadot' "/etc/systemd/system/$i.service"; then
+		chain="polkadot"
+	fi
+
+	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`
+
+	sizeup "$i"
 done
 
 echo "Setting website body"

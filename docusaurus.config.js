@@ -89,28 +89,29 @@ const config = {
             label: 'Snapshots',
           },
           {
-            type: 'dropdown',
-            docId: 'validate',
+            type: 'doc',
+            docId: 'validate/1kv',
             position: 'left',
-            label: 'Validate',
-	    items: [
-              {
-		type: 'doc',
-		docId: 'validate/validate',
-                label: 'Setting up a node',
-              },
-              {
-		type: 'doc',
-		docId: 'validate/monitor',
-                label: 'Monitoring a node',
-              },
-              {
-		type: 'doc',
-		docId: 'validate/1kv',
-                label: 'Thousand validator resources',
-              },
-	    ],
-	  },
+            label: '1KV',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+	    docId: 'validate/validate',
+            label: 'Setting up a node',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'validate/monitor',
+            label: 'Monitoring a node',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'tools',
+            label: 'Linux tips',
+          },
           {
             type: 'dropdown',
             docId: 'nominate',
@@ -131,6 +132,11 @@ const config = {
 	        href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm.rpc.stakeworld.nl&filter=stakeworld',
                 className: 'button button--group',
                 label: 'on Kusama',
+              },
+              {
+	    	type: 'doc',
+		docId: 'pool',
+                label: 'Pool',
               },
 	    ],
           },
@@ -156,12 +162,6 @@ const config = {
                 label: 'dot.rpc.stakeworld.nl',
               },
 	    ],
-          },
-          {
-            type: 'doc',
-            docId: 'pool',
-            position: 'left',
-            label: 'Pool',
           },
           {
 	    href: 'https://stakeworld.statuspage.io/',

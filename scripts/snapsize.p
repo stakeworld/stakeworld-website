@@ -2,7 +2,7 @@ set terminal png size 800,300
 set style data fsteps
 set datafile separator ","
 set output '../static/img/snapsize.png'
-set title 'Full database sizes (size drops after rebuild)'
+set title 'Full database sizes'
 set timefmt "%d/%m/%Y"
 set xdata time
 # https://stackoverflow.com/questions/13785832/month-tics-how-to-set

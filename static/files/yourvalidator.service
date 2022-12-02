@@ -7,8 +7,7 @@ StartLimitIntervalSec=200
 StartLimitBurst=2
 
 [Service]
-EnvironmentFile=-/home/polkadot/polkadot.env
-ExecStart=/usr/bin/polkadot --chain kusama --name yourhost/01 --validator --pruning 1000 --port 30333 --rpc-port 9901 --ws-port 9801 --prometheus-port 9601 --prometheus-external --base-path /home/kusama/yourhost-01k --database paritydb --telemetry-url 'wss://telemetry.polkadot.io/submit/ 1' 
+ExecStart=/usr/bin/polkadot --chain kusama --name yourhost/01 --validator --state-pruning 1000 --blocks-pruning 1000 --port 30333 --rpc-port 9901 --ws-port 9801 --prometheus-port 9601 --prometheus-external --base-path /home/polkadot/yourhost-01k --database paritydb --telemetry-url 'wss://telemetry.polkadot.io/submit/ 1' 
 User=polkadot
 Group=polkadot
 Restart=always

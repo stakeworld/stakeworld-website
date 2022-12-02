@@ -46,3 +46,46 @@ domain = stakeworld.nl
 root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana/
 serve_from_sub_path = true
 ```
+
+### Prometheus
+[Example prometheus scrape config](/files/prometheus.yml)
+```
+global:
+  scrape_interval: 60s
+  evaluation_interval: 60s
+
+rule_files:
+  - "rules.yml"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - localhost:9093
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["<host>:9090"]
+  - job_name: 'node_exporter'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['<host>:<port>']
+        labels:
+           name: "<host>"
+      - targets: ['<host2>:<port2>']
+        labels:
+           name: "<host2>"
+  - job_name: "validators"
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["<host>:<port>"]
+        labels:
+           name: "<nodename>"
+           host: "<host>"
+      - targets: ["<host2>:<port2>"]
+        labels:
+           name: "<nodename2>"
+           host: "<host2>"
+```
+

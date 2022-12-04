@@ -183,6 +183,14 @@ const config = {
             title: 'STAKEWORLD',
             items: [
               {
+                label: 'Snapshots',
+                to: '/docs/snapshot',
+              },
+              {
+                label: 'RPC',
+                to: '/docs/rpc',
+              },
+              {
                 label: 'Validate',
                 to: '/docs/validate',
               },
@@ -191,8 +199,12 @@ const config = {
                 to: '/docs/nominate',
               },
               {
-                label: 'Snapshots',
-                to: '/docs/snapshot',
+                label: '1KV',
+                to: '/docs/1kv',
+              },
+              {
+                label: 'Linux tips',
+                to: '/docs/tools',
               },
             ],
           },

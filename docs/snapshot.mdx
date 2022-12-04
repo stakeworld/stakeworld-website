@@ -7,30 +7,35 @@ sidebar_position: 3
 keywords: [validator setup, validator, validate, snapshot, rocksdb, paritydb, pruning, polkadot, kusama]
 ---
 
-:::info 
-Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed. 
+:::info
+Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed.
 :::
 
 :::caution
 In principle building from scratch is the safest and cleanest; if there is an error in the snapshot database, this will propagate to the nodes who download the database. Also the database size increases with extended usage. STAKEWORLD checks for errors and periodically rebuilds its databases to ensure error free databases with minimum disk usage.
 :::
- 
+
 ## Snapshots
 
 The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--state-pruning 1000 --blocks-pruning 1000`, which is sufficient for a validator node.
 
-An example systemctl service file can be found here: [`yourvalidator.service`](/files/yourvalidator.service). 
-Copy to `/etc/systemd/system` and of course change `--name`, `--chain` and `--database` to your preference.
+An example systemctl service file can be found here: [`yourvalidator.service`](/files/yourvalidator.service). Copy to `/etc/systemd/system` and of course change `--name`, `--chain` and `--database` to your preference.
+
 
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 15578927 | 154G | 164G | Fri 02 Dec @ 07:30 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15578926 | 154G | 160G | Fri 02 Dec @ 07:30 |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13176663 | 110G | 116G | Fri 02 Dec @ 07:30 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13176663 | 110G | 114G | Fri 02 Dec @ 07:30 |
-| | ksmcc3 | paritydb | archive | 15489825 | | 1.1T | Fri 02 Dec @ 07:30 |
-| | polkadot | paritydb | archive | 13176663 | | 696G | Fri 02 Dec @ 07:30 |
-![snapsize](/img/snapsize.png)
+| [direct link](http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 15605100 | 154G | 161G | Sun 04 Dec @ 03:22 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15605186 | 154G | 160G | Sun 04 Dec @ 03:30 |
+| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13203074 | 110G | 114G | Sun 04 Dec @ 03:37 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13203141 | 110G | 114G | Sun 04 Dec @ 03:44 |
+| | ksmcc3 | paritydb | archive | 15605374 | | 1.2T | Sun 04 Dec @ 03:49 |
+| | polkadot | paritydb | archive | 13203195 | | 700G | Sun 04 Dec @ 03:49 |
+
+## Database size
+
+Below a overview of database sizes, you can also view only [pruned](/img/prunedsize.png) or [archive](/img/archivesize.png) database size.
+![snapsize](/img/snapsize.png) 
+
 
 ## Automatic install
 

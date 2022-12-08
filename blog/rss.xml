@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>STAKEWORLD Blog</title>
-        <link>https://www.stakeworld.nl/blog</link>
+        <link>https://www.stakeworld.io/blog</link>
         <description>STAKEWORLD Blog</description>
         <lastBuildDate>Sun, 26 Jun 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,7 +10,7 @@
         <language>en</language>
         <item>
             <title><![CDATA[Welcome]]></title>
-            <link>https://www.stakeworld.nl/blog/Welcome</link>
+            <link>https://www.stakeworld.io/blog/Welcome</link>
             <guid>Welcome</guid>
             <pubDate>Sun, 26 Jun 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[More to follow.]]></description>

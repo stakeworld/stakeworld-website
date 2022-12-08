@@ -14,7 +14,7 @@ const config = {
   ],
   title: 'STAKEWORLD',
   tagline: 'Kusama and Polkadot Validator Services',
-  url: 'https://www.stakeworld.nl',
+  url: 'https://www.stakeworld.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -69,7 +69,7 @@ const config = {
        announcementBar: {
          id: 'announcementBar', 
          backgroundColor: '#f5f7bc',
-	 content: `⭐️ If you like STAKEWORLD, nominate it on <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm.rpc.stakeworld.nl&filter=stakeworld">Kusama</a> or <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot.rpc.stakeworld.nl&filter=stakeworld">Polkadot</a> ⭐️`,
+	 content: `⭐️ If you like STAKEWORLD, nominate it on <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm-rpc.stakeworld.io&filter=stakeworld">Kusama</a> or <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot-rpc.stakeworld.io&filter=stakeworld">Polkadot</a> ⭐️`,
 	},
       colorMode: {
         disableSwitch: true,
@@ -124,12 +124,12 @@ const config = {
                 label: 'Nominate',
               },
               {
-	    	href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot.rpc.stakeworld.nl&filter=stakeworld',
+	    	href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot-rpc.stakeworld.io&filter=stakeworld',
                 className: 'button button--group',
                 label: 'on Polkadot',
               },
               {
-	        href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm.rpc.stakeworld.nl&filter=stakeworld',
+	        href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm-rpc.stakeworld.io&filter=stakeworld',
                 className: 'button button--group',
                 label: 'on Kusama',
               },
@@ -152,14 +152,14 @@ const config = {
                 label: 'Public RPC',
               },
               {
-	    	href: 'http://ksm.rpc.stakeworld.nl/',
+	    	href: 'http://ksm-rpc.stakeworld.io/',
                 className: 'button button--group',
-                label: 'ksm.rpc.stakeworld.nl',
+                label: 'ksm-rpc.stakeworld.io',
               },
               {
-	    	href: 'http://dot.rpc.stakeworld.nl/',
+	    	href: 'http://dot-rpc.stakeworld.io/',
                 className: 'button button--group',
-                label: 'dot.rpc.stakeworld.nl',
+                label: 'dot.rpc.stakeworld.io',
               },
 	    ],
           },
@@ -217,7 +217,7 @@ const config = {
               },
               {
                 label: 'Polkadot.js',
-                href: 'https://polkadot.js.org/apps/?rpc=wss://dot.rpc.stakeworld.nl',
+                href: 'https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io',
               },
             ],
           },
@@ -225,8 +225,8 @@ const config = {
             title: 'Contact',
             items: [
               {
-                label: 'info@stakeworld.nl',
-                href: 'mailto:info@stakeworld.nl',
+                label: 'info@stakeworld.io',
+                href: 'mailto:info@stakeworld.io',
               },
               {
 		label: 'github.com/stakeworld',

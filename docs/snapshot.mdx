@@ -24,18 +24,17 @@ An example systemctl service file can be found here: [`yourvalidator.service`](/
 
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 15605100 | 154G | 161G | Sun 04 Dec @ 03:22 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15605186 | 154G | 160G | Sun 04 Dec @ 03:30 |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13203074 | 110G | 114G | Sun 04 Dec @ 03:37 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13203141 | 110G | 114G | Sun 04 Dec @ 03:44 |
-| | ksmcc3 | paritydb | archive | 15605374 | | 1.2T | Sun 04 Dec @ 03:49 |
-| | polkadot | paritydb | archive | 13203195 | | 700G | Sun 04 Dec @ 03:49 |
+| Rebuilding snapshot| ksmcc3 | rocksdb | pruned | 14335479 | 59G | 77G | Thu 08 Dec @ 03:22 |
+| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15662497 | 154G | 160G | Thu 08 Dec @ 03:27 |
+| [direct link](http://snapshot.stakeworld.io/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13260585 | 110G | 114G | Thu 08 Dec @ 03:35 |
+| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13260660 | 110G | 114G | Thu 08 Dec @ 03:42 |
+| | ksmcc3 | paritydb | archive | 15662744 | | 1.2T | Thu 08 Dec @ 03:49 |
+| | polkadot | paritydb | archive | 13260723 | | 708G | Thu 08 Dec @ 03:49 |
 
 ## Database size
 
 Below a overview of database sizes, you can also view only [pruned](/img/prunedsize.png) or [archive](/img/archivesize.png) database size.
-![snapsize](/img/snapsize.png) 
-
+![snapsize](/img/snapsize.png)
 
 ## Automatic install
 
@@ -57,20 +56,20 @@ Install to `/root/.local/share/polkadot/chains/<chain>` or change to your target
 
 ### Paritydb kusama
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
+curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
 ```
 
 ### Paritydb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
 ```
 
 ### Rocksdb kusama
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
+curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
 ```
 
 ### Rocksdb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
 ```

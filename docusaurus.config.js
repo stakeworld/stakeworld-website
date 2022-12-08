@@ -159,7 +159,7 @@ const config = {
               {
 	    	href: 'http://dot-rpc.stakeworld.io/',
                 className: 'button button--group',
-                label: 'dot.rpc.stakeworld.io',
+                label: 'dot-rpc.stakeworld.io',
               },
 	    ],
           },

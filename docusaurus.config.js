@@ -34,6 +34,24 @@ const config = {
     locales: ['en'],
   },
 
+    plugins:    [
+                  [
+                    require.resolve('@cmfcmf/docusaurus-search-local'), {indexBlog: false},
+                  ],
+                  [
+                    '@docusaurus/plugin-client-redirects',
+                    {
+                      fromExtensions: ['html', 'htm'], // /myPage.html -> /myPage
+                      redirects: [
+                        {
+                          from: '/docs/1kv',
+                          to: '/docs/links',
+                        },
+                      ],
+                    },
+                  ],
+                ],
+
   presets: [
     [
       'classic',
@@ -90,9 +108,9 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'validate/1kv',
+            docId: 'validate/links',
             position: 'left',
-            label: '1KV',
+            label: 'Resources',
           },
           {
             type: 'doc',
@@ -199,8 +217,8 @@ const config = {
                 to: '/docs/nominate',
               },
               {
-                label: '1KV',
-                to: '/docs/1kv',
+                label: 'Resources',
+                to: '/docs/links',
               },
               {
                 label: 'Linux tips',

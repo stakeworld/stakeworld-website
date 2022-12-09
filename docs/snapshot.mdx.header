@@ -17,7 +17,7 @@ In principle building from scratch is the safest and cleanest; if there is an er
 
 ## Snapshots
 
-The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--state-pruning 1000 --blocks-pruning 1000`, which is sufficient for a validator node.
+The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
 
 An example systemctl service file can be found here: [`yourvalidator.service`](/files/yourvalidator.service). Copy to `/etc/systemd/system` and of course change `--name`, `--chain` and `--database` to your preference.
 

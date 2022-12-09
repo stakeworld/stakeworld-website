@@ -17,19 +17,18 @@ In principle building from scratch is the safest and cleanest; if there is an er
 
 ## Snapshots
 
-The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--state-pruning 1000 --blocks-pruning 1000`, which is sufficient for a validator node.
+The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
 
 An example systemctl service file can be found here: [`yourvalidator.service`](/files/yourvalidator.service). Copy to `/etc/systemd/system` and of course change `--name`, `--chain` and `--database` to your preference.
 
 
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| Rebuilding snapshot| ksmcc3 | rocksdb | pruned | 14335479 | 59G | 77G | Thu 08 Dec @ 03:22 |
-| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15662497 | 154G | 160G | Thu 08 Dec @ 03:27 |
-| [direct link](http://snapshot.stakeworld.io/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13260585 | 110G | 114G | Thu 08 Dec @ 03:35 |
-| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13260660 | 110G | 114G | Thu 08 Dec @ 03:42 |
-| | ksmcc3 | paritydb | archive | 15662744 | | 1.2T | Thu 08 Dec @ 03:49 |
-| | polkadot | paritydb | archive | 13260723 | | 708G | Thu 08 Dec @ 03:49 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15676408 | 154G | 160G | Fri 09 Dec @ 03:22 |
+| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13274901 | 110G | 114G | Fri 09 Dec @ 03:30 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13274977 | 110G | 114G | Fri 09 Dec @ 03:38 |
+| | ksmcc3 | paritydb | archive | 15676595 | | 1.2T | Fri 09 Dec @ 03:44 |
+| | polkadot | paritydb | archive | 13275044 | | 710G | Fri 09 Dec @ 03:44 |
 
 ## Database size
 

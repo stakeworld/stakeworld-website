@@ -24,3 +24,7 @@ echo `date` "Plotting size graph"
 
 gnuplot snapsize.p
 cp $workdir/static/img/snapsize.png $snapshotdir/
+gnuplot prunedsize.p
+cp $workdir/static/img/prunedsize.png $snapshotdir/
+gnuplot archivesize.p
+cp $workdir/static/img/archivesize.png $snapshotdir/

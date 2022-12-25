@@ -1,12 +1,158 @@
 ---
-id: RPC
+id: rpc
 title: RPC node
 description: Public RPC server of STAKEWORLD
 slug: /rpc
 sidebar_position: 4
-keywords: [rpc, nominate, nominator, pool, pools, staking, validator, polkadot, kusama]
+keywords: [rpc, wss, ws, polkadot.js, validator, polkadot, kusama]
 ---
 
 :::tip
-RPC servers allow access to the polkadot/kusama ecosystem. STAKEWORLD runs two public RPC servers; [dot-rpc.stakeworld.io](http://dot-rpc.stakeworld.io) and [ksm-rpc.stakeworld.io](http://ksm-rpc.stakeworld.io)  
+RPC servers allow access into the polkadot/kusama ecosystem. Stakeworld runs two public, multi location, load balanced archive RPC servers; [dot-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io) and [ksm-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io)  
 :::
+
+## Setting up your own secure RPC server
+To access the polkadot, kusama and parachains networks we need some kind of access into the network. This can be achieved by [setting up a node](./validate) with a RPC server and allowing access to that RPC server via a secure websocket (wss) port. The default node setup already exposes a non secure ws socket on port 9944 (which can optionally be changed by the `--ws-port` parameter), but for a more usable situation we need a secure websocket which is accesible through a public port.
+
+### Archive node vs pruned node
+A pruned node knows only the recent information about the network and not its full history. Most frequently done actions can be done with a pruned node, for example see account balances, make transfers, setup session keys, staking, etc. An archive node has the full history (database) of the network a can be queried in all kind of ways, give information about transfers since the network started, historical balances, advanced queries about past events, etc. 
+
+An archive node requires a lot more [diskspace](./snapshot).  For an archive node you need the options `--state-pruning archive --blocks-pruning archive` in your startup settings. 
+![snapsize](/img/snapsize.png)
+
+:::tip
+Inclusion in the Polkadot.js UI requires an archive node.
+:::
+
+### Secure the RPC server
+Via the node startup settings you can choose **what** to expose with **how many** connections **from where** through your rpc server.
+
+*How many*: You can set your maximum connections through `--ws-max-connections`, for example `--ws-max-connections 100`
+
+*From where*: by default localhost and the polkadot.js are allowed to access the RPC server, you can change this by setting `--rpc-cors`, to allow access from everywhere you need `--rpc-cors all`
+
+*What*: you can limit the methods to use with `--rpc-methods`, an easy way to set this to a safe mode is `--rpc-methods Safe`
+   
+### Secure the ws port
+The ws port is a way to access the RPC server is preferably exposed from the outside as a wss port and secured with a SSL certificate.
+
+The [maintain wss](https://wiki.polkadot.network/docs/maintain-wss) on the wiki already covers a lot of information about this, especially in relation to setting it up in a nginx configuration. This page is focussed more on a apache2 but principles are the same. The main idea is converting the non secure ws port to a secure wss port by putting it behind a proxy. So from outside one see's the SSL enabled apache2/nginx/other proxy server, witch redirect the request to the internal rpc node.
+
+### Using apache2 for proxying
+Apache2 is a little heavier then nginx but also has some more tweaking posibilities. You can run it in different modes, prefork, worker or event. We chose [event](https://httpd.apache.org/docs/2.4/mod/event.html) since this seems best suited for high load enviroments. Downside is that you can't use the default php module and need to enable it via php-fm. The proxy_wstunnel module works out of the box. 
+
+```bash
+apt install apache2
+a2dismod mpm_prefork
+a2enmod mpm_event proxy proxy_html proxy_http proxy_wstunnel rewrite ssl
+```
+
+If you want to enable php
+
+```
+apt install php-fpm
+a2enmod proxy_fcgi setenvif
+``` 
+
+#### Enabling ssl through letsencrypt
+There are multiple options for getting a ssl certificate, one popular (and free) being letsencrypt. There are multiple ways of obtaining a letsencrypt certificate, a popular being certbot but we are using [lego](https://go-acme.github.io/lego/dns/) which has more dns provider option.
+
+#### Add the proxy to the apache2 config
+In a virtualhost add:
+
+```apacheconf
+SSLCertificateFile <cert.crt>
+SSLCertificateKeyFile <cert.key> 
+SSLProxyEngine on
+
+ProxyRequests off
+
+ProxyPass / ws://localhost:9944
+ProxyPassReverse / ws://localhost:9944
+```
+
+#### Tweaking connections
+The number of connections is limited by the node itself (`--ws-max-connections`) but also by the the number of threads available on the proxy server. For apache2 this can be tweaked by editing `/etc/apache2/mods-enabled/mpm_event.conf`
+
+We are using: 
+```apacheconf
+StartServers		 4
+MinSpareThreads		 25
+MaxSpareThreads		 75
+ThreadLimit		 128
+ThreadsPerChild		 128
+MaxRequestWorkers  	 896
+MaxConnectionsPerChild   0
+```
+
+#### Rate limiting
+Theoretically one client could use all connections/resources, draining the resources of the server and making it inaccessible. This can be countered by rate limiting the connections, for example by using mod_qos:
+
+```bash
+apt install libapache2-mod-qos
+a2enmod qos
+```
+
+And edit `/etc/apache2/mods-available/qos.conf`
+```
+  # allows max 50 connections from a single ip address:
+  QS_SrvMaxConnPerIP                                 50
+```
+
+Be carefull when running behind load balancing server (for example cloudflare) because the the load balancer will only use a few ip's and thus can trigger the rate limit, better to use the rate limit options from the load balancer.
+ 
+### Stress testing your RPC server
+You can test basic usage by accessing your server through the polkadot.js UI as a custom endpoint. For example staking target display is RPC intensive and can give you an indication of performance. 
+
+There are also more dedicated stress testing solutions, we have forked the [Dwellir repository](https://github.com/dwellir-public/artillery-engine-substrate) for our testing.
+
+```bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install --lts
+npm install -g yarn
+yarn global add artillery
+yarn global add artillery-engine-substrate
+cd /opt
+git clone git@github.com:stakeworld/stakeworld-rpc-artillery.git
+cd /opt/stakeworld-rpc-artillery
+yarn
+./run.sh
+```
+
+After the `run.sh` you can edit some variables like how many connections per second, the wss node, etc. The following is a test run for 10 seconds with 10 connections per second and maximum 20 concurrent users. 
+
+```
+config:
+  target: "wss://ksm-rpc.stakeworld.io"
+  processor: "./functions.js"
+  phases:
+    - duration: 10
+      arrivalRate: 10
+      maxVusers: 20
+```
+
+After this you get some info about the run and a report is created, which can be used for further diagnostics
+
+```
+--------------------------------
+Summary report @ 23:38:40(+0100)
+--------------------------------
+
+vusers.completed: .............................................................. 100
+vusers.created: ................................................................ 100
+vusers.created_by_name.balance: ................................................ 35
+vusers.created_by_name.complex_call: ........................................... 33
+vusers.created_by_name.headers_blocks: ......................................... 32
+vusers.failed: ................................................................. 0
+vusers.session_length:
+  min: ......................................................................... 231.7
+  max: ......................................................................... 656.1
+  median: ...................................................................... 361.5
+  p95: ......................................................................... 518.1
+  p99: ......................................................................... 645.6
+ws.messages_sent: .............................................................. 163
+ws.send_rate: .................................................................. 29/sec
+Log file: reports/report.json
+Report generated: reports/report.html
+```
+

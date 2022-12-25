@@ -12,7 +12,7 @@ const config = {
 	async: true,
     },
   ],
-  title: 'STAKEWORLD',
+  title: 'Stakeworld',
   tagline: 'Kusama and Polkadot Validator Services',
   url: 'https://www.stakeworld.io',
   baseUrl: '/',
@@ -87,16 +87,16 @@ const config = {
        announcementBar: {
          id: 'announcementBar', 
          backgroundColor: '#f5f7bc',
-	 content: `⭐️ If you like STAKEWORLD, nominate it on <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm-rpc.stakeworld.io&filter=stakeworld">Kusama</a> or <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot-rpc.stakeworld.io&filter=stakeworld">Polkadot</a> ⭐️`,
+	 content: `⭐️ If you like Stakeworld, nominate it on <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm-rpc.stakeworld.io&filter=stakeworld">Kusama</a> or <a target="_blank" rel="noopener noreferrer" href="https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot-rpc.stakeworld.io&filter=stakeworld">Polkadot</a> ⭐️`,
 	},
       colorMode: {
         disableSwitch: true,
       },
       navbar: {
-        title: 'STAKEWORLD',
+        title: 'Stakeworld',
         style: 'dark',
 	logo: {
-          alt: 'STAKEWORLD',
+          alt: 'Stakeworld',
           src: 'img/sw.png',
         },
         items: [
@@ -108,9 +108,9 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'validate/links',
+            docId: 'rpc',
             position: 'left',
-            label: 'Resources',
+            label: 'Public RPC',
           },
           {
             type: 'doc',
@@ -129,6 +129,12 @@ const config = {
             position: 'left',
             docId: 'tools',
             label: 'Linux tips',
+          },
+          {
+            type: 'doc',
+            docId: 'validate/links',
+            position: 'left',
+            label: 'Links',
           },
           {
             type: 'dropdown',
@@ -159,46 +165,23 @@ const config = {
 	    ],
           },
           {
-            type: 'dropdown',
-            docId: 'RPC',
-            position: 'left',
-            label: 'Public RPC',
-	    items: [
-              {
-		type: 'doc',
-		docId: 'RPC',
-                label: 'Public RPC',
-              },
-              {
-	    	href: 'http://ksm-rpc.stakeworld.io/',
-                className: 'button button--group',
-                label: 'ksm-rpc.stakeworld.io',
-              },
-              {
-	    	href: 'http://dot-rpc.stakeworld.io/',
-                className: 'button button--group',
-                label: 'dot-rpc.stakeworld.io',
-              },
-	    ],
-          },
-          {
 	    href: 'https://stakeworld.statuspage.io/',
             position: 'right',
             label: 'Status',
           },
 //	 {to: '/blog', label: 'Blog', position: 'left'},
-//          {
-//            href: 'https://github.com/stakeworld',
-//            label: 'GitHub',
-//            position: 'right',
-//          },
+          {
+            href: 'https://github.com/stakeworld',
+            label: 'GitHub',
+            position: 'right',
+          },
         ],
       },
       footer: {
         style: 'dark',
         links: [
           {
-            title: 'STAKEWORLD',
+            title: 'Stakeworld',
             items: [
               {
                 label: 'Snapshots',
@@ -217,7 +200,7 @@ const config = {
                 to: '/docs/nominate',
               },
               {
-                label: 'Resources',
+                label: 'Links',
                 to: '/docs/links',
               },
               {
@@ -257,7 +240,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} STAKEWORLD`,
+        copyright: `Copyright © ${new Date().getFullYear()} Stakeworld`,
       },
       prism: {
         theme: lightCodeTheme,

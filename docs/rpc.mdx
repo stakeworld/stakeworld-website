@@ -1,14 +1,16 @@
 ---
 id: rpc
-title: RPC node
-description: Public RPC server of STAKEWORLD
+title: RPC server
+description: Setting up a secure RPC server
 slug: /rpc
 sidebar_position: 4
-keywords: [rpc, wss, ws, polkadot.js, validator, polkadot, kusama]
+keywords: [rpc,rpc server,wss, ws, polkadot.js, validator, polkadot, kusama]
 ---
 
 :::tip
-RPC servers allow access into the polkadot/kusama ecosystem. Stakeworld runs two public, multi location, load balanced archive RPC servers; [dot-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io) and [ksm-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io)  
+RPC servers allow access into the polkadot/kusama and parachains ecosystem. Stakeworld runs two public, multi location, load balanced archive RPC servers: 
+* Polkadot: [dot-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io)
+* Kusama: [ksm-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io)  
 :::
 
 ## Setting up your own secure RPC server
@@ -34,11 +36,9 @@ Via the node startup settings you can choose **what** to expose with **how many*
 *What*: you can limit the methods to use with `--rpc-methods`, an easy way to set this to a safe mode is `--rpc-methods Safe`
    
 ### Secure the ws port
-The ws port is a way to access the RPC server is preferably exposed from the outside as a wss port and secured with a SSL certificate.
+The ws port is preferably exposed from the outside as a ssl secured wss port. The "[maintain wss](https://wiki.polkadot.network/docs/maintain-wss)" on the wiki already covers a lot of information about this, especially in relation to setting it up in a nginx configuration. This page is focussed more on a apache2 but principles are the same. The main idea is converting the non secure ws port to a secure wss port by putting it behind a ssl enabled proxy. So from outside one see's the ssl enabled apache2/nginx/other proxy server, witch redirect the request to the internal rpc node.
 
-The [maintain wss](https://wiki.polkadot.network/docs/maintain-wss) on the wiki already covers a lot of information about this, especially in relation to setting it up in a nginx configuration. This page is focussed more on a apache2 but principles are the same. The main idea is converting the non secure ws port to a secure wss port by putting it behind a proxy. So from outside one see's the SSL enabled apache2/nginx/other proxy server, witch redirect the request to the internal rpc node.
-
-### Using apache2 for proxying
+### Using Apache2 for proxying
 Apache2 is a little heavier then nginx but also has some more tweaking posibilities. You can run it in different modes, prefork, worker or event. We chose [event](https://httpd.apache.org/docs/2.4/mod/event.html) since this seems best suited for high load enviroments. Downside is that you can't use the default php module and need to enable it via php-fm. The proxy_wstunnel module works out of the box. 
 
 ```bash
@@ -55,16 +55,13 @@ a2enmod proxy_fcgi setenvif
 ``` 
 
 #### Enabling ssl through letsencrypt
-There are multiple options for getting a ssl certificate, one popular (and free) being letsencrypt. There are multiple ways of obtaining a letsencrypt certificate, a popular being certbot but we are using [lego](https://go-acme.github.io/lego/dns/) which has more dns provider option.
+There are multiple options for getting a ssl certificate, one popular (and free) being letsencrypt. Obtaining a letsencrypt certificate can be done through for example [certbot](https://certbot.eff.org/) or [lego](https://go-acme.github.io/lego/dns/) (which has more dns provider options).
 
 #### Add the proxy to the apache2 config
-In a virtualhost add:
+The [mod_proxy_wstunnel](https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.html) provides *support for the tunnelling of web socket connections to a backend websockets server. The connection is automatically upgraded to a websocket connection*. In a ssl enabled virtualhost add:
 
 ```apacheconf
-SSLCertificateFile <cert.crt>
-SSLCertificateKeyFile <cert.key> 
 SSLProxyEngine on
-
 ProxyRequests off
 
 ProxyPass / ws://localhost:9944
@@ -100,8 +97,11 @@ And edit `/etc/apache2/mods-available/qos.conf`
 ```
 
 Be carefull when running behind load balancing server (for example cloudflare) because the the load balancer will only use a few ip's and thus can trigger the rate limit, better to use the rate limit options from the load balancer.
+
+### Load balancing & failover
+With multiple servers it is possible to build a load balancing or even a failover construction. A simple load balancing can be a [round robin-robin dns](https://en.wikipedia.org/wiki/Round-robin_DNS) up to more advanced (dedicated) load balancers or a content delivery network (CDN) like cloudflare.   
  
-### Stress testing your RPC server
+### Stress testing
 You can test basic usage by accessing your server through the polkadot.js UI as a custom endpoint. For example staking target display is RPC intensive and can give you an indication of performance. 
 
 There are also more dedicated stress testing solutions, we have forked the [Dwellir repository](https://github.com/dwellir-public/artillery-engine-substrate) for our testing.

@@ -12,7 +12,7 @@ Snapshots are compressed backups of the database directory of a polkadot or kusa
 :::
 
 :::caution
-In principle building from scratch is the safest and cleanest; if there is an error in the snapshot database, this will propagate to the nodes who download the database. Also the database size increases with extended usage. STAKEWORLD checks for errors and periodically rebuilds its databases to ensure error free databases with minimum disk usage.
+In principle building from scratch is the safest and cleanest; if there is an error in the snapshot database, this will propagate to the nodes who download the database. Also the database size increases with extended usage. Stakeworld checks for errors and periodically rebuilds its databases to ensure error free databases with minimum disk usage.
 :::
 
 ## Snapshots
@@ -24,12 +24,12 @@ An example systemctl service file can be found here: [`yourvalidator.service`](/
 
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 15878888 | 182G | 189G | Sat 24 Dec @ 02:22 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15878991 | 156G | 163G | Sat 24 Dec @ 02:32 |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13489453 | 110G | 115G | Sat 24 Dec @ 02:40 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13489522 | 110G | 114G | Sat 24 Dec @ 02:46 |
-| | ksmcc3 | paritydb | archive | 15879194 | | 1.2T | Sat 24 Dec @ 02:52 |
-| | polkadot | paritydb | archive | 13489581 | | 739G | Sat 24 Dec @ 02:52 |
+| [direct link](http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 15979360 | 201G | 214G | Sat 31 Dec @ 02:22 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15979471 | 156G | 163G | Sat 31 Dec @ 02:33 |
+| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13590173 | 110G | 115G | Sat 31 Dec @ 02:40 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13590244 | 111G | 115G | Sat 31 Dec @ 02:47 |
+| | ksmcc3 | paritydb | archive | 15979673 | | 1.2T | Sat 31 Dec @ 02:53 |
+| | polkadot | paritydb | archive | 13590301 | | 752G | Sat 31 Dec @ 02:53 |
 
 ## Database size
 

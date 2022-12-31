@@ -38,3 +38,7 @@
 	font-size: 1.4rem;
 }
 
+.navbar__inner a.navbar__item {
+  color: white;
+}
+

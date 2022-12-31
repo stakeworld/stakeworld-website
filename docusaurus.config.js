@@ -47,6 +47,18 @@ const config = {
                           from: '/docs/1kv',
                           to: '/docs/links',
                         },
+                        {
+                          from: '/rpc',
+                          to: '/docs/rpc',
+                        },
+                        {
+                          from: '/snapshot',
+                          to: '/docs/snapshot',
+                        },
+                        {
+                          from: '/pool',
+                          to: '/docs/pool',
+                        },
                       ],
                     },
                   ],

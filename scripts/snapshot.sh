@@ -161,6 +161,6 @@ echo "Making snapsize graph"
 ./snapsize.sh
 
 # echo "Publishing website"
-./deploy.sh
+./deploy.sh &>/dev/null
 
 echo Finished

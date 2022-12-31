@@ -17,7 +17,7 @@ RPC servers allow access into the polkadot/kusama and parachains ecosystem. Stak
 To access the polkadot, kusama and parachains networks we need some kind of access into the network. This can be achieved by [setting up a node](./validate) with a RPC server and allowing access to that RPC server via a secure websocket (wss) port. The default node setup already exposes a non secure ws socket on port 9944 (which can optionally be changed by the `--ws-port` parameter), but for a more usable situation we need a secure websocket which is accesible through a public port.
 
 ### Archive node vs pruned node
-A pruned node knows only the recent information about the network and not its full history. Most frequently done actions can be done with a pruned node, for example see account balances, make transfers, setup session keys, staking, etc. An archive node has the full history (database) of the network a can be queried in all kind of ways, give information about transfers since the network started, historical balances, advanced queries about past events, etc. 
+A pruned node knows only the recent information about the network and not its full history. Most frequently done actions can be done with a pruned node, for example see account balances, make transfers, setup session keys, staking, etc. An archive node has the full history (database) of the network and can be queried in all kind of ways, give information about transfers since the network started, historical balances, advanced queries about past events, etc. 
 
 An archive node requires a lot more [diskspace](./snapshot).  For an archive node you need the options `--state-pruning archive --blocks-pruning archive` in your startup settings. 
 ![snapsize](/img/snapsize.png)
@@ -69,7 +69,7 @@ ProxyPassReverse / ws://localhost:9944
 ```
 
 #### Tweaking connections
-The number of connections is limited by the node itself (`--ws-max-connections`) but also by the the number of threads available on the proxy server. For apache2 this can be tweaked by editing `/etc/apache2/mods-enabled/mpm_event.conf`
+The number of connections is limited by the node itself (`--ws-max-connections`) but also by the number of threads available on the proxy server. For apache2 this can be tweaked by editing `/etc/apache2/mods-enabled/mpm_event.conf`
 
 We are using: 
 ```apacheconf
@@ -96,10 +96,10 @@ And edit `/etc/apache2/mods-available/qos.conf`
   QS_SrvMaxConnPerIP                                 50
 ```
 
-Be carefull when running behind load balancing server (for example cloudflare) because the the load balancer will only use a few ip's and thus can trigger the rate limit, better to use the rate limit options from the load balancer.
+Be carefull when running behind a load balancer (for example cloudflare) because the load balancer will only use a few ip's and thus can trigger the rate limit, iso in this case it is better to use the rate limit options from the load balancer itself.
 
 ### Load balancing & failover
-With multiple servers it is possible to build a load balancing or even a failover construction. A simple load balancing can be a [round robin-robin dns](https://en.wikipedia.org/wiki/Round-robin_DNS) up to more advanced (dedicated) load balancers or a content delivery network (CDN) like cloudflare.   
+With multiple servers it is possible to build a load balancing or even a failover construction. A simple load balancing can be a [round robin-robin dns](https://en.wikipedia.org/wiki/Round-robin_DNS) up to a more advanced (dedicated) load balancer or a content delivery network (CDN) like cloudflare.   
  
 ### Stress testing
 You can test basic usage by accessing your server through the polkadot.js UI as a custom endpoint. For example staking target display is RPC intensive and can give you an indication of performance. 

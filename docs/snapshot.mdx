@@ -24,10 +24,10 @@ An example systemctl service file can be found here: [`yourvalidator.service`](/
 
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 15979360 | 201G | 214G | Sat 31 Dec @ 02:22 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15979471 | 156G | 163G | Sat 31 Dec @ 02:33 |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13590173 | 110G | 115G | Sat 31 Dec @ 02:40 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13590244 | 111G | 115G | Sat 31 Dec @ 02:47 |
+| [direct link](http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 15979360 | 201G | 214G | Sat 31 Dec @ 02:22 |
+| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 15979471 | 156G | 163G | Sat 31 Dec @ 02:33 |
+| [direct link](http://snapshot.stakeworld.io/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 13590173 | 110G | 115G | Sat 31 Dec @ 02:40 |
+| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 13590244 | 111G | 115G | Sat 31 Dec @ 02:47 |
 | | ksmcc3 | paritydb | archive | 15979673 | | 1.2T | Sat 31 Dec @ 02:53 |
 | | polkadot | paritydb | archive | 13590301 | | 752G | Sat 31 Dec @ 02:53 |
 
@@ -52,24 +52,32 @@ curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/mast
 The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot <dbdir>`
 :::
 
-Install to `/root/.local/share/polkadot/chains/<chain>` or change to your target directory.
+**DBDIR**: By default the polkadot binary runs in `/root/.local/share/polkadot/chains/<chain>` but it is easier and less error sensitive to run it in `/home/polkadot/<mynodename>/chains/<chain>` and set the datadir in your startup options, for example `--base-path /home/polkadot/mynode`
+
+So for example to restore a kusama paritydb database snapshot for your node with `--base-path /home/polkadot/mynode`:
+
+```bash
+mkdir -p /home/polkadot/mynode/chains/ksmcc3
+sudo curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/mynode/chains/ksmcc3
+chown polkadot:polkadot /home/polkadot/mynode -R
+``` 
 
 ### Paritydb kusama
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
+curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C DBDIR
 ```
 
 ### Paritydb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C DBDIR
 ```
 
 ### Rocksdb kusama
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/ksmcc3
+curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C DBDIR
 ```
 
 ### Rocksdb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /root/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C DBDIR
 ```

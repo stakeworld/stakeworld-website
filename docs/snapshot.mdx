@@ -48,19 +48,20 @@ curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/mast
 
 ## Install the database directly
 
-:::caution
-The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot <dbdir>`
-:::
 
 **DBDIR**: By default the polkadot binary runs in `/root/.local/share/polkadot/chains/<chain>` but it is easier and less error sensitive to run it in `/home/polkadot/<mynodename>/chains/<chain>` and set the datadir in your startup options, for example `--base-path /home/polkadot/mynode`
 
-So for example to restore a kusama paritydb database snapshot for your node with `--base-path /home/polkadot/mynode`:
+To restore a kusama paritydb database snapshot for your node with `--base-path /home/polkadot/mynode`:
 
 ```bash
 mkdir -p /home/polkadot/mynode/chains/ksmcc3
 sudo curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/mynode/chains/ksmcc3
 chown polkadot:polkadot /home/polkadot/mynode -R
 ``` 
+
+:::caution
+The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot DBDIR`
+:::
 
 ### Paritydb kusama
 ```bash

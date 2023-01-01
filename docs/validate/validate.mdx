@@ -89,15 +89,15 @@ By default there is a `/usr/lib/systemd/system/polkadot.service` systemctl scrip
 
 Below an adapted systemctl script. It gives the possibility for different ports, if you run more instances you need to adapt the ports and base directories alongside the “Description” in the .service file.
 
-You can download it here: [`yourvalidator.service`](/files/yourvalidator.service) and copy it to `/etc/systemd/system/`.
+You can download it here: [`validator.service`](/files/validator.service) and copy it to `/etc/systemd/system/`.
 
 After you have installed your adapted service you can start and enable it by
 
 ```bash
 systemctl daemon-reload
-systemctl start yourvalidator.service
-systemctl enable yourvalidator.service
-journalctl -u yourvalidator.service -f
+systemctl start validator.service
+systemctl enable validator.service
+journalctl -u validator.service -f
 ```
 
 ## Database sync

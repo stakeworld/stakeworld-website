@@ -1,4 +1,12 @@
 
+:::info
+Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed.
+
+In principle building from scratch is the safest and cleanest; if there is an error in the snapshot database, this will propagate to the nodes who download the database. Also the database size increases with extended usage. Stakeworld checks for errors and periodically rebuilds its databases to ensure error free databases with minimum disk usage.
+
+The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
+:::
+
 ## Database size
 
 Below a overview of database sizes, you can also view only [pruned](/img/prunedsize.png) or [archive](/img/archivesize.png) database size.
@@ -14,39 +22,93 @@ The script is for ubuntu/debian flavoured servers.
 curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/master/node-install.sh | bash
 ```
 
-## Install the database directly
+## Manual install
 
-**DBDIR**: By default the polkadot binary runs in `/root/.local/share/polkadot/chains/<chain>` but it is easier and less error sensitive to run it in `/home/polkadot/<mynodename>/chains/<chain>` and set the datadir in your startup options, for example `--base-path /home/polkadot/mynode`
+### Setup a validator node 
 
-To restore a kusama paritydb database snapshot for your node with `--base-path /home/polkadot/mynode`:
+Setting up a validator node is covered [here](./validate). The default apt install creates an user polkadot with a home directory `/home/polkadot` and a default service script `/usr/lib/systemd/system/polkadot.service`.
+
+### Install the database
+
+Database location: By default the polkadot binary runs as user polkadot and creates `.local/share/polkadot` in the users homedirectory. So for user polkadot (the default when installing from apt) that is `/home/polkadot/.local/share/polkadot`.
+
+This can be changed with `--base-path` so for example `--base-path /home/polkadot` or `--base-path /home/polkadot/myvalidator` or whatever you prefer.
+
+
+To delete the old database, restore a new kusama paritydb database snapshot for your node with a default install:
 
 ```bash
-mkdir -p /home/polkadot/mynode/chains/ksmcc3
-sudo curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/mynode/chains/ksmcc3
-chown polkadot:polkadot /home/polkadot/mynode -R
+su - polkadot -s /bin/bash
+rm -fr /home/polkadot/.local/share/polkadot/chains/ksmcc3
+mkdir -p /home/polkadot/.local/share/polkadot/chains/ksmcc3
+curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
+``` 
+
+You can check the startup by running the binary as user polkadot and see if it accepts the database or throws any errors:
+ 
+```bash
+su - polkadot -s /bin/bash
+polkadot --chain kusama --database paritydb 
+```
+
+### Edit the systemctl startup script
+
+Edit the default service script and add for example `--database paritydb --chain kusama`:
+
+```bash
+su -
+vi /usr/lib/systemd/system/polkadot.service"
+systemctl daemon-reload
+systemctl retart polkadot
+systemctl enable polkadot
+```
+
+Or create a new script by copying the default service script:
+
+```bash
+su -
+cp /usr/lib/systemd/system/polkadot.service /etc/systemd/system/validator.service
+vi /etc/systemd/system/validator.service
+```
+
+You can edit settings at wish, changing ports and settings at will.
+
+```config
+[Service]
+ExecStart=/usr/bin/polkadot --chain kusama --name validator --validator --state-pruning 1000 --prometheus-external --base-path /home/polkadot --database paritydb --telemetry-url 'wss://telemetry.polkadot.io/submit/ 1' 
+```
+
+```bash
+systemctl daemon-reload
+systemctl start validator
+systemctl enable validator
 ```
 
 :::caution
-The default binary/systemctl from the apt repository will run as user "polkadot". If you install as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot DBDIR`
+If you installed as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot DBDIR`
 :::
+
+## Different databases:
+
+Below restore commands for different databases to the default directory. Best run them as user polkadot (`su - polkadot -s /bin/bash`) or when running as root do a `chown polkadot:polkadot <dbdir>`) or when running as root do a `chown polkadot:polkadot <dbdir>`. Of course change the part after `-C` when installing to another location.
 
 ### Paritydb kusama
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C DBDIR
+curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
 ```
 
 ### Paritydb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C DBDIR
+curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```
 
 ### Rocksdb kusama
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C DBDIR
+curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
 ```
 
 ### Rocksdb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C DBDIR
+curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```
 

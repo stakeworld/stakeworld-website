@@ -8,16 +8,16 @@ const FeatureList = [
     Svg: require('@site/static/img/software.svg').default,
     description: (
       <>
-        STAKEWORLD runs it nodes on dedicated hardware and actively monitors its nodes. 
+        Stakeworld runs it nodes on dedicated hardware and actively monitors its nodes. 
       </>
     ),
   },
   {
-    title: 'Nominate STAKEWORLD',
+    title: 'Nominate Stakeworld',
     Svg: require('@site/static/img/nominate.svg').default,
     description: (
       <>
-      STAKEWORLD uses low commissions (Polkadot 1% Kusama 3%), gives daily nominator payouts and has never had a slash.
+      Stakeworld uses low commissions (Polkadot 1% Kusama 3%), gives daily nominator payouts and has never had a slash.
       </>
     ),
   },

@@ -12,7 +12,7 @@ const config = {
 	async: true,
     },
   ],
-  title: 'Stakeworld',
+  title: 'Stakeworld.io',
   tagline: 'Kusama and Polkadot Validator Services',
   url: 'https://www.stakeworld.io',
   baseUrl: '/',
@@ -252,7 +252,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Stakeworld`,
+        copyright: `Main identities:<br> Kusama: Et9M3rrA7H2kHQEGRXHxufcp9HTEmFirMWtKHvjoJ85r1C9<br>Polkadot: 13Jpq4n3PXXaSAbJTMmFD78mXAzs8PzgUUQd5ve8saw7HQS5<br><br>Copyright © ${new Date().getFullYear()}`,
       },
       prism: {
         theme: lightCodeTheme,

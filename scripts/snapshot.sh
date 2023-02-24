@@ -22,8 +22,8 @@ workdir="/opt/stakeworld-website"
 exec 1>>$workdir/var/snapshot.log
 
 # Snaphot targets
-targets=(stakeworld-04k stakeworld-00k stakeworld-04p stakeworld-00p)
-archivetargets=(stakeworld-rpc-ksm stakeworld-rpc-dot)
+targets=(sw-snp-ksm-ro sw-snp-ksm-pa sw-snp-dot-ro sw-snp-dot-pa)
+archivetargets=(sw-rpc-ksm-01 sw-rpc-dot-01)
 
 # START
 echo `date` "Starting snapshot run for $targets"

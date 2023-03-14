@@ -7,9 +7,11 @@ sidebar_position: 4
 keywords: [validator setup, validator, validate, polkadot, kusama, tools]
 ---
 
+Example ports and hosts used, change to your own setup.
+
 ## check if ports are open
 ```bash
-nc -vz <host> <port>
+nc -vz 1.2.3.4 30333
 ```
 
 ## see cpu frequencies
@@ -18,8 +20,9 @@ lscpu --all --extended
 ```
 
 ## get more disk space by limiting reserved space for root
+Default is 5% which is 50GB on a 1000 GB system, 0.1 (1GB) is more suitable.
 ```bash
-tune2fs -m0 /dev/<disk>
+tune2fs -m0.1 /dev/<disk>
 ```
 
 ## get disk space information
@@ -30,10 +33,14 @@ df -h
 
 ## rotatekeys
 ```bash
-curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_rotateKeys", "params":[]}' http://localhost:9900 > session.key
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_rotateKeys", "params":[]}' http://localhost:9944 > session.key
 ```
 
 ## check session keys
 ```bash
-curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_hasSessionKeys", "params":["<session key 0x.....>"]}' http://localhost:<rpc port>
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_hasSessionKeys", "params":["<session key 0x.....>"]}' http://localhost:9944
 ```
+
+## see number of processes at a certain port
+```bash
+netstat -tn src :30333 | wc -l

@@ -126,21 +126,27 @@ const config = {
           },
           {
             type: 'doc',
+            docId: 'dbsize',
+            position: 'left',
+            label: 'DB sizes',
+          },
+          {
+            type: 'doc',
             position: 'left',
 	    docId: 'validate/validate',
-            label: 'Setting up a node',
+            label: 'Setting',
           },
           {
             type: 'doc',
             position: 'left',
             docId: 'validate/monitor',
-            label: 'Monitoring a node',
+            label: 'Monitoring',
           },
           {
             type: 'doc',
             position: 'left',
             docId: 'tools',
-            label: 'Linux tips',
+            label: 'Tips',
           },
           {
             type: 'doc',

@@ -1,13 +1,13 @@
 #!/bin/bash
 # STAKEWORLD 2022
-# Make a snapshots of kusama and polkadot nodes
+# Make snapshots and size graphs of substrate nodes
 # Run this script in crontab
 
 # Error handling
 error() {
     echo "Error on line $1"
     echo "Exiting"
-    tail -n100 $workdir/var/snapshot.log | mail -s "snapshot error" info@stakeworld.nl
+    tail -n100 $workdir/var/snapshot.log | mail -s "snapshot error" $email
     exit 1
 }
 
@@ -17,13 +17,14 @@ trap 'error $LINENO' ERR
 snapshotdir="/home/snapshots"
 datadir="/home/polkadot"
 workdir="/opt/stakeworld-website"
+email="info@stakeworld.io"
 
 # STDOUT logfile
 exec 1>>$workdir/var/snapshot.log
 
 # Snaphot targets
-targets=(sw-snp-ksm-ro sw-snp-ksm-pa sw-snp-dot-ro sw-snp-dot-pa)
-archivetargets=(sw-rpc-ksm-01 sw-rpc-dot-01)
+targets=(sw-snp-ksm-pa sw-snp-dot-ro sw-snp-dot-pa)
+archivetargets=(sw-rpc-ksm-01 sw-rpc-dot-01 sw-rpc-wnd-01)
 
 # START
 echo `date` "Starting snapshot run for $targets"
@@ -85,6 +86,7 @@ function snapshot {
 }
 
 function sizeup {
+	echo "Sizeup of $i chain=$chain, port=$port"
 	# Get block height from prometheus metrics
 	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
 	date=`date +"%a %d %b @ %H:%M"`
@@ -129,6 +131,9 @@ do
 	if grep -q 'chain polkadot' "/etc/systemd/system/$i.service"; then
   		chain="polkadot"
 	fi
+	if grep -q 'chain westend' "/etc/systemd/system/$i.service"; then
+  		chain="westend2"
+	fi
 
 	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`
 
@@ -138,11 +143,16 @@ done
 for i in "${archivetargets[@]}"
 do
 	db=paritydb
+	chain=unknown
+
 	if grep -q 'chain kusama' "/etc/systemd/system/$i.service"; then
 		chain="ksmcc3"
 	fi
 	if grep -q 'chain polkadot' "/etc/systemd/system/$i.service"; then
 		chain="polkadot"
+	fi
+	if grep -q 'chain westend' "/etc/systemd/system/$i.service"; then
+  		chain="westend2"
 	fi
 
 	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`

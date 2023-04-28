@@ -10,14 +10,19 @@ keywords: [snapshots, snapshot, kusama snapshot, polkadot snapshot, rocksdb, par
 
 |  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 17399529 | 169G | 177G | Sun 09 Apr @ 02:22 |
-| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 15007548 | 136G | 142G | Sun 09 Apr @ 02:30 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 15007629 | 137G | 141G | Sun 09 Apr @ 02:38 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 17671932 | 169G | 177G | Fri 28 Apr @ 02:22 |
+| [direct link](http://snapshot.stakeworld.nl/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 15280979 | 144G | 150G | Fri 28 Apr @ 02:30 |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 15281059 | 144G | 149G | Fri 28 Apr @ 02:38 |
+| | ksmcc3 | paritydb | archive | 17672165 | | 1.5T | Fri 28 Apr @ 02:45 |
+| | polkadot | paritydb | archive | 15281131 | | 998G | Fri 28 Apr @ 02:45 |
+| | westend2 | paritydb | archive | 15582304 | | 266G | Fri 28 Apr @ 02:45 |
 
 :::info
 Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed.
 
-In principle building from scratch is the safest and cleanest; if there is an error in the snapshot database, this will propagate to the nodes who download the database. Also the database size increases with extended usage. Stakeworld checks for errors and periodically rebuilds its databases to ensure error free databases with minimum disk usage.
+Recently the warp sync option is becoming more developed and popular. If you start the node with an empty database and the option `--sync warp` the node will first download the finality proofs after which it will be ready to validate and in the background download the remaining blocks. 
+
+In the future this will probably become the default for syncing a database and snapshots will become absolete.
 
 The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
 :::

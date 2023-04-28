@@ -2,7 +2,6 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -44,8 +43,12 @@ const config = {
                       fromExtensions: ['html', 'htm'], // /myPage.html -> /myPage
                       redirects: [
                         {
-                          from: '/docs/1kv',
-                          to: '/docs/links',
+                          from: '/docs/links',
+                          to: '/docs/1kv',
+                        },
+                        {
+                          from: '/1kv',
+                          to: '/docs/1kv',
                         },
                         {
                           from: '/rpc',
@@ -120,6 +123,12 @@ const config = {
           },
           {
             type: 'doc',
+            docId: 'bootnode',
+            position: 'left',
+            label: 'Bootnodes',
+          },
+          {
+            type: 'doc',
             docId: 'rpc',
             position: 'left',
             label: 'Public RPC',
@@ -128,37 +137,46 @@ const config = {
             type: 'doc',
             docId: 'dbsize',
             position: 'left',
-            label: 'DB sizes',
+            label: 'Database sizes',
           },
           {
-            type: 'doc',
+            type: 'dropdown',
+            docId: 'validate',
             position: 'left',
-	    docId: 'validate/validate',
-            label: 'Setting',
-          },
-          {
-            type: 'doc',
-            position: 'left',
-            docId: 'validate/monitor',
-            label: 'Monitoring',
-          },
-          {
-            type: 'doc',
-            position: 'left',
-            docId: 'tools',
-            label: 'Tips',
-          },
-          {
-            type: 'doc',
-            docId: 'validate/links',
-            position: 'left',
-            label: 'Links',
+            label: 'Manuals',
+	    items: [
+              {
+                type: 'doc',
+	        docId: 'validate/validate',
+                label: 'Setup a validator node',
+              },
+              {
+                type: 'doc',
+                docId: 'validate/monitor',
+                label: 'Setup node Monitoring',
+              },
+              {
+                type: 'doc',
+                docId: 'bootnode',
+                label: 'Setup a bootnode',
+              },
+              {
+                type: 'doc',
+                docId: 'tools',
+                label: 'Generic linux tips',
+              },
+              {
+                type: 'doc',
+                docId: 'validate/1kv',
+                label: '1000 validator program resources',
+              },
+	    ],
           },
           {
             type: 'dropdown',
             docId: 'nominate',
-            position: 'left',
-            label: 'Nominate',
+            position: 'right',
+            label: 'Nominate stakeworld',
 	    items: [
               {
 		type: 'doc',
@@ -262,7 +280,6 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
       },
     }),
 };

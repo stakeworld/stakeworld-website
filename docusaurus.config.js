@@ -140,9 +140,15 @@ const config = {
             label: 'Database sizes',
           },
           {
+            type: 'doc',
+            docId: 'validate/validate',
+            position: 'left',
+            label: 'Validator setup',
+          },
+          {
             type: 'dropdown',
             docId: 'validate',
-            position: 'left',
+            position: 'right',
             label: 'Manuals',
 	    items: [
               {

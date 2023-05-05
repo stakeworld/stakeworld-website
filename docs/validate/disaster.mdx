@@ -19,5 +19,5 @@ If for example there is a network outage, you would start a new node with the sa
 The other options are chilling your node (taking it out of the validator pool) or create new session keys and link them to your stash. Both have disadvantages, for example when you link new session keys it takes two full sessions before the change is propagated, in the meanwhile you validator is down and could be chilled by the system.
 
 :::info
-STAKEWORLD keeps a backup node with backup session keys available so that if a node fails we can quickly continue validating. If there is the risk of double signing (no access to the original node) we will chill the node if there is no other option to avoid slashing
+stakeworld keeps a backup node with backup session keys available so that if a node fails we can quickly continue validating. If there is the risk of double signing (no access to the original node) we will chill the node if there is no other option to avoid slashing
 :::

@@ -14,7 +14,6 @@ set format x "%d/%m"
 set key reverse right outside
 set grid
 plot "../var/snapsize.ksmcc3.paritydb.dat" using 1:2 title "Kusama Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \
-     "../var/snapsize.polkadot.rocksdb.dat" using 1:2 title "Polkadot Rocksdb Pruned" with linespoints pointtype 19 linewidth 4, \
      "../var/snapsize.polkadot.paritydb.dat" using 1:2 title "Polkadot Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \
      "../var/snapsize.polkadot.paritydb.archive.dat" using 1:2 title "Polkadot Paritydb Archive" with linespoints pointtype 19 linewidth 4, \
      "../var/snapsize.westend2.paritydb.archive.dat" using 1:2 title "Westend Paritydb Archive" with linespoints pointtype 19 linewidth 2, \

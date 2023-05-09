@@ -23,7 +23,7 @@ email="info@stakeworld.io"
 exec 1>>$workdir/var/snapshot.log
 
 # Snaphot targets
-targets=(sw-snp-ksm-pa sw-snp-dot-ro sw-snp-dot-pa)
+targets=(sw-snp-ksm-pa sw-snp-dot-pa)
 archivetargets=(sw-rpc-ksm-01 sw-rpc-dot-01 sw-rpc-wnd-01)
 
 # START

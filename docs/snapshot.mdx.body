@@ -4,9 +4,9 @@ Snapshots are compressed backups of the database directory of a polkadot or kusa
 
 Recently the warp sync option is becoming more developed and popular. If you start the node with an empty database and the option `--sync warp` the node will first download the finality proofs after which it will be ready to validate and in the background download the remaining blocks. 
 
-In the future this will probably become the default for syncing a database and snapshots will become absolete.
+In the future this will probably become the default for syncing a database and snapshots may become obsolete.
 
-The snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` and the rocksdb `--database rocksdb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
+For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
 :::
 
 ## Database size
@@ -102,15 +102,5 @@ curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | t
 ### Paritydb polkadot
 ```bash
 curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
-```
-
-### Rocksdb kusama
-```bash
-curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
-```
-
-### Rocksdb polkadot
-```bash
-curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```
 

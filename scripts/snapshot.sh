@@ -58,11 +58,11 @@ function snapshot {
 	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
 	date=`date +"%a %d %b @ %H:%M"`
 	echo "Restart $i and wait 1 minute for db to settle"
-	systemctl restart $i
-	sleep 60
+	# systemctl restart $i
+	# sleep 60
 	echo "Stopping $i and wait 1 minute for db to settle"
-	systemctl stop $i
-	sleep 60
+	# systemctl stop $i
+	# sleep 60
 	cd $datadir/$1/chains/$chain
 	if [[ "$db" == "rocksdb" ]]; then
     		dbdir="db/full"
@@ -71,7 +71,7 @@ function snapshot {
 	fi
 	
 	echo "Making $i tar backup"
-	tar --exclude='parachains' -cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
+	# tar --exclude='parachains' -cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
 	dbsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
 	humansnapsize=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
 	humandbsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
@@ -80,7 +80,8 @@ function snapshot {
 		echo "Node not chilled, activating $i again"
 		systemctl start $i
 	fi
-	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize | $date |" >> $workdir/docs/snapshot.mdx
+	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize |" >> $workdir/docs/snapshot.mdx
+	echo "| $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize |" >> $workdir/docs/dbsize.mdx
 	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.dat
 	echo "Snapshot of $i fullsize=$humansnapsize, tarsize=$humansnapsize finished"
 }
@@ -99,18 +100,32 @@ function sizeup {
 	humandbsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
 	dbsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
 	snapdate=`date "+%d/%m/%Y"`
-	echo "| | $chain | $db | archive | $blockheight | | $humandbsize | $date |" >> $workdir/docs/snapshot.mdx
+	echo "| | $chain | $db | archive | $blockheight | | $humandbsize |" >> $workdir/docs/snapshot.mdx
+	echo "| $chain | $db | archive | $blockheight | | $humandbsize |" >> $workdir/docs/dbsize.mdx
 	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.archive.dat
 	echo "Sizeup of $i fullsize=$humandbsize finished"
 }
 
 echo "Starting snapshot service..."
 
-echo "Setting website header"
+date=`date +"%a %d %b @ %H:%M"`
+
+echo "Setting snapshot header"
 cat $workdir/docs/snapshot.mdx.header > $workdir/docs/snapshot.mdx
+echo "Last update: $date" >> $workdir/docs/snapshot.mdx
+echo "" >> $workdir/docs/snapshot.mdx
 cat << EOF >> $workdir/docs/snapshot.mdx
-|  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
-| ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
+|  | Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
+| ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ |
+EOF
+
+echo "Setting dbsize header"
+cat $workdir/docs/dbsize.mdx.header > $workdir/docs/dbsize.mdx
+echo "Last update: $date" >> $workdir/docs/dbsize.mdx
+echo "" >> $workdir/docs/dbsize.mdx
+cat << EOF >> $workdir/docs/dbsize.mdx
+| Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
+| ------------------------| ----------- | -------- | ------- | ----------- | ---------- | 
 EOF
 
 # Process all targets
@@ -160,8 +175,10 @@ do
 	sizeup "$i"
 done
 
-echo "Setting website body"
+echo "Setting snapshot body"
 cat $workdir/docs/snapshot.mdx.body >> $workdir/docs/snapshot.mdx
+echo "Setting dbsize body"
+cat $workdir/docs/dbsize.mdx.body >> $workdir/docs/dbsize.mdx
 
 # Change to workdir
 cd $workdir/scripts
@@ -171,6 +188,6 @@ echo "Making snapsize graph"
 ./snapsize.sh
 
 # echo "Publishing website"
-./deploy.sh &>/dev/null
+# ./deploy.sh &>/dev/null
 
 echo Finished

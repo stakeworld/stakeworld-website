@@ -56,13 +56,13 @@ function snapshot {
 	fi
 	# Get block height from prometheus metrics
 	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
-	date=`date +"%a %d %b @ %H:%M"`
+	date=`date +"%a %d %b"`
 	echo "Restart $i and wait 1 minute for db to settle"
-	# systemctl restart $i
-	# sleep 60
+	systemctl restart $i
+	sleep 60
 	echo "Stopping $i and wait 1 minute for db to settle"
-	# systemctl stop $i
-	# sleep 60
+	systemctl stop $i
+	sleep 60
 	cd $datadir/$1/chains/$chain
 	if [[ "$db" == "rocksdb" ]]; then
     		dbdir="db/full"
@@ -71,7 +71,7 @@ function snapshot {
 	fi
 	
 	echo "Making $i tar backup"
-	# tar --exclude='parachains' -cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
+	tar --exclude='parachains' -cf - $dbdir | lz4 > $snapshotdir/$db-$chain.lz4
 	dbsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
 	humansnapsize=`du -sh $snapshotdir/$db-$chain.lz4 | cut -f1`
 	humandbsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
@@ -80,7 +80,7 @@ function snapshot {
 		echo "Node not chilled, activating $i again"
 		systemctl start $i
 	fi
-	echo "| [direct link](http://snapshot.stakeworld.nl/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize |" >> $workdir/docs/snapshot.mdx
+	echo "| [direct link](http://snapshot.stakeworld.io/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize |" >> $workdir/docs/snapshot.mdx
 	echo "| $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize |" >> $workdir/docs/dbsize.mdx
 	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.dat
 	echo "Snapshot of $i fullsize=$humansnapsize, tarsize=$humansnapsize finished"
@@ -90,7 +90,7 @@ function sizeup {
 	echo "Sizeup of $i chain=$chain, port=$port"
 	# Get block height from prometheus metrics
 	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
-	date=`date +"%a %d %b @ %H:%M"`
+	date=`date +"%a %d %b"`
 	cd $datadir/$1/chains/$chain
 	if [[ "$db" == "rocksdb" ]]; then
     		dbdir="db/full"
@@ -108,7 +108,7 @@ function sizeup {
 
 echo "Starting snapshot service..."
 
-date=`date +"%a %d %b @ %H:%M"`
+date=`date +"%a %d %b"`
 
 echo "Setting snapshot header"
 cat $workdir/docs/snapshot.mdx.header > $workdir/docs/snapshot.mdx
@@ -188,6 +188,6 @@ echo "Making snapsize graph"
 ./snapsize.sh
 
 # echo "Publishing website"
-# ./deploy.sh &>/dev/null
+./deploy.sh &>/dev/null
 
 echo Finished

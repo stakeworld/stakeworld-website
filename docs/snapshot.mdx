@@ -8,13 +8,15 @@ keywords: [snapshots, snapshot, kusama snapshot, polkadot snapshot, rocksdb, par
 ---
 
 
-|  | Chain    | Database   | Format | Blockheight | Size       | Full         | Creation date     |
-| ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ | -------- |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 17829787 | 232G | 241G | Tue 09 May @ 02:22 |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 15439100 | 177G | 182G | Tue 09 May @ 02:32 |
-| | ksmcc3 | paritydb | archive | 17829976 | | 1.5T | Tue 09 May @ 02:41 |
-| | polkadot | paritydb | archive | 15439185 | | 1022G | Tue 09 May @ 02:41 |
-| | westend2 | paritydb | archive | 15740209 | | 270G | Tue 09 May @ 02:41 |
+Last update: Sun 28 May
+
+|  | Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
+| ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 18102164 | 241G | 249G |
+| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 15712496 | 184G | 190G |
+| | ksmcc3 | paritydb | archive | 18102354 | | 1.6T |
+| | polkadot | paritydb | archive | 15712581 | | 1.1T |
+| | westend2 | paritydb | archive | 16011261 | | 277G |
 
 :::info
 Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed.
@@ -28,7 +30,7 @@ For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--
 
 ## Database size
 
-Below a overview of database sizes, you can also view only [pruned](/img/prunedsize.png) or [archive](/img/archivesize.png) database size.
+Below a overview of database sizes.
 ![snapsize](/img/snapsize.png)
 
 ## Automatic install

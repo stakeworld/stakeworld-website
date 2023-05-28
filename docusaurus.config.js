@@ -168,8 +168,13 @@ const config = {
               },
               {
                 type: 'doc',
+                docId: 'rpc',
+                label: 'Setup a rpc node',
+              },
+              {
+                type: 'doc',
                 docId: 'tools',
-                label: 'Generic linux tips',
+                label: 'Generic linux commands',
               },
               {
                 type: 'doc',
@@ -203,6 +208,11 @@ const config = {
 	    	type: 'doc',
 		docId: 'pool',
                 label: 'Pool',
+              },
+              {
+	        href: 'https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io#/staking/pools',
+                className: 'button button--group',
+                label: 'on Kusama (pool 62)',
               },
 	    ],
           },

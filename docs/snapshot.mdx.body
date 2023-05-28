@@ -11,7 +11,7 @@ For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--
 
 ## Database size
 
-Below a overview of database sizes, you can also view only [pruned](/img/prunedsize.png) or [archive](/img/archivesize.png) database size.
+Below a overview of database sizes.
 ![snapsize](/img/snapsize.png)
 
 ## Automatic install

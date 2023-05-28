@@ -4,20 +4,20 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Reliable validator node',
+    title: 'Validator nodes',
     Svg: require('@site/static/img/software.svg').default,
     description: (
       <>
-        Stakeworld runs it nodes on dedicated hardware and actively monitors its nodes. 
+        Stakeworld runs reliable, dedicated <a href="http://stakeworld.io/docs/nominate">validator nodes</a> with low commission. 
       </>
     ),
   },
   {
-    title: 'Nominate Stakeworld',
+    title: 'RPC servers',
     Svg: require('@site/static/img/nominate.svg').default,
     description: (
       <>
-      Stakeworld uses low commissions (Polkadot 1% Kusama 3%), gives daily nominator payouts and has never had a slash.
+      Stakeworld runs multiple public archive RPC servers which give access to the blockchain network.
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/agree.svg').default,
     description: (
       <>
-        We try to exchange and share information with other validators to strengthen the polkadot ecosystem.
+        We try to exchange and share information to strengthen the ecosystem.
       </>
     ),
   },
@@ -45,6 +45,7 @@ function Feature({Svg, title, description}) {
     </div>
   );
 }
+
 
 export default function HomepageFeatures() {
   return (

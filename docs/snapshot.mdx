@@ -8,15 +8,14 @@ keywords: [snapshots, snapshot, kusama snapshot, polkadot snapshot, rocksdb, par
 ---
 
 
-Last update: Sun 28 May
+Last update: Fri 09 Jun
 
 |  | Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 18102164 | 241G | 249G |
-| [direct link](http://snapshot.stakeworld.nl/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 15712496 | 184G | 190G |
-| | ksmcc3 | paritydb | archive | 18102354 | | 1.6T |
-| | polkadot | paritydb | archive | 15712581 | | 1.1T |
-| | westend2 | paritydb | archive | 16011261 | | 277G |
+| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 18274372 | 246G | 255G |
+| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 15885184 | 189G | 195G |
+
+![snapsize](/img/snapsize.png)
 
 :::info
 Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed.
@@ -27,11 +26,6 @@ In the future this will probably become the default for syncing a database and s
 
 For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
 :::
-
-## Database size
-
-Below a overview of database sizes.
-![snapsize](/img/snapsize.png)
 
 ## Automatic install
 

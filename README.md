@@ -1,4 +1,4 @@
-# STAKEWORLD.nl website source
+# Stakeworld.io website source
 
 This website is build using [Docusaurus 2](https://docusaurus.io/)
 
@@ -25,11 +25,4 @@ This website is build using [Docusaurus 2](https://docusaurus.io/)
 * `scripts/build.sh` to build a local copy
 * `scripts/deploy.sh` to deploy to gh-pages. The website files are in branch master and are deployed to branch gh-pages, which is hosted on github. See [github deployment](https://docusaurus.io/docs/next/deployment#deploying-to-github-pages)
 * You can try the website directly on [stackblitz](https://stackblitz.com/github/stakeworld/stakeworld-website/tree/master/?file=README.md)
-
-### Some git tips
-* To initialize your repo: `git init`, 
-* To add all files: `git add .`
-* To make a commit: `git commit -am "i\nitial commit"`
-* To see the status: `git status`
-* To push commit: `git push origin master`
 

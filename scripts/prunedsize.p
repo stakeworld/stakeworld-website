@@ -11,6 +11,7 @@ set ylabel "Size in GB"
 set format y "%.b %B"
 # set yrange [0:200]
 set format x "%d/%m"
+set xrange ["11/05/2023":]
 set key reverse right outside
 set grid
 plot "../var/snapsize.ksmcc3.paritydb.dat" using 1:2 title "Kusama Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \

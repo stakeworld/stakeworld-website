@@ -15,7 +15,8 @@ trap 'error $LINENO' ERR
 
 # Setup variables
 snapshotdir="/home/snapshots"
-datadir="/home/polkadot"
+archivedir="/home/polkadot"
+datadir="/home/snapshots"
 workdir="/opt/stakeworld-website"
 email="info@stakeworld.io"
 
@@ -24,7 +25,7 @@ exec 1>>$workdir/var/snapshot.log
 
 # Snaphot targets
 targets=(sw-snp-ksm-pa sw-snp-dot-pa)
-archivetargets=(sw-rpc-ksm-01 sw-rpc-dot-01 sw-rpc-wnd-01)
+archivetargets=(sw-rpc-ksm sw-rpc-dot sw-rpc-wnd sw-rpc-sme sw-rpc-smt sw-rpc-wmt sw-rpc-bri sw-rpc-brp sw-rpc-cop)
 
 # START
 echo `date` "Starting snapshot run for $targets"
@@ -81,7 +82,7 @@ function snapshot {
 		systemctl start $i
 	fi
 	echo "| [direct link](http://snapshot.stakeworld.io/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize |" >> $workdir/docs/snapshot.mdx
-	echo "| $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize |" >> $workdir/docs/dbsize.mdx
+	echo "| $chain | $db | pruned | $blockheight | $humandbsize |" >> $workdir/docs/dbsize.mdx
 	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.dat
 	echo "Snapshot of $i fullsize=$humansnapsize, tarsize=$humansnapsize finished"
 }
@@ -91,7 +92,7 @@ function sizeup {
 	# Get block height from prometheus metrics
 	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
 	date=`date +"%a %d %b"`
-	cd $datadir/$1/chains/$chain
+	cd $archivedir/$1/chains/$chain
 	if [[ "$db" == "rocksdb" ]]; then
     		dbdir="db/full"
 	elif [[ "$db" == "paritydb" ]]; then
@@ -100,8 +101,8 @@ function sizeup {
 	humandbsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
 	dbsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
 	snapdate=`date "+%d/%m/%Y"`
-	echo "| | $chain | $db | archive | $blockheight | | $humandbsize |" >> $workdir/docs/snapshot.mdx
-	echo "| $chain | $db | archive | $blockheight | | $humandbsize |" >> $workdir/docs/dbsize.mdx
+	#echo "| | $chain | $db | archive | $blockheight | | $humandbsize |" >> $workdir/docs/snapshot.mdx
+	echo "| $chain | $db | archive | $blockheight | $humandbsize |" >> $workdir/docs/dbsize.mdx
 	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.archive.dat
 	echo "Sizeup of $i fullsize=$humandbsize finished"
 }
@@ -124,8 +125,8 @@ cat $workdir/docs/dbsize.mdx.header > $workdir/docs/dbsize.mdx
 echo "Last update: $date" >> $workdir/docs/dbsize.mdx
 echo "" >> $workdir/docs/dbsize.mdx
 cat << EOF >> $workdir/docs/dbsize.mdx
-| Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
-| ------------------------| ----------- | -------- | ------- | ----------- | ---------- | 
+| Chain    | Database   | Format | Blockheight | Full         | 
+| ------------------------| ----------- | -------- | ------- | ---------- | 
 EOF
 
 # Process all targets
@@ -168,6 +169,24 @@ do
 	fi
 	if grep -q 'chain westend' "/etc/systemd/system/$i.service"; then
   		chain="westend2"
+	fi
+	if grep -q 'chain westmint' "/etc/systemd/system/$i.service"; then
+  		chain="westmint"
+	fi
+	if grep -q 'chain statemine' "/etc/systemd/system/$i.service"; then
+  		chain="statemine"
+	fi
+	if grep -q 'chain statemint' "/etc/systemd/system/$i.service"; then
+  		chain="statemint"
+	fi
+	if grep -q 'chain bridge-hub-kusama' "/etc/systemd/system/$i.service"; then
+  		chain="bridge-hub-kusama"
+	fi
+	if grep -q 'chain bridge-hub-polkadot' "/etc/systemd/system/$i.service"; then
+  		chain="bridge-hub-polkadot"
+	fi
+	if grep -q 'chain collectives-polkadot' "/etc/systemd/system/$i.service"; then
+  		chain="collectives-polkadot"
 	fi
 
 	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`

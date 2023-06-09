@@ -7,9 +7,23 @@ sidebar_position: 4
 keywords: [database, database size, substrate, polkadot, kusama, westend]
 ---
 
-Below a overview of database sizes and seperate graphs for pruned `--state-pruning 1000` and archive `--state-pruning archive --blocks-pruning archive` databases.
 
-![snapsize](/img/snapsize.png)
-![snapsize](/img/prunedsize.png)
+Last update: Fri 09 Jun
+
+| Chain    | Database   | Format | Blockheight | Full         | 
+| ------------------------| ----------- | -------- | ------- | ---------- | 
+| ksmcc3 | paritydb | pruned | 18274372 | 255G |
+| polkadot | paritydb | pruned | 15885184 | 195G |
+| ksmcc3 | paritydb | archive | 18274832 | 1.6T |
+| polkadot | paritydb | archive | 15885387 | 1.1T |
+| westend2 | paritydb | archive | 16164348 | 281G |
+| statemine | paritydb | archive | 4660937 | 91G |
+| statemint | paritydb | archive | 3934834 | 63G |
+| westmint | paritydb | archive | 4705142 | 63G |
+| bridge-hub-kusama | paritydb | archive | 984461 | 16G |
+| bridge-hub-polkadot | paritydb | archive | 196842 | 3.2G |
+| collectives-polkadot | paritydb | archive | 1415834 | 21G |
+
 ![snapsize](/img/archivesize.png)
 
+![prunedsize](/img/prunedsize.png)

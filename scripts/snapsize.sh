@@ -23,6 +23,7 @@ exec 1>>$workdir/var/snapsize.log
 echo `date` "Plotting size graph"
 
 gnuplot snapsize.p
+gnuplot archivesize.p
 cp $workdir/static/img/snapsize.png $snapshotdir/
 gnuplot prunedsize.p
 cp $workdir/static/img/prunedsize.png $snapshotdir/

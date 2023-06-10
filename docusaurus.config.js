@@ -123,6 +123,12 @@ const config = {
           },
           {
             type: 'doc',
+            docId: 'dbsize',
+            position: 'left',
+            label: 'Database sizes',
+          },
+          {
+            type: 'doc',
             docId: 'bootnode',
             position: 'left',
             label: 'Bootnodes',
@@ -132,12 +138,6 @@ const config = {
             docId: 'rpc',
             position: 'left',
             label: 'Public RPC',
-          },
-          {
-            type: 'doc',
-            docId: 'dbsize',
-            position: 'left',
-            label: 'Database sizes',
           },
           {
             type: 'doc',

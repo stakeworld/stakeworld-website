@@ -8,12 +8,12 @@ keywords: [snapshots, snapshot, kusama snapshot, polkadot snapshot, rocksdb, par
 ---
 
 
-Last update: Fri 09 Jun
+Last update: Mon 03 Jul
 
 |  | Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ |
-| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 18274372 | 246G | 255G |
-| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 15885184 | 189G | 195G |
+| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 18619251 | 259G | 268G |
+| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 16230460 | 199G | 205G |
 
 ![snapsize](/img/snapsize.png)
 
@@ -24,7 +24,7 @@ Recently the warp sync option is becoming more developed and popular. If you sta
 
 In the future this will probably become the default for syncing a database and snapshots may become obsolete.
 
-For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
+For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--state-pruning 256` (default), which is sufficient for a validator node.
 :::
 
 ## Automatic install

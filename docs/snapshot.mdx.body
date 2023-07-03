@@ -8,7 +8,7 @@ Recently the warp sync option is becoming more developed and popular. If you sta
 
 In the future this will probably become the default for syncing a database and snapshots may become obsolete.
 
-For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--state-pruning 1000`, which is sufficient for a validator node.
+For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--state-pruning 256` (default), which is sufficient for a validator node.
 :::
 
 ## Automatic install

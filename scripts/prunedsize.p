@@ -9,6 +9,7 @@ set xdata time
 # set xtics "01/01/2022", 100000, "31/12/2022"
 set ylabel "Size in GB"
 set format y "%.b %B"
+#set format y '%.s%cB'
 # set yrange [0:200]
 set format x "%d/%m"
 set xrange ["11/05/2023":]

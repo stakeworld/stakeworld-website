@@ -10,17 +10,18 @@ keywords: [rpc,rpc server,wss, ws, polkadot.js, validator, polkadot, kusama,west
 :::tip
 RPC servers allow access into the polkadot/kusama and parachains ecosystem. Stakeworld runs multiple public archive RPC servers: 
 * Polkadot: [dot-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io)
-    * Statemint: [dot-rpc.stakeworld.io/statemint](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io/statemint)
-    * Bridgehub: [dot-rpc.stakeworld.io/bridgehub](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io/bridgehub)
+    * AssetHub: [dot-rpc.stakeworld.io/statemint](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io/statemint)
+    * BridgeHub: [dot-rpc.stakeworld.io/bridgehub](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io/bridgehub)
+    * Collectives: [dot-rpc.stakeworld.io/collectives](https://polkadot.js.org/apps/?rpc=wss://dot-rpc.stakeworld.io/collectives)
 * Kusama: [ksm-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io)  
-    * Statemine: [ksm-rpc.stakeworld.io/statemine](https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io/statemine)
-    * Bridgehub: [ksm-rpc.stakeworld.io/bridgehub](https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io/bridgehub)
+    * AssetHub: [ksm-rpc.stakeworld.io/statemine](https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io/statemine)
+    * BridgeHub: [ksm-rpc.stakeworld.io/bridgehub](https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io/bridgehub)
 * Westend: [wnd-rpc.stakeworld.io](https://polkadot.js.org/apps/?rpc=wss://wnd-rpc.stakeworld.io)  
-    * Westmint: [wnd-rpc.stakeworld.io/westmint](https://polkadot.js.org/apps/?rpc=wss://wnd-rpc.stakeworld.io/westmint)
+    * AssetHub: [wnd-rpc.stakeworld.io/westmint](https://polkadot.js.org/apps/?rpc=wss://wnd-rpc.stakeworld.io/westmint)
 :::
 
 ## Live stakeworld RPC data
-<iframe src="https://monitor.stakeworld.io/public-dashboards/cef69420acd44165be7df9ad65c7cd89?orgId=1" width="700" height="700" frameborder="0"></iframe>
+<iframe src="https://monitor.stakeworld.io/public-dashboards/cef69420acd44165be7df9ad65c7cd89?orgId=1" width="700" height="1400" frameborder="0"></iframe>
 
 ## Setting up your own secure RPC server
 To access the polkadot, kusama and parachains networks we need some kind of access into the network. This can be achieved by [setting up a node](./validate) with a RPC server and allowing access to that RPC server via a secure websocket (wss) port. The default node setup already exposes a non secure ws socket on port 9944 (which can optionally be changed by the `--ws-port` parameter), but for a more usable situation we need a secure websocket which is accesible through a public port.

@@ -8,8 +8,8 @@ set xdata time
 # https://stackoverflow.com/questions/13785832/month-tics-how-to-set
 # set xtics "01/01/2022", 100000, "31/12/2022"
 set ylabel "Size in GB"
-#set format y "%.b %B"
-set format y '%.s%cB'
+set format y "%.b %B"
+#set format y '%.s%cB'
 set xrange ["01/05/2023":]
 # set yrange [0:200]
 set format x "%d/%m"

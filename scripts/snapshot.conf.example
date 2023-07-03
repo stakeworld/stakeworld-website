@@ -1,0 +1,17 @@
+# Setup variables
+snapshotdir="/home/snapshots"
+archivedir="/home/polkadot"
+datadir="/home/snapshots"
+workdir="/opt/stakeworld-website"
+email="info@stakeworld.io"
+
+# Snaphot targets
+targets=(sw-snp-ksm sw-snp-dot)
+
+# Use an Associative Array to be able to define different servers per node
+declare -A archivetargets
+#archivetargets[nodename]=server
+archivetargets[sw-rpc-ksm]=rpc01
+archivetargets[sw-rpc-dot]=rpc02
+archivetargets[sw-rpc-wnd]=rpc03
+archivetargets[sw-rpc-wmt]=rpc03

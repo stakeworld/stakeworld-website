@@ -3,6 +3,9 @@
 # Make snapshots and size graphs of substrate nodes
 # Run this script in crontab
 
+workdir="/opt/stakeworld-website"
+source $workdir/scripts/snapshot.conf
+
 # Error handling
 error() {
     echo "Error on line $1"
@@ -13,19 +16,8 @@ error() {
 
 trap 'error $LINENO' ERR
 
-# Setup variables
-snapshotdir="/home/snapshots"
-archivedir="/home/polkadot"
-datadir="/home/snapshots"
-workdir="/opt/stakeworld-website"
-email="info@stakeworld.io"
-
 # STDOUT logfile
 exec 1>>$workdir/var/snapshot.log
-
-# Snaphot targets
-targets=(sw-snp-ksm-pa sw-snp-dot-pa)
-archivetargets=(sw-rpc-ksm sw-rpc-dot sw-rpc-wnd sw-rpc-sme sw-rpc-smt sw-rpc-wmt sw-rpc-bri sw-rpc-brp sw-rpc-cop)
 
 # START
 echo `date` "Starting snapshot run for $targets"
@@ -88,23 +80,23 @@ function snapshot {
 }
 
 function sizeup {
-	echo "Sizeup of $i chain=$chain, port=$port"
+	echo "Sizeup of $i chain=$chain, port=$port, server=$server"
 	# Get block height from prometheus metrics
-	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
+	blockheight=`ssh $server "wget -q localhost:$port/metrics -O - | grep best | cut -d ' ' -f2"`
 	date=`date +"%a %d %b"`
-	cd $archivedir/$1/chains/$chain
+	#cd $archivedir/$1/chains/$chain
 	if [[ "$db" == "rocksdb" ]]; then
-    		dbdir="db/full"
+    		dbdir="$archivedir/$1/chains/$chain/db/full"
 	elif [[ "$db" == "paritydb" ]]; then
-    		dbdir="paritydb/full"
+    		dbdir="$archivedir/$1/chains/$chain/paritydb/full"
 	fi
-	humandbsize=`du --exclude='parachains' -sh $dbdir | cut -f1`
-	dbsize=`du --exclude='parachains' -sb $dbdir | cut -f1`
+	humandbsize=`ssh $server "du --exclude='parachains' -sh $dbdir | cut -f1"`
+	dbsize=`ssh $server "du --exclude='parachains' -sb $dbdir | cut -f1"`
 	snapdate=`date "+%d/%m/%Y"`
 	#echo "| | $chain | $db | archive | $blockheight | | $humandbsize |" >> $workdir/docs/snapshot.mdx
 	echo "| $chain | $db | archive | $blockheight | $humandbsize |" >> $workdir/docs/dbsize.mdx
 	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.archive.dat
-	echo "Sizeup of $i fullsize=$humandbsize finished"
+	echo "Sizeup of $i fullsize=$humandbsize, height=$blockheight finished"
 }
 
 echo "Starting snapshot service..."
@@ -156,10 +148,11 @@ do
 	snapshot "$i"
 done
 
-for i in "${archivetargets[@]}"
+for i in "${!archivetargets[@]}"
 do
 	db=paritydb
 	chain=unknown
+        server=${archivetargets[$i]}
 
 	if grep -q 'chain kusama' "/etc/systemd/system/$i.service"; then
 		chain="ksmcc3"
@@ -187,6 +180,9 @@ do
 	fi
 	if grep -q 'chain collectives-polkadot' "/etc/systemd/system/$i.service"; then
   		chain="collectives-polkadot"
+	fi
+	if grep -q 'encointer-kusama.json' "/etc/systemd/system/$i.service"; then
+  		chain="encointer-kusama"
 	fi
 
 	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`

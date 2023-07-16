@@ -90,7 +90,7 @@ You can edit settings at wish, changing ports and settings at will.
 
 ```config
 [Service]
-ExecStart=/usr/bin/polkadot --chain kusama --name validator --validator --state-pruning 1000 --prometheus-external --base-path /home/polkadot --database paritydb --telemetry-url 'wss://telemetry.polkadot.io/submit/ 1' 
+ExecStart=/usr/bin/polkadot --chain kusama --name validator --validator --state-pruning 256 --prometheus-external --base-path /home/polkadot --database paritydb --telemetry-url 'wss://telemetry.polkadot.io/submit/ 1' 
 ```
 
 ```bash

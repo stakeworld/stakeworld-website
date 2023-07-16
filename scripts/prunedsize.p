@@ -15,5 +15,5 @@ set format x "%d/%m"
 set xrange ["11/05/2023":]
 set key reverse right outside
 set grid
-plot "../var/snapsize.ksmcc3.paritydb.dat" using 1:2 title "Kusama Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \
-     "../var/snapsize.polkadot.paritydb.dat" using 1:2 title "Polkadot Paritydb Pruned" with linespoints pointtype 20 linewidth 2
+plot "../var/snapsize.ksmcc3.paritydb.pruned.dat" using 1:2 title "Kusama Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \
+     "../var/snapsize.polkadot.paritydb.pruned.dat" using 1:2 title "Polkadot Paritydb Pruned" with linespoints pointtype 20 linewidth 2

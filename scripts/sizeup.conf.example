@@ -1,0 +1,10 @@
+# Setup variables
+archivedir="/home/polkadot"
+workdir="/opt/stakeworld-website"
+email="info@stakeworld.io"
+
+# Use an Associative Array to be able to define servers
+declare -A targets
+targets[sw-rpc-ksm]=sw-rpc-01
+targets[sw-rpc-dot]=sw-rpc-02
+targets[sw-rpc-wnd]=sw-rpc-03

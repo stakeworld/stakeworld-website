@@ -5,6 +5,7 @@ set output '../static/img/archivesize.png'
 set title 'Relay chain database sizes'
 set timefmt "%d/%m/%Y"
 set xdata time
+set xtics 3000000
 # https://stackoverflow.com/questions/13785832/month-tics-how-to-set
 # set xtics "01/01/2022", 100000, "31/12/2022"
 set ylabel "Size in GB"

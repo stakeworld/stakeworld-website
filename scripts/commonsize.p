@@ -5,6 +5,7 @@ set output '../static/img/commonsize.png'
 set title 'Commons database sizes'
 set timefmt "%d/%m/%Y"
 set xdata time
+set xtics 2000000
 # https://stackoverflow.com/questions/13785832/month-tics-how-to-set
 # set xtics "01/01/2022", 100000, "31/12/2022"
 set ylabel "Size in GB"
@@ -12,7 +13,6 @@ set format y "%.b %B"
 #set format y '%.s%cB'
 # set yrange [0:200]
 set xrange ["01/06/2023":]
-set xtics 1000000
 set format x "%d/%m"
 set key reverse right outside
 set grid

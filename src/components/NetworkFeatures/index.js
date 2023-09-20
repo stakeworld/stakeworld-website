@@ -8,25 +8,25 @@ const FeatureList = [
     Svg: require('@site/static/img/polkadot.svg').default,
     description: (
       <>
-        Validator, RPC and snapshot services.
+        RPC, Validator
       </>
     ),
   },
   {
-    title: 'Statemint',
-    Svg: require('@site/static/img/statemint.svg').default,
+    title: 'Assethub Polkadot',
+    Svg: require('@site/static/img/assethub.svg').default,
     description: (
       <>
-        RPC
+        RPC, Collator
       </>
     ),
   },
   {
-    title: 'Polkadot Bridgehub',
+    title: 'Bridgehub Polkadot',
     Svg: require('@site/static/img/bridgehub.svg').default,
     description: (
       <>
-        RPC
+        RPC, Collator
       </>
     ),
   },
@@ -35,25 +35,25 @@ const FeatureList = [
     Svg: require('@site/static/img/kusama.svg').default,
     description: (
       <>
-        Validator, RPC and snapshot services
+        RPC, Validator
       </>
     ),
   },
   {
-    title: 'Statemine',
-    Svg: require('@site/static/img/statemine.svg').default,
+    title: 'Assethub Kusama',
+    Svg: require('@site/static/img/assethub.svg').default,
     description: (
       <>
-        RPC
+        RPC, Collator
       </>
     ),
   },
   {
-    title: ' Kusama Bridgehub',
+    title: ' Bridgehub Kusama',
     Svg: require('@site/static/img/bridgehub.svg').default,
     description: (
       <>
-        RPC
+        RPC, Collator
       </>
     ),
   },
@@ -67,8 +67,17 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Westmint',
-    Svg: require('@site/static/img/westmint.svg').default,
+    title: 'Assethub Westmint',
+    Svg: require('@site/static/img/assethub.svg').default,
+    description: (
+      <>
+        RPC
+      </>
+    ),
+  },
+  {
+    title: 'Encointer',
+    Svg: require('@site/static/img/encointer.svg').default,
     description: (
       <>
         RPC

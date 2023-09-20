@@ -41,10 +41,14 @@ function sizeup {
 	fi
 	humandbsize=`ssh $server "du --exclude='parachains' -sh $dbdir | cut -f1"`
 	dbsize=`ssh $server "du --exclude='parachains' -sb $dbdir | cut -f1"`
+        previousdbsize=`tail -n1 $workdir/var/snapsize.$chain.$db.$kind.dat | cut -d , -f2`
+        dbdiff=`expr $dbsize - $previousdbsize | numfmt --to iec`
+        dbdiffraw=`expr $dbsize - $previousdbsize`
 	snapdate=`date "+%d/%m/%Y"`
-	echo "| $chain | $db | $kind | $blockheight | $humandbsize |" >> $workdir/docs/dbsize.mdx
+	echo "| $chain | $db | $kind | $blockheight | $humandbsize | $dbdiff |" >> $workdir/docs/dbsize.mdx
 	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.$kind.dat
-	echo "Sizeup of $i fullsize=$humandbsize, height=$blockheight finished"
+	echo "$snapdate,$dbdiffraw" >> $workdir/var/snapsize.$chain.$db.$kind.dbdiff.dat
+	echo "Sizeup of $i fullsize=$humandbsize, diff=$dbdiff, height=$blockheight finished"
 }
 
 echo "Starting sizeup service..."
@@ -56,8 +60,8 @@ cat $workdir/docs/dbsize.mdx.header > $workdir/docs/dbsize.mdx
 echo "Last update: $date" >> $workdir/docs/dbsize.mdx
 echo "" >> $workdir/docs/dbsize.mdx
 cat << EOF >> $workdir/docs/dbsize.mdx
-| Chain    | Database   | Format | Blockheight | Full         | 
-| ------------------------| ----------- | -------- | ------- | ---------- | 
+| Chain    | Database   | Format | Blockheight | Full         | Daily growth |
+| ------------------------| ----------- | -------- | ------- | ---------- | ----- | 
 EOF
 
 for i in "${!targets[@]}"
@@ -83,13 +87,13 @@ do
   		chain="westend2"
 	fi
 	if grep -q 'chain westmint' "/etc/systemd/system/$i.service"; then
-  		chain="westmint"
+  		chain="asset-hub-westend"
 	fi
 	if grep -q 'chain statemine' "/etc/systemd/system/$i.service"; then
-  		chain="statemine"
+  		chain="asset-hub-kusama"
 	fi
 	if grep -q 'chain statemint' "/etc/systemd/system/$i.service"; then
-  		chain="statemint"
+  		chain="asset-hub-polkadot"
 	fi
 	if grep -q 'chain bridge-hub-kusama' "/etc/systemd/system/$i.service"; then
   		chain="bridge-hub-kusama"

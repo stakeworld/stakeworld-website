@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
+import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -293,9 +293,6 @@ const config = {
           },
         ],
         copyright: `Main identities:<br> Kusama: Et9M3rrA7H2kHQEGRXHxufcp9HTEmFirMWtKHvjoJ85r1C9<br>Polkadot: 13Jpq4n3PXXaSAbJTMmFD78mXAzs8PzgUUQd5ve8saw7HQS5<br><br>Copyright © ${new Date().getFullYear()}`,
-      },
-      prism: {
-        theme: lightCodeTheme,
       },
     }),
 };

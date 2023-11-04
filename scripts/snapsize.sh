@@ -24,13 +24,27 @@ echo `date` "Plotting size graph"
 
 gnuplot snapsize.p
 cp $workdir/static/img/snapsize.png /var/www/dev/
+
 gnuplot prunedsize.p
 cp $workdir/static/img/prunedsize.png /var/www/dev/
+
 gnuplot archivesize.p
 cp $workdir/static/img/archivesize.png /var/www/dev/
+
 gnuplot prunedsize.log.p
 cp $workdir/static/img/prunedsize.log.png /var/www/dev/
+
 gnuplot commonsize.p
 cp $workdir/static/img/commonsize.png /var/www/dev/
+
 gnuplot dbdiff.p
 cp $workdir/static/img/dbdiff.png /var/www/dev/
+
+gnuplot dbdiffrelay.p
+cp $workdir/static/img/dbdiffrelay.png /var/www/dev/
+
+gnuplot dbdiffcommon.p
+cp $workdir/static/img/dbdiffcommon.png /var/www/dev/
+
+gnuplot dbdiffpruned.p
+cp $workdir/static/img/dbdiffpruned.png /var/www/dev/

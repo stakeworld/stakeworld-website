@@ -5,7 +5,7 @@ set output '../static/img/dbdiffcommon.png'
 set title 'Commons daily database growth'
 set timefmt "%d/%m/%Y"
 set xdata time
-set xtics 2000000
+set xtics 2500000
 # https://stackoverflow.com/questions/13785832/month-tics-how-to-set
 # set xtics "01/01/2022", 100000, "31/12/2022"
 set ylabel "Change"

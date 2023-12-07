@@ -15,9 +15,10 @@
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^1.1.0",
-    "@docusaurus/core": "3.0.0",
-    "@docusaurus/plugin-client-redirects": "^3.0.0",
-    "@docusaurus/preset-classic": "3.0.0",
+    "@docusaurus/core": "^3.0.1",
+    "@docusaurus/plugin-client-redirects": "^3.0.1",
+    "@docusaurus/plugin-google-gtag": "^3.0.1",
+    "@docusaurus/preset-classic": "^3.0.1",
     "@mdx-js/react": "^3.0.0",
     "@polkadot/api": "^10.10.1",
     "bufferutil": "^4.0.8",
@@ -28,8 +29,8 @@
     "utf-8-validate": "^6.0.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.0.0",
-    "@docusaurus/types": "3.0.0"
+    "@docusaurus/module-type-aliases": "^3.0.1",
+    "@docusaurus/types": "^3.0.1"
   },
   "browserslist": {
     "production": [

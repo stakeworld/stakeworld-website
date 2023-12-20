@@ -123,7 +123,4 @@ cd $workdir/scripts
 echo "Making snapsize graph"
 ./snapsize.sh
 
-# echo "Publishing website"
-./deploy.sh &>/dev/null
-
 echo Finished

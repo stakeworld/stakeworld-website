@@ -1,6 +1,6 @@
 #!/bin/bash
-# STAKEWORLD 2022
-# Make snapshots and size graphs of substrate nodes
+# STAKEWORLD 2023
+# Make snapshots of substrate nodes
 # Run this script in crontab
 
 workdir="/opt/stakeworld-website"
@@ -45,10 +45,10 @@ function snapshot {
 		echo "Node seems chilled, activating $i and waiting for sync"
 		systemctl start $i
 		chilled=true
-		sleep 10m
+		sleep 30m
 	fi
 	# Get block height from prometheus metrics
-	blockheight=`wget -q localhost:$port/metrics -O - | grep best | cut -d " " -f2`
+	blockheight=`wget -q localhost:$port/metrics -O - | grep block_height | grep best | cut -d " " -f2`
 	date=`date +"%a %d %b"`
 	echo "Restart $i and wait 1 minute for db to settle"
 	systemctl restart $i
@@ -74,29 +74,7 @@ function snapshot {
 		systemctl start $i
 	fi
 	echo "| [direct link](http://snapshot.stakeworld.io/$db-$chain.lz4) | $chain | $db | pruned | $blockheight | $humansnapsize | $humandbsize |" >> $workdir/docs/snapshot.mdx
-	echo "| $chain | $db | pruned | $blockheight | $humandbsize |" >> $workdir/docs/dbsize.mdx
-	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.dat
-	echo "Snapshot of $i fullsize=$humansnapsize, tarsize=$humansnapsize finished"
-}
-
-function sizeup {
-	echo "Sizeup of $i chain=$chain, port=$port, server=$server"
-	# Get block height from prometheus metrics
-	blockheight=`ssh $server "wget -q localhost:$port/metrics -O - | grep best | cut -d ' ' -f2"`
-	date=`date +"%a %d %b"`
-	#cd $archivedir/$1/chains/$chain
-	if [[ "$db" == "rocksdb" ]]; then
-    		dbdir="$archivedir/$1/chains/$chain/db/full"
-	elif [[ "$db" == "paritydb" ]]; then
-    		dbdir="$archivedir/$1/chains/$chain/paritydb/full"
-	fi
-	humandbsize=`ssh $server "du --exclude='parachains' -sh $dbdir | cut -f1"`
-	dbsize=`ssh $server "du --exclude='parachains' -sb $dbdir | cut -f1"`
-	snapdate=`date "+%d/%m/%Y"`
-	#echo "| | $chain | $db | archive | $blockheight | | $humandbsize |" >> $workdir/docs/snapshot.mdx
-	echo "| $chain | $db | archive | $blockheight | $humandbsize |" >> $workdir/docs/dbsize.mdx
-	echo "$snapdate,$dbsize" >> $workdir/var/snapsize.$chain.$db.archive.dat
-	echo "Sizeup of $i fullsize=$humandbsize, height=$blockheight finished"
+	echo "Snapshot of $i fullsize=$humansnapsize, tarsize=$humandbsize, block=$blockheight finished"
 }
 
 echo "Starting snapshot service..."
@@ -110,15 +88,6 @@ echo "" >> $workdir/docs/snapshot.mdx
 cat << EOF >> $workdir/docs/snapshot.mdx
 |  | Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ |
-EOF
-
-echo "Setting dbsize header"
-cat $workdir/docs/dbsize.mdx.header > $workdir/docs/dbsize.mdx
-echo "Last update: $date" >> $workdir/docs/dbsize.mdx
-echo "" >> $workdir/docs/dbsize.mdx
-cat << EOF >> $workdir/docs/dbsize.mdx
-| Chain    | Database   | Format | Blockheight | Full         | 
-| ------------------------| ----------- | -------- | ------- | ---------- | 
 EOF
 
 # Process all targets
@@ -148,52 +117,8 @@ do
 	snapshot "$i"
 done
 
-for i in "${!archivetargets[@]}"
-do
-	db=paritydb
-	chain=unknown
-        server=${archivetargets[$i]}
-
-	if grep -q 'chain kusama' "/etc/systemd/system/$i.service"; then
-		chain="ksmcc3"
-	fi
-	if grep -q 'chain polkadot' "/etc/systemd/system/$i.service"; then
-		chain="polkadot"
-	fi
-	if grep -q 'chain westend' "/etc/systemd/system/$i.service"; then
-  		chain="westend2"
-	fi
-	if grep -q 'chain westmint' "/etc/systemd/system/$i.service"; then
-  		chain="westmint"
-	fi
-	if grep -q 'chain statemine' "/etc/systemd/system/$i.service"; then
-  		chain="statemine"
-	fi
-	if grep -q 'chain statemint' "/etc/systemd/system/$i.service"; then
-  		chain="statemint"
-	fi
-	if grep -q 'chain bridge-hub-kusama' "/etc/systemd/system/$i.service"; then
-  		chain="bridge-hub-kusama"
-	fi
-	if grep -q 'chain bridge-hub-polkadot' "/etc/systemd/system/$i.service"; then
-  		chain="bridge-hub-polkadot"
-	fi
-	if grep -q 'chain collectives-polkadot' "/etc/systemd/system/$i.service"; then
-  		chain="collectives-polkadot"
-	fi
-	if grep -q 'encointer-kusama.json' "/etc/systemd/system/$i.service"; then
-  		chain="encointer-kusama"
-	fi
-
-	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`
-
-	sizeup "$i"
-done
-
 echo "Setting snapshot body"
 cat $workdir/docs/snapshot.mdx.body >> $workdir/docs/snapshot.mdx
-echo "Setting dbsize body"
-cat $workdir/docs/dbsize.mdx.body >> $workdir/docs/dbsize.mdx
 
 # Change to workdir
 cd $workdir/scripts
@@ -203,6 +128,6 @@ echo "Making snapsize graph"
 ./snapsize.sh
 
 # echo "Publishing website"
-./deploy.sh &>/dev/null
+# ./deploy.sh &>/dev/null
 
 echo Finished

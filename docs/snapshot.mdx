@@ -8,14 +8,14 @@ keywords: [snapshots, snapshot, kusama snapshot, polkadot snapshot, rocksdb, par
 ---
 
 
-Last update: Thu 07 Dec
+Last update: Wed 20 Dec
 
 |  | Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ |
-| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 20876680 | 339G | 352G |
-| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 18487924 | 273G | 283G |
-| [direct link](http://snapshot.stakeworld.io/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 18455332 | 273G | 285G |
-| [direct link](http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 20844032 | 330G | 348G |
+| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 21063770 | 345G | 358G |
+| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 18675093 | 280G | 290G |
+| [direct link](http://snapshot.stakeworld.io/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 18675492 | 280G | 293G |
+| [direct link](http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 21065122 | 337G | 355G |
 
 ![snapsize](/img/snapsize.png)
 
@@ -125,7 +125,7 @@ curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - |
 curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
 ```
 
-### Paritydb polkadot
+### Rocksdb polkadot
 ```bash
 curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```

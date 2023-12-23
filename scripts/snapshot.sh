@@ -127,4 +127,9 @@ cd $workdir/scripts
 echo "Making snapsize graph"
 ./snapsize.sh
 
-echo Finished
+# Commit (with deploy workflow)
+git commit ../docs/snapshot.mdx -m "Snapshot page deploy"
+git push
+
+# The end
+echo "Finished"

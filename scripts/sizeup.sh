@@ -123,4 +123,10 @@ cd $workdir/scripts
 echo "Making snapsize graph"
 ./snapsize.sh
 
-echo Finished
+# Commit (with deploy workflow)
+git commit ../docs/dbsize.mdx ../static/img/*.png -m "DBsize page deploy"
+git push
+
+#The end
+echo "Finished"
+

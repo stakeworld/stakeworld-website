@@ -24,3 +24,4 @@ snapshot.log
 # Dynamically generated files
 # docs/snapshot.mdx
 # static/img/*size.png
+var/*.log

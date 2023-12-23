@@ -4,11 +4,12 @@
 :::info
 Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed.
 
+
 Recently the warp sync option is becoming more developed and popular. If you start the node with an empty database and the option `--sync warp` the node will first download the finality proofs after which it will be ready to validate and in the background download the remaining blocks. 
 
-In the future this will probably become the default for syncing a database and snapshots may become obsolete.
+With the "beefy" update warp sync got temporarily disabled and now so for the time being the snapshot service is re-enabled.
 
-For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format. They are pruned with `--state-pruning 256` (default), which is sufficient for a validator node.
+For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format and the rocksdb `--database rocksdb` format. They are pruned with `--state-pruning 256` (default), which is sufficient for a validator node.
 :::
 
 ## Automatic install
@@ -74,7 +75,7 @@ You can edit settings at wish, changing ports and settings at will.
 
 ```config
 [Service]
-ExecStart=/usr/bin/polkadot --chain kusama --name validator --validator --state-pruning 1000 --prometheus-external --base-path /home/polkadot --database paritydb --telemetry-url 'wss://telemetry.polkadot.io/submit/ 1' 
+ExecStart=/usr/bin/polkadot --chain kusama --name validator --validator --prometheus-external --base-path /home/polkadot --database paritydb --telemetry-url 'wss://telemetry.polkadot.io/submit/ 1' 
 ```
 
 ```bash
@@ -99,5 +100,15 @@ curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | t
 ### Paritydb polkadot
 ```bash
 curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
+```
+
+### Rocksdb kusama
+```bash
+curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
+```
+
+### Rocksdb polkadot
+```bash
+curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```
 

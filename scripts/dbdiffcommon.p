@@ -20,5 +20,4 @@ plot "../var/snapsize.statemine.paritydb.archive.dbdiff.dat" using 1:2 title "As
      "../var/snapsize.westmint.paritydb.archive.dbdiff.dat" using 1:2 title "AssetHub Westend Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.bridge-hub-kusama.paritydb.archive.dbdiff.dat" using 1:2 title "BridgeHub Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.bridge-hub-polkadot.paritydb.archive.dbdiff.dat" using 1:2 title "BridgeHub Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.collectives-polkadot.paritydb.archive.dbdiff.dat" using 1:2 title "Collectives Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.encointer-kusama.paritydb.archive.dbdiff.dat" using 1:2 title "Encointer Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1
+     "../var/snapsize.collectives-polkadot.paritydb.archive.dbdiff.dat" using 1:2 title "Collectives Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1

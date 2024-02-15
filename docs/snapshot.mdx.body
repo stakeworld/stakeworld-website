@@ -7,7 +7,7 @@ Snapshots are compressed backups of the database directory of a polkadot or kusa
 
 Recently the warp sync option is becoming more developed and popular. If you start the node with an empty database and the option `--sync warp` the node will first download the finality proofs after which it will be ready to validate and in the background download the remaining blocks. 
 
-With the "beefy" update warp sync got temporarily disabled and now so for the time being the snapshot service is re-enabled.
+With the "beefy" update warp sync got temporarily disabled so for the time being the snapshot service is re-enabled.
 
 For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format and the rocksdb `--database rocksdb` format. They are pruned with `--state-pruning 256` (default), which is sufficient for a validator node.
 :::

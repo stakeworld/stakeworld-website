@@ -8,14 +8,14 @@ keywords: [snapshots, snapshot, kusama snapshot, polkadot snapshot, rocksdb, par
 ---
 
 
-Last update: Thu 15 Feb
+Last update: Fri 16 Feb
 
 |  | Chain    | Database   | Format | Blockheight | Snapshot | Full         | 
 | ------------------------| ----------- | -------- | ------- | ----------- | ---------- | ------------ |
-| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 21881774 | 372G | 386G |
-| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 19489485 | 312G | 324G |
-| [direct link](http://snapshot.stakeworld.io/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 19489893 | 311G | 326G |
-| [direct link](http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 21883170 | 363G | 385G |
+| [direct link](http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4) | ksmcc3 | paritydb | pruned | 21896030 | 372G | 387G |
+| [direct link](http://snapshot.stakeworld.io/paritydb-polkadot.lz4) | polkadot | paritydb | pruned | 19503763 | 312G | 325G |
+| [direct link](http://snapshot.stakeworld.io/rocksdb-polkadot.lz4) | polkadot | rocksdb | pruned | 19504170 | 312G | 326G |
+| [direct link](http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4) | ksmcc3 | rocksdb | pruned | 21897428 | 364G | 386G |
 
 ![snapsize](/img/snapsize.png)
 
@@ -25,7 +25,7 @@ Snapshots are compressed backups of the database directory of a polkadot or kusa
 
 Recently the warp sync option is becoming more developed and popular. If you start the node with an empty database and the option `--sync warp` the node will first download the finality proofs after which it will be ready to validate and in the background download the remaining blocks. 
 
-With the "beefy" update warp sync got temporarily disabled and now so for the time being the snapshot service is re-enabled.
+With the "beefy" update warp sync got temporarily disabled so for the time being the snapshot service is re-enabled.
 
 For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format and the rocksdb `--database rocksdb` format. They are pruned with `--state-pruning 256` (default), which is sufficient for a validator node.
 :::

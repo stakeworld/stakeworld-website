@@ -116,16 +116,19 @@ done
 echo "Setting dbsize body"
 cat $workdir/docs/dbsize.mdx.body >> $workdir/docs/dbsize.mdx
 
-# Change to workdir
-cd $workdir/scripts
 
 # Make graph
+cd $workdir/scripts
 echo "Making snapsize graph"
 ./snapsize.sh
 
+# Change to workdir
+cd $workdir
+
 # Commit (with deploy workflow)
-git commit ../docs/dbsize.mdx ../static/img/*.png -m "DBsize page deploy"
-git push
+git pull 2>/dev/null 
+git commit docs/dbsize.mdx static/img/*.png var/snapsize.*.dat -m "Automatic DBsize deploy"
+# git push
 
 #The end
 echo "Finished"

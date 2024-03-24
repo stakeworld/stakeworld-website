@@ -1,2 +1,2 @@
 #!/bin/bash
-git commit ../var/snapsize.*.dat ../static/img/*.png ../docs/snapshot.mdx -m "Automatic size backup commit"
+git commit ../var/snapsize.*.dat -m "Automatic size backup commit"

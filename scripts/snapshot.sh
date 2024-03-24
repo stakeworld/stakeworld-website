@@ -121,15 +121,12 @@ echo "Setting snapshot body"
 cat $workdir/docs/snapshot.mdx.body >> $workdir/docs/snapshot.mdx
 
 # Change to workdir
-cd $workdir/scripts
-
-# Make graph
-echo "Making snapsize graph"
-./snapsize.sh
+cd $workdir
 
 # Commit (with deploy workflow)
-git commit ../docs/snapshot.mdx -m "Snapshot page deploy"
-git push
+git pull
+git commit docs/snapshot.mdx -m "Automatic Snapshot deploy"
+git push 2>/dev/null 
 
 # The end
 echo "Finished"

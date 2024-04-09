@@ -126,7 +126,6 @@ cd $workdir
 # Commit (with deploy workflow)
 git pull
 git commit docs/snapshot.mdx -m "Automatic Snapshot deploy"
-git push 2>/dev/null 
 
 # The end
 echo "Finished"

@@ -1,8 +1,33 @@
 #!/bin/bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# STAKEWORLD 2023
+# Make snapshots of substrate nodes
+# Run this script in crontab
 
-cd /opt/stakeworld-website/scripts
+workdir="/opt/stakeworld-website"
+email="info@stakeworld.io"
 
-GIT_USER=stakeworld USE_SSH=true CURRENT_BRANCH=master DEPLOYMENT_BRANCH=gh-pages yarn deploy
+# Error handling
+error() {
+    echo "Error on line $1"
+    echo "Exiting"
+    tail -n100 $workdir/var/deploy.log | mail -s "deploy error" $email
+    exit 1
+}
+
+trap 'error $LINENO' ERR
+
+# STDOUT logfile
+exec 1>>$workdir/var/deploy.log
+
+# START
+echo `date` "Starting deploy"
+
+# Change to workdir
+cd $workdir
+
+# Commit (with deploy workflow)
+git pull
+git push 2>/dev/null 
+
+# The end
+echo "Finished"

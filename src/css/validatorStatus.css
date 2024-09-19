@@ -1,0 +1,20 @@
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; /* Space out the columns evenly */
+  padding: 32px 0;
+  width: 100%;
+}
+
+.validator-column {
+  text-align: center; /* Center the text inside each column */
+}
+
+.green {
+  color: green; /* Green text for active validators and collators */
+}
+
+.red {
+  color: red; /* Red text for inactive validators */
+}
+

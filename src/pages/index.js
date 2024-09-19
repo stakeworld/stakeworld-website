@@ -5,8 +5,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import NetworkFeatures from '@site/src/components/NetworkFeatures';
-import Stats from '@site/src/components/ValidatorStats';
 import styles from './index.module.css';
+import ValidatorStatus from '../components/ValidatorStatus';
 
 
 function HomepageHeader() {
@@ -29,7 +29,7 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <NetworkFeatures />
+        <ValidatorStatus />
       </main>
     </Layout>
   );

@@ -15,7 +15,7 @@ const config = {
   tagline: 'Kusama and Polkadot Validator Services',
   url: 'https://www.stakeworld.io',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   trailingSlash: 'false',

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 32px 300px; /* Adds horizontal padding (40px on left and right) */
+  padding: 32px 150px; /* Adds horizontal padding (40px on left and right) */
   width: 100%;
   margin: 0 auto; /* Centers the content horizontally */
   flex-wrap: wrap; /* Allows wrapping of columns on smaller screens */

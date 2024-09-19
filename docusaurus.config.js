@@ -214,12 +214,6 @@ const config = {
 	    ],
           },
           {
-	    href: 'https://stakeworld.statuspage.io/',
-            position: 'right',
-            label: 'Status',
-          },
-//	 {to: '/blog', label: 'Blog', position: 'left'},
-          {
             href: 'https://github.com/stakeworld',
             label: 'GitHub',
             position: 'right',
@@ -230,7 +224,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Stakeworld',
+            title: 'Services',
             items: [
               {
                 label: 'Snapshots',
@@ -241,25 +235,13 @@ const config = {
                 to: '/docs/rpc',
               },
               {
-                label: 'Validate',
-                to: '/docs/validate',
-              },
-              {
-                label: 'Nominate',
-                to: '/docs/nominate',
-              },
-              {
-                label: 'Links',
-                to: '/docs/links',
-              },
-              {
-                label: 'Linux tips',
-                to: '/docs/tools',
+                label: 'Database sizes',
+                to: '/docs/dbsize',
               },
             ],
           },
           {
-            title: 'Kusama/Polkadot',
+            title: 'Reference',
             items: [
               {
                 label: 'Polkadot wiki',

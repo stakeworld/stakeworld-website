@@ -72,9 +72,6 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-	gtag: {
-		trackingID: 'G-Y6WZJWKT31'
-	},
 	docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.

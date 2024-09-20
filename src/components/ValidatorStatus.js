@@ -1,4 +1,3 @@
-// src/components/ValidatorStatus.js
 import React, { useEffect, useState } from 'react';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import validatorsConfig from '../config/validatorsConfig'; // Import validators config
@@ -8,8 +7,17 @@ import '../css/validatorStatus.css';  // Import CSS file
 const ValidatorStatus = () => {
   const [kusamaValidators, setKusamaValidators] = useState([]);
   const [polkadotValidators, setPolkadotValidators] = useState([]);
+  const [stashVisibility, setStashVisibility] = useState({}); // State to manage visibility of stashes
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // Toggle stash visibility when name is clicked
+  const toggleStash = (key) => {
+    setStashVisibility((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
 
   const getValidatorData = async () => {
     try {
@@ -33,7 +41,7 @@ const ValidatorStatus = () => {
 
         return stashes.map(({ name, stash }) => {
           const isActive = activeValidatorStashes.some((activeStash) => activeStash.toString() === stash);
-          return { name, isActive };
+          return { name, stash, isActive };
         });
       };
 
@@ -68,21 +76,47 @@ const ValidatorStatus = () => {
       {/* Kusama Validators */}
       <div className="validator-column">
         <h2>Kusama Validators</h2>
-        {kusamaValidators.map((validator, index) => (
-          <div key={index} className={validator.isActive ? 'green' : 'red'}>
-            {validator.name} - {validator.isActive ? 'Active' : 'Inactive'}
-          </div>
-        ))}
+        {kusamaValidators.map((validator, index) => {
+          const key = `Kusama-${validator.name}`; // Create a unique key for Kusama validators
+          const stakingUrl = `https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm-rpc.stakeworld.io&filter=stakeworld`; // Link for Kusama
+          return (
+            <div key={index} className={validator.isActive ? 'green' : 'red'}>
+              <span onClick={() => toggleStash(key)} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                {validator.name} - {validator.isActive ? 'Active' : 'Inactive'}
+              </span>
+              {stashVisibility[key] && (
+                <div>
+                  <a href={stakingUrl} target="_blank" rel="noopener noreferrer">
+                    {validator.stash}
+                  </a>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Polkadot Validators */}
       <div className="validator-column">
         <h2>Polkadot Validators</h2>
-        {polkadotValidators.map((validator, index) => (
-          <div key={index} className={validator.isActive ? 'green' : 'red'}>
-            {validator.name} - {validator.isActive ? 'Active' : 'Inactive'}
-          </div>
-        ))}
+        {polkadotValidators.map((validator, index) => {
+          const key = `Polkadot-${validator.name}`; // Create a unique key for Polkadot validators
+          const stakingUrl = `https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot-rpc.stakeworld.io&filter=stakeworld`; // Link for Polkadot
+          return (
+            <div key={index} className={validator.isActive ? 'green' : 'red'}>
+              <span onClick={() => toggleStash(key)} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                {validator.name} - {validator.isActive ? 'Active' : 'Inactive'}
+              </span>
+              {stashVisibility[key] && (
+                <div>
+                  <a href={stakingUrl} target="_blank" rel="noopener noreferrer">
+                    {validator.stash}
+                  </a>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Kusama Collators */}

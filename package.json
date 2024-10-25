@@ -14,20 +14,20 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@cmfcmf/docusaurus-search-local": "^1.1.0",
+    "@cmfcmf/docusaurus-search-local": "^1.2.0",
     "@docusaurus/core": "^3.5.2",
     "@docusaurus/plugin-client-redirects": "^3.5.2",
     "@docusaurus/plugin-google-gtag": "^3.5.2",
     "@docusaurus/preset-classic": "^3.5.2",
-    "@mdx-js/react": "^3.0.0",
-    "@polkadot/api": "^13.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@polkadot/api": "^14.0.1",
     "@polkadot/util-crypto": "^13.1.1",
     "bufferutil": "^4.0.8",
-    "clsx": "^1.2.1",
-    "prism-react-renderer": "^2.1.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "utf-8-validate": "^6.0.3"
+    "clsx": "^2.1.1",
+    "prism-react-renderer": "^2.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "utf-8-validate": "^6.0.4"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.5.2",

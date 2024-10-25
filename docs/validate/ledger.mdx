@@ -7,7 +7,7 @@ sidebar_position: 8
 keywords: [validator, validate, ledger, ledger wallet, polkadot, kusama]
 ---
 
-If you are serious about validating and maybe want to fire up more instances in the future the best setup is a stash account on a cold (hardware/ledger) wallet which you don’t have to use often, combined with a controller account on a hot wallet with easy (password) access. The idea is you use the hot wallet more often with more risk for exposure of the keys, while your stash account with the most value on it is relatively safe.
+If you are serious about validating and maybe want to fire up more instances in the future the best setup is a stash account on a cold (hardware/ledger) wallet which you don’t have to use often, combined with a proxy account on a hot wallet with easy (password) access. The idea is you use the hot wallet more often with more risk for exposure of the keys, while your stash account with the most value on it is relatively safe.
 
 Problem with the setup using a ledger is that a lot of functions are more complicated, because the ledger app cannot execute all functions, most importantly:
 
@@ -19,7 +19,7 @@ A ledger account cannot have an “on chain identity” by itself. The workaroun
 ## Democracy
 
 A ledger account misses some of the democracy and council voting possibilities. Since this is a factor in the validator selection protocol and you want your validators to get elected it is wise to participate in democracy votes. The workaround here is to use a proxy. You can via ledger proxy your stash account to a native account, and with that native account cast votes in council and democracy on behalf of the ledger stash account. Every proxy also locks up a certain amount of dot/ksm.
-If you have a proxy setup, you can also delegate democracy votes to a hot wallet or even another account you trust.
+If you have a proxy setup, you can also delegate democracy votes to a hot wallet or another account you trust.
 
 ## Steps to take
 ![ledger](/img/ledger.png)

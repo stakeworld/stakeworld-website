@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkstakeworld_io=self.webpackChunkstakeworld_io||[]).push([[393],{1838:s=>{s.exports=JSON.parse('{"blogBasePath":"/blog","blogTitle":"Blog","authorsListPath":"/blog/authors"}')}}]);

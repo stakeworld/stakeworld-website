@@ -1,6 +1,8 @@
 # Stakeworld.io website source
 
-This website is build using [Docusaurus 3](https://docusaurus.io/)
+This website is build using [Docusaurus 3](https://docusaurus.io/) 
+
+![deploy](https://github.com/stakeworld/stakeworld-website/actions/workflows/deploy.yml/badge.svg)
 
 ### Installation guide
 

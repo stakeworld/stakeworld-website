@@ -2,18 +2,18 @@
 
 const collatorsConfig = {
   kusama: [
-    'Kusama Assethub (vulnerable)',
-    'Kusama Bridgehub (vulnerable)',
-    'Kusama Coretime (vulnerable)',
-    'Kusama Encointer (vulnerable)',
-    'Kusama People (invulnerable)'
+    'Kusama Assethub',
+    'Kusama Bridgehub',
+    'Kusama Coretime',
+    'Kusama Encointer',
+    'Kusama People'
   ],
   polkadot: [
-    'Polkadot Assethub (vulnerable)',
-    'Polkadot Bridgehub (invulnerable)',
-    'Polkadot Collectives (vulnerable)',
-    'Polkadot Coretime (invulnerable)',
-    'Polkadot People (vulnerable)'
+    'Polkadot Assethub',
+    'Polkadot Bridgehub',
+    'Polkadot Collectives',
+    'Polkadot Coretime',
+    'Polkadot People'
   ]
 };
 

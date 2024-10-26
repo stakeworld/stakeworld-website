@@ -5,14 +5,9 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  scripts: [ 
-    {	  
-	src: 'https://gn3bcsr3tsg9.statuspage.io/embed/script.js',
-	async: true,
-    },
-  ],
+
   title: 'Stakeworld.io',
-  tagline: 'Kusama and Polkadot Validator Services',
+  tagline: 'Kusama and Polkadot validators, collators and public RPC',
   url: 'https://www.stakeworld.io',
   baseUrl: '/',
   onBrokenLinks: 'warn',
@@ -20,14 +15,9 @@ const config = {
   favicon: 'img/favicon.ico',
   trailingSlash: 'false',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'stakeworld', // Usually your GitHub org/user name.
-  projectName: 'stakeworld-website', // Usually your repo name.
+  organizationName: 'stakeworld',
+  projectName: 'stakeworld-website',
   deploymentBranch: 'gh-pages',
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -74,15 +64,11 @@ const config = {
       ({
 	docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/stakeworld/website/edit/master/',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/stakeworld/website/edit/master/',
         },
@@ -184,7 +170,7 @@ const config = {
             type: 'dropdown',
             docId: 'nominate',
             position: 'right',
-            label: 'Nominate stakeworld',
+            label: 'Nominate',
 	    items: [
               {
 		type: 'doc',
@@ -201,22 +187,7 @@ const config = {
                 className: 'button button--group',
                 label: 'on Kusama',
               },
-              {
-	    	type: 'doc',
-		docId: 'pool',
-                label: 'Pool',
-              },
-              {
-	        href: 'https://polkadot.js.org/apps/?rpc=wss://ksm-rpc.stakeworld.io#/staking/pools',
-                className: 'button button--group',
-                label: 'on Kusama (pool 62)',
-              },
 	    ],
-          },
-          {
-            href: 'https://github.com/stakeworld',
-            label: 'GitHub',
-            position: 'right',
           },
         ],
       },

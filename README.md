@@ -1,26 +1,23 @@
-# Stakeworld.io website source
-
-This website is build using [Docusaurus 3](https://docusaurus.io/) 
+# Stakeworld.io website
+This website is build using [Docusaurus 3](https://docusaurus.io/) and deployed on github
 
 ![deploy](https://github.com/stakeworld/stakeworld-website/actions/workflows/deploy.yml/badge.svg)
 
-### Installation guide
+### Quick installation
 
-#### Install nvm & yarn
-* `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash`
-* `nvm install --lts`
-* `npm install -g yarn`
+```bash
+# Install nvm & yarn
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+nvm install --lts
+npm install -g yarn
+# Install git
+apt install git
 
-
-#### Install git
-* `apt install git`
-
-#### Clone
-* `git clone git@github.com:stakeworld/stakeworld-website.git`
-* Get up to date `git pull origin master`
-
-#### Update packages
-* `yarn`
+# Clone
+git clone git@github.com:stakeworld/stakeworld-website.git`
+# Update packages
+yarn
+```
 
 #### Scripts
 * `scripts/serve.sh` to serve a development copy

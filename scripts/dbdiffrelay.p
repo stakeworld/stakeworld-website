@@ -17,4 +17,5 @@ set key below
 set grid
 plot "../var/snapsize.polkadot.paritydb.archive.dbdiff.dat" using 1:2 title "Polkadot Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
      "../var/snapsize.ksmcc3.paritydb.archive.dbdiff.dat" using 1:2 title "Kusama Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
+     "../var/snapsize.paseo.paritydb.archive.dbdiff.dat" using 1:2 title "Paseo Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
      "../var/snapsize.westend2.paritydb.archive.dbdiff.dat" using 1:2 title "Westend Paritydb Archive" with linespoints pointtype 19 linewidth 1

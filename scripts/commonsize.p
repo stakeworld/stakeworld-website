@@ -17,6 +17,7 @@ set format x "%d/%m"
 set key below
 set grid
 plot "../var/snapsize.statemine.paritydb.archive.dat" using 1:2 title "AssetHub Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
+     "../var/snapsize.asset-hub-paseo.paritydb.archive.dat" using 1:2 title "AssetHub Paseo Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.statemint.paritydb.archive.dat" using 1:2 title "AssetHub Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.westmint.paritydb.archive.dat" using 1:2 title "AssetHub Westend Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.bridge-hub-kusama.paritydb.archive.dat" using 1:2 title "BridgeHub Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1, \

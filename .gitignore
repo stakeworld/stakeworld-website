@@ -25,3 +25,7 @@ snapshot.log
 # docs/snapshot.mdx
 # static/img/*size.png
 var/*.log
+
+# local config files
+snapshot.conf
+sizeup.conf

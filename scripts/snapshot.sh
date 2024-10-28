@@ -111,6 +111,9 @@ do
 	if grep -q 'chain westend' "/etc/systemd/system/$i.service"; then
   		chain="westend2"
 	fi
+	if grep -q 'paseo.raw.json' "/etc/systemd/system/$i.service"; then
+  		chain="paseo"
+	fi
 
 	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`
 

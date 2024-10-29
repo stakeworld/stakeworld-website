@@ -88,27 +88,21 @@ systemctl enable validator
 If you installed as root you will get an error "failed to create a test file: Permission denied". You can solve this by running `chown -R polkadot:polkadot DBDIR`
 :::
 
-## Different databases:
+## Restore:
 
-Below restore commands for different databases to the default directory. Best run them as user polkadot (`su - polkadot -s /bin/bash`) or when running as root do a `chown polkadot:polkadot <dbdir>`) or when running as root do a `chown polkadot:polkadot <dbdir>`. Of course change the part after `-C` when installing to another location.
+Best run the commands as user polkadot (`su - polkadot -s /bin/bash`) or when running as root do a `chown polkadot:polkadot <dbdir>`). Of course change the part after `-C` to your location.
 
-### Paritydb kusama
+### Generic command
+```bash
+curl -o - -L http://snapshot.stakeworld.io/<link> | lz4 -c -d - | tar -x -C <location>
+```
+
+For example paritydb kusama
 ```bash
 curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
 ```
 
-### Paritydb polkadot
-```bash
-curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
-```
-
-### Rocksdb kusama
-```bash
-curl -o - -L http://snapshot.stakeworld.io/rocksdb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
-```
-
-### Rocksdb polkadot
+For example rocksdb polkadot
 ```bash
 curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```
-

@@ -25,9 +25,6 @@ const config = {
 
     plugins:    [
                   [
-                    require.resolve('@cmfcmf/docusaurus-search-local'), {indexBlog: false},
-                  ],
-                  [
                     '@docusaurus/plugin-client-redirects',
                     {
                       fromExtensions: ['html', 'htm'], // /myPage.html -> /myPage
@@ -131,7 +128,7 @@ const config = {
           {
             type: 'dropdown',
             docId: 'validate',
-            position: 'right',
+            position: 'left',
             label: 'Manuals',
 	    items: [
               {
@@ -169,7 +166,7 @@ const config = {
           {
             type: 'dropdown',
             docId: 'nominate',
-            position: 'right',
+            position: 'left',
             label: 'Nominate',
 	    items: [
               {

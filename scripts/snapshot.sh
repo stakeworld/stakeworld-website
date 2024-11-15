@@ -111,7 +111,7 @@ do
 	if grep -q 'chain westend' "/etc/systemd/system/$i.service"; then
   		chain="westend2"
 	fi
-	if grep -q 'paseo.raw.json' "/etc/systemd/system/$i.service"; then
+	if grep -q 'chain paseo' "/etc/systemd/system/$i.service"; then
   		chain="paseo"
 	fi
 

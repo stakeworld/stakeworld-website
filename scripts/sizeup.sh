@@ -1,5 +1,4 @@
 #!/bin/bash
-# STAKEWORLD 2023
 # Make size graphs of substrate nodes
 # Run this script in crontab
 
@@ -98,6 +97,12 @@ do
 	if grep -q 'chain bridge-hub-kusama' "/etc/systemd/system/$i.service"; then
   		chain="bridge-hub-kusama"
 	fi
+	if grep -q 'chain coretime-kusama' "/etc/systemd/system/$i.service"; then
+  		chain="coretime-kusama"
+	fi
+	if grep -q 'people-kusama.json' "/etc/systemd/system/$i.service"; then
+  		chain="people-kusama"
+	fi
 	if grep -q 'chain bridge-hub-polkadot' "/etc/systemd/system/$i.service"; then
   		chain="bridge-hub-polkadot"
 	fi
@@ -107,7 +112,7 @@ do
 	if grep -q 'encointer-kusama' "/etc/systemd/system/$i.service"; then
   		chain="encointer-kusama"
 	fi
-        if grep -q 'paseo.raw.json' "/etc/systemd/system/$i.service"; then
+        if grep -q 'chain paseo' "/etc/systemd/system/$i.service"; then
                 chain="paseo"
         fi
         if grep -q 'asset-hub-paseo.raw.json' "/etc/systemd/system/$i.service"; then

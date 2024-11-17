@@ -109,21 +109,9 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'bootnode',
-            position: 'left',
-            label: 'Bootnodes',
-          },
-          {
-            type: 'doc',
             docId: 'rpc',
             position: 'left',
             label: 'Public RPC',
-          },
-          {
-            type: 'doc',
-            docId: 'validate/validate',
-            position: 'left',
-            label: 'Validator setup',
           },
           {
             type: 'dropdown',
@@ -140,11 +128,6 @@ const config = {
                 type: 'doc',
                 docId: 'validate/monitor',
                 label: 'Setup node Monitoring',
-              },
-              {
-                type: 'doc',
-                docId: 'bootnode',
-                label: 'Setup a bootnode',
               },
               {
                 type: 'doc',

@@ -2,27 +2,12 @@
 ![snapsize](/img/snapsize.png)
 
 :::info
-Snapshots are compressed backups of the database directory of a polkadot or kusama node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed.
+Snapshots are compressed backups of the database directory of a polkadot node. If you start a node for the first time it will start building the database from scratch, which will take a few days, depending on network speed. If you download an up to date database snapshot your node will be up and running quicker; under an hour or a few hours, depending on network speed.
 
+The warp sync option is becoming more developed and popular. If you start the node with an empty database and the option `--sync warp` the node will first download the finality proofs after which it will be ready to validate and in the background download the remaining blocks. Therefore snapshots are being decommissioned. 
 
-Recently the warp sync option is becoming more developed and popular. If you start the node with an empty database and the option `--sync warp` the node will first download the finality proofs after which it will be ready to validate and in the background download the remaining blocks. 
-
-With the "beefy" update warp sync got temporarily disabled so for the time being the snapshot service is re-enabled.
-
-For now the snapshots are available for kusama `--chain ksmcc3` and polkadot `--chain polkadot` in the paritydb `--database paritydb` database format and the rocksdb `--database rocksdb` format. They are pruned with `--state-pruning 256` (default), which is sufficient for a validator node.
+For now the snapshots are available for polkadot `--chain polkadot` and paseo `--chain paseo` in the paritydb `--database paritydb` database format. They are pruned with `--state-pruning 256` (default), which is sufficient for a validator node.
 :::
-
-## Automatic install
-
-The following script can restore a snapshot for a quickstart. If you want you can first review it on [github](https://github.com/stakeworld/stakeworld-scripts/blob/master/node-install.sh). You can choose "snapinstall" for a snapshot restore or "nodeinstall" to install a complete node. The script will ask some questions and create an install or restore script which you can review before executing.
-
-The script is for ubuntu/debian flavoured servers.
-
-```bash
-curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/master/node-install.sh | bash
-```
-
-## Manual install
 
 ### Setup a validator node 
 
@@ -33,7 +18,6 @@ Setting up a validator node is covered [here](./validate). The default apt insta
 Database location: By default the polkadot binary runs as user polkadot and creates `.local/share/polkadot` in the users homedirectory. So for user polkadot (the default when installing from apt) that is `/home/polkadot/.local/share/polkadot`.
 
 This can be changed with `--base-path` so for example `--base-path /home/polkadot` or `--base-path /home/polkadot/myvalidator` or whatever you prefer.
-
 
 To delete the old database, restore a new kusama paritydb database snapshot for your node with a default install:
 
@@ -97,12 +81,7 @@ Best run the commands as user polkadot (`su - polkadot -s /bin/bash`) or when ru
 curl -o - -L http://snapshot.stakeworld.io/<link> | lz4 -c -d - | tar -x -C <location>
 ```
 
-For example paritydb kusama
+For example paritydb polkadot
 ```bash
-curl -o - -L http://snapshot.stakeworld.io/paritydb-ksmcc3.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/ksmcc3
-```
-
-For example rocksdb polkadot
-```bash
-curl -o - -L http://snapshot.stakeworld.io/rocksdb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
+curl -o - -L http://snapshot.stakeworld.io/paritydb-polkadot.lz4 | lz4 -c -d - | tar -x -C /home/polkadot/.local/share/polkadot/chains/polkadot
 ```

@@ -30,24 +30,12 @@ const config = {
                       fromExtensions: ['html', 'htm'], // /myPage.html -> /myPage
                       redirects: [
                         {
-                          from: '/docs/links',
-                          to: '/docs/1kv',
-                        },
-                        {
-                          from: '/1kv',
-                          to: '/docs/1kv',
-                        },
-                        {
                           from: '/rpc',
                           to: '/docs/rpc',
                         },
                         {
                           from: '/snapshot',
                           to: '/docs/snapshot',
-                        },
-                        {
-                          from: '/pool',
-                          to: '/docs/pool',
                         },
                       ],
                     },

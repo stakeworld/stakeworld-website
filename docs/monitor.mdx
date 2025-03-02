@@ -1,23 +1,13 @@
 ---
 id: monitor
-title: Monitoring a validator node
+title: Monitoring
 description: Monitoring a validator node
 slug: /monitor
-sidebar_position: 3
+sidebar_position: 6
 keywords: [validator setup, monitor, grafana, prometheus, loki, alertmanager, polkadot, kusama]
 ---
 
-## Monitoring
-The monitoring wiki seems outdated; especially the described grafana templates don’t work. There is a project ongoing for updated templates. We made our own template which you can find here: [https://grafana.com/grafana/dashboards/16421](https://grafana.com/grafana/dashboards/16421).
-
-The monitoring setup exists of:
-
-* a monitoring instance which uses grafana, loki, node-exporter and alertmanager
-* validator nodes with promtail and node-exporter from which the data, including the build-in prometheus endpoint in polkadot/kusama is send to the monitoring node.
-
-![Grafana](/img/grafana.png)
-
-### Setting up grafana
+## Setting up grafana
 
 The wiki uses binaries but there is a apt repository available. To install the latest grafana server
 

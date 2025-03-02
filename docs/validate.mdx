@@ -1,29 +1,23 @@
 ---
 id: validate
-title: Setting up a validator node
+title: Validators
 description: Setting up a validator node
 slug: /validate
-sidebar_position: 1
+sidebar_position: 2
 keywords: [validator setup, validator, validate, polkadot, kusama]
 ---
 
-## Automatic install
+## Stakeworld
 
-The following script will install a node with systemctl script, firewall and optionally restore a snapshot for a quickstart. If you want you can first review it on [github](https://github.com/stakeworld/stakeworld-scripts/blob/master/node-install.sh), the script will ask some questions and create an installer script which you can review before executing.
+All stakeworld's validators are running on dedicated (bare bone) hardware in various datacentra. 
 
-The script is for ubuntu/debian flavoured servers.
+They have at least the [minimum hardware](https://wiki.polkadot.network/docs/maintain-guides-how-to-validate-polkadot#requirements) specifications as advised by the polkadot wiki but most of the time better specifications. 
 
-```bash
-curl -o- -L https://raw.githubusercontent.com/stakeworld/stakeworld-scripts/master/node-install.sh | bash
-```
+## Set up your own polkadot node
 
-![node-install](/img/node-install.gif)
+First you will need a working server setup. We advise an ubuntu 24.04 LTS on dedicated (bare bone) hardware.
 
-## Manually setup a server
-
-First you will need a working server setup. We advise an ubuntu 22.04 LTS on dedicated hardware.
-
-The [polkadot wiki](https://wiki.polkadot.network/docs/maintain-guides-how-to-validate-kusama) also has a lot of good information about seting up a validator node. 
+The [polkadot wiki](https://wiki.polkadot.network/docs/maintain-guides-how-to-validate-kusama) has a lot of good information about seting up a validator node. 
 
 It is wise to start setting your hostname (preferably matched bij the reverse dns on your provider), copying your ssh keys to your server and disable plain password authentication.
 
@@ -49,8 +43,6 @@ Polkadot needs some ports open in the firewall, especially the p2p port
 * 9944: WS RPC
 * 9615: prometheus port
 :::
-
-If you open a range of ports you can choose to run a second validator or change ports in your systemctl config.
 
 ```bash
 ufw allow openssh
@@ -83,34 +75,47 @@ apt install parity-keyring
 apt install polkadot
 ```
 
-## Systemctl service scripts
-
-By default there is a `/usr/lib/systemd/system/polkadot.service` systemctl script which reads its defaults from `/etc/default/polkadot`.
-
-Below an adapted systemctl script. It gives the possibility for different ports, if you run more instances you need to adapt the ports and base directories alongside the “Description” in the .service file.
-
-You can download it here: [`validator.service`](/files/validator.service) and copy it to `/etc/systemd/system/`.
-
-After you have installed your adapted service you can start and enable it by
-
-```bash
-systemctl daemon-reload
-systemctl start validator.service
-systemctl enable validator.service
-journalctl -u validator.service -f
-```
-
 ## Database sync
 
-If you fire up a fresh polkadot it starts to sync from scratch, which will take a while.
+If you fire up a fresh polkadot it starts to sync from scratch, which will take a while. You can use warp sync to speed up the process or you can use a snapshot.
 
-Using an up to date database you can speed up the process. Best is to shortly start the relevant polkadot binary, so the file structure gets created, then stop it and execute the code below. After this you can start the binary and it will only need a short period to sync and start validating.
+# Example commands
 
-:::tip
-There are different size databases, a “pruned” database is sufficient for a validator node.
-:::
+Example ports and hosts used, change to your own setup.
 
-### Snapshot providers
+## check if ports are open
+```bash
+nc -vz 1.2.3.4 30333
+```
 
-Stakeworld hosts a pruned snapshot in paritydb format for quick deployment, you can find details [here](./snapshot). There are also other providers like [polkashots.io](https://polkashots.io/) and [polkachu.com](https://polkachu.com/snapshots).
+## see cpu frequencies
+```bash
+lscpu --all --extended
+```
+
+## get more disk space by limiting reserved space for root
+Default is 5% which is 50GB on a 1000 GB system, 0.1 (1GB) is more suitable.
+```bash
+tune2fs -m0.1 /dev/<disk>
+```
+
+## get disk space information
+```bash
+du -sh /home/polkadot/*
+df -h
+```
+
+## rotatekeys
+```bash
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_rotateKeys", "params":[]}' http://localhost:9944 > session.key
+```
+
+## check session keys
+```bash
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_hasSessionKeys", "params":["<session key 0x.....>"]}' http://localhost:9944
+```
+
+## see number of processes at a certain port
+```bash
+netstat -tn src :30333 | wc -l
 

@@ -3,21 +3,12 @@ id: disaster
 title: Disaster managment
 description: How to maintain a working node when there are problems
 slug: /disaster
-sidebar_position: 5
+sidebar_position: 8
 keywords: [validator setup, validator, validate, polkadot, kusama]
 ---
 
 When running a validator node it is important to have an action plan in place when there are problems with your node. For example you node server goes down, or a database gets corrupted.
 
-## Using backup nodes
-
-Preferably you continue your validating actions with minimum downtime. The quickest and most dangerous option is to start another node with the same session keys. The danger being that running two validator nodes with the same session key is a no go and considered ground for slashing your validator. So this option is only possible when you have access to the original node, can disable the failing node and preferably delete the session keys there so there is no room for double signing. 
-
-If for example there is a network outage, you would start a new node with the same session keys and the original node would recover, you would be having two nodes active with the same session keys.
-
-## Chilling nodes
-The other options are chilling your node (taking it out of the validator pool) or create new session keys and link them to your stash. Both have disadvantages, for example when you link new session keys it takes two full sessions before the change is propagated, in the meanwhile you validator is down and could be chilled by the system.
-
 :::info
-stakeworld keeps a backup node with backup session keys available so that if a node fails we can quickly continue validating. If there is the risk of double signing (no access to the original node) we will chill the node if there is no other option to avoid slashing
+stakeworld doesn't copy session keys and keeps backup nodes available so that if a node fails we can quickly bind the stash to a new node with minimal downtime and no risk of slashing. 
 :::

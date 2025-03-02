@@ -97,15 +97,21 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'snapshot',
-            position: 'left',
-            label: 'Snapshots',
-          },
-          {
-            type: 'doc',
             docId: 'dbsize',
             position: 'left',
             label: 'Database sizes',
+          },
+          {
+            type: 'doc',
+            docId: 'validate',
+            position: 'left',
+            label: 'Validators',
+          },
+          {
+            type: 'doc',
+            docId: 'snapshot',
+            position: 'left',
+            label: 'Snapshots',
           },
           {
             type: 'doc',
@@ -114,60 +120,14 @@ const config = {
             label: 'Public RPC',
           },
           {
-            type: 'dropdown',
-            docId: 'validate',
-            position: 'left',
-            label: 'Manuals',
-	    items: [
-              {
-                type: 'doc',
-	        docId: 'validate/validate',
-                label: 'Setup a validator node',
-              },
-              {
-                type: 'doc',
-                docId: 'validate/monitor',
-                label: 'Setup node Monitoring',
-              },
-              {
-                type: 'doc',
-                docId: 'rpc',
-                label: 'Setup a rpc node',
-              },
-              {
-                type: 'doc',
-                docId: 'tools',
-                label: 'Generic linux commands',
-              },
-              {
-                type: 'doc',
-                docId: 'validate/1kv',
-                label: '1000 validator program resources',
-              },
-	    ],
+            label: 'Nominate on Polkadot',
+            position: 'right',
+	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot-rpc.stakeworld.io&filter=stakeworld',
           },
           {
-            type: 'dropdown',
-            docId: 'nominate',
-            position: 'left',
-            label: 'Nominate',
-	    items: [
-              {
-		type: 'doc',
-		docId: 'nominate',
-                label: 'Nominate',
-              },
-              {
-	    	href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot-rpc.stakeworld.io&filter=stakeworld',
-                className: 'button button--group',
-                label: 'on Polkadot',
-              },
-              {
-	        href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm-rpc.stakeworld.io&filter=stakeworld',
-                className: 'button button--group',
-                label: 'on Kusama',
-              },
-	    ],
+            label: 'Nominate on Kusama',
+            position: 'right',
+	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fksm-rpc.stakeworld.io&filter=stakeworld',
           },
         ],
       },

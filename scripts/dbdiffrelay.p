@@ -11,7 +11,7 @@ set xtics auto
 set ylabel "Change"
 set format y "%.b %B"
 #set format y '%.s%cB'
-# set yrange [0:200]
+set yrange [0:5000000000]
 set format x "%d/%m"
 set key below
 set grid

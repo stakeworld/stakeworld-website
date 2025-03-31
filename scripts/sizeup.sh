@@ -115,11 +115,11 @@ do
         if grep -q 'chain paseo' "/etc/systemd/system/$i.service"; then
                 chain="paseo"
         fi
-        if grep -q 'asset-hub-paseo.raw.json' "/etc/systemd/system/$i.service"; then
+        if grep -q 'paseo-asset-hub.json' "/etc/systemd/system/$i.service"; then
                 chain="asset-hub-paseo"
         fi
 
-	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2`
+	port=`cat /etc/systemd/system/$i.service | grep -o -P  'prometheus-port.{0,5}' | cut -d " " -f2 | head -n 1`
 
 	sizeup "$i"
 done

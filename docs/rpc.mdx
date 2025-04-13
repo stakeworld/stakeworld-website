@@ -22,24 +22,28 @@ RPC servers allow access into the polkadot/kusama and parachains ecosystem. Stak
 
 ## Stakeworld RPC data
 
-Last update: Sun 02 mrt 2025
+Last update: Sun 13 apr 2025
 
 Requests in millions:
 
 | Chain              | Requests in millions (6 months) | Requests in millions (per month) | Requests in millions (per day) |
 |--------------------|---------------------------------|----------------------------------|--------------------------------|
-| ksmcc3 | 6403 | 1067 | 35 |
-| asset-hub-kusama | 90 | 15 | 0 |
-| bridge-hub-kusama | 28 | 5 | 0 |
-| coretime-kusama | 12 | 2 | 0 |
-| encointer-kusama | 35 | 6 | 0 |
-| people-kusama | 318 | 53 | 2 |
-| polkadot | 5015 | 836 | 28 |
-| asset-hub-polkadot | 7095 | 1183 | 39 |
-| bridge-hub-polkadot | 45 | 8 | 0 |
-| collectives_polkadot | 11 | 2 | 0 |
-| paseo | 74 | 12 | 0 |
+| ksmcc3 | 6526 | 1088 | 36 |
+| asset-hub-kusama | 82 | 14 | 0 |
+| bridge-hub-kusama | 31 | 5 | 0 |
+| coretime-kusama | 13 | 2 | 0 |
+| encointer-kusama | 31 | 5 | 0 |
+| people-kusama | 223 | 37 | 1 |
+| polkadot | 4689 | 782 | 26 |
+| asset-hub-polkadot | 7188 | 1198 | 39 |
+| bridge-hub-polkadot | 44 | 7 | 0 |
+| collectives_polkadot | 12 | 2 | 0 |
+| coretime-polkadot | N/A | N/A | N/A |
+| people-polkadot | N/A | N/A | N/A |
+| paseo | 77 | 13 | 0 |
 | asset-hub-paseo | 4 | 1 | 0 |
+| westend2 | 11 | 2 | 0 |
+| asset-hub-westend | 1 | 0 | 0 |
 
 ## Setting up your own secure RPC server
 To access the polkadot, kusama and parachains networks we need some kind of access into the network. This can be achieved by [setting up a node](./validate) with a RPC server and allowing access to that RPC server via a secure websocket (wss) port. The default node setup already exposes a non secure ws socket on port 9944 (which can optionally be changed by the `--ws-port` parameter), but for a more usable situation we need a secure websocket which is accesible through a public port.

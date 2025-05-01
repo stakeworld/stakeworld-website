@@ -1,19 +1,28 @@
-set terminal png size 800,300
-set style data fsteps
+set terminal svg size 800,300 mouse enhanced standalone font "Helvetica,10"
+set output '../static/img/dbdiffpruned.svg'
+
 set datafile separator ","
-set output '../static/img/dbdiffpruned.png'
 set title 'Pruned daily database growth'
 set timefmt "%d/%m/%Y"
 set xdata time
-set xtics auto
-# https://stackoverflow.com/questions/13785832/month-tics-how-to-set
-# set xtics "01/01/2022", 100000, "31/12/2022"
-set ylabel "Change"
-set format y "%.b %B"
-#set format y '%.s%cB'
-set yrange [0:2000000000]
+set xrange ["11/05/2023":]
 set format x "%d/%m"
-set key below
 set grid
-plot "../var/snapsize.ksmcc3.paritydb.pruned.dbdiff.dat" using 1:2 title "Kusama Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \
-     "../var/snapsize.polkadot.paritydb.pruned.dbdiff.dat" using 1:2 title "Polkadot Paritydb Pruned" with linespoints pointtype 20 linewidth 2
+set key below
+set ylabel "Change (GiB)"
+set ytics format "%.1f"
+set yrange [0:2]
+set xtics
+set ytics
+
+fileKSM = "../var/snapsize.ksmcc3.paritydb.pruned.dbdiff.dat"
+fileDOT = "../var/snapsize.polkadot.paritydb.pruned.dbdiff.dat"
+
+plot \
+  fileKSM using 1:($2 / 1024.0**3) title "Kusama Paritydb Pruned" with lines lw 0.8 lt rgb "#e6007a", \
+  ''     using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) \
+         with labels hypertext point pt 7 ps 0.5 lc rgb "#e6007a" tc rgb "#e6007a" notitle, \
+  fileDOT using 1:($2 / 1024.0**3) title "Polkadot Paritydb Pruned" with lines lw 0.8 lt rgb "#0057b8", \
+  ''     using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) \
+         with labels hypertext point pt 7 ps 0.5 lc rgb "#0057b8" tc rgb "#0057b8" notitle
+

@@ -1,25 +1,40 @@
-set terminal png size 800,300
-set style data fsteps
+set terminal svg size 800,300 mouse enhanced standalone font "Helvetica,10"
+set output '../static/img/commonsize.svg'
+
 set datafile separator ","
-set output '../static/img/commonsize.png'
 set title 'Commons database sizes'
 set timefmt "%d/%m/%Y"
 set xdata time
-set xtics auto
-# https://stackoverflow.com/questions/13785832/month-tics-how-to-set
-# set xtics "01/01/2022", 100000, "31/12/2022"
-set ylabel "Size in GB"
-set format y "%.b %B"
-#set format y '%.s%cB'
-# set yrange [0:200]
 set xrange ["01/06/2023":]
 set format x "%d/%m"
-set key below
 set grid
-plot "../var/snapsize.statemine.paritydb.archive.dat" using 1:2 title "AssetHub Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.asset-hub-paseo.paritydb.archive.dat" using 1:2 title "AssetHub Paseo Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.statemint.paritydb.archive.dat" using 1:2 title "AssetHub Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.westmint.paritydb.archive.dat" using 1:2 title "AssetHub Westend Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.bridge-hub-kusama.paritydb.archive.dat" using 1:2 title "BridgeHub Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.bridge-hub-polkadot.paritydb.archive.dat" using 1:2 title "BridgeHub Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.collectives-polkadot.paritydb.archive.dat" using 1:2 title "Collectives Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1
+set key below
+set ylabel "Size (GiB)"
+set ytics format "%.0f"
+set xtics
+set ytics
+
+fileSMN = "../var/snapsize.statemine.paritydb.archive.dat"
+filePAS = "../var/snapsize.asset-hub-paseo.paritydb.archive.dat"
+fileSMT = "../var/snapsize.statemint.paritydb.archive.dat"
+fileWMT = "../var/snapsize.westmint.paritydb.archive.dat"
+fileBHK = "../var/snapsize.bridge-hub-kusama.paritydb.archive.dat"
+fileBHP = "../var/snapsize.bridge-hub-polkadot.paritydb.archive.dat"
+fileCOL = "../var/snapsize.collectives-polkadot.paritydb.archive.dat"
+
+plot \
+  fileSMN using 1:($2 / 1024.0**3) title "AssetHub Kusama" with lines lw 0.8 lt rgb "#e6007a", \
+  '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#e6007a" notitle, \
+  filePAS using 1:($2 / 1024.0**3) title "AssetHub Paseo" with lines lw 0.8 lt rgb "#ff7f00", \
+  '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#ff7f00" notitle, \
+  fileSMT using 1:($2 / 1024.0**3) title "AssetHub Polkadot" with lines lw 0.8 lt rgb "#0057b8", \
+  '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#0057b8" notitle, \
+  fileWMT using 1:($2 / 1024.0**3) title "AssetHub Westend" with lines lw 0.8 lt rgb "#33a02c", \
+  '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#33a02c" notitle, \
+  fileBHK using 1:($2 / 1024.0**3) title "BridgeHub Kusama" with lines lw 0.8 lt rgb "#6a3d9a", \
+  '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#6a3d9a" notitle, \
+  fileBHP using 1:($2 / 1024.0**3) title "BridgeHub Polkadot" with lines lw 0.8 lt rgb "#1f78b4", \
+  '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#1f78b4" notitle, \
+  fileCOL using 1:($2 / 1024.0**3) title "Collectives Polkadot" with lines lw 0.8 lt rgb "#b15928", \
+  '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#b15928" notitle
+

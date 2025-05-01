@@ -1,22 +1,39 @@
-set terminal png size 800,300
-set style data fsteps
+# ─── Terminal ───────────────────────────────────────────────
+set terminal svg size 800,300 mouse enhanced standalone font "Helvetica,10"
+set output '../static/img/archivesize.svg'
+
+# ─── Layout ─────────────────────────────────────────────────
 set datafile separator ","
-set output '../static/img/archivesize.png'
 set title 'Relay chain database sizes'
 set timefmt "%d/%m/%Y"
 set xdata time
-set xtics auto
-# https://stackoverflow.com/questions/13785832/month-tics-how-to-set
-# set xtics "01/01/2022", 100000, "31/12/2022"
-set ylabel "Size in GB"
-set format y "%.b %B"
-#set format y '%.s%cB'
-# set yrange [0:200]
 set xrange ["11/05/2023":]
 set format x "%d/%m"
-set key below
 set grid
-plot "../var/snapsize.polkadot.paritydb.archive.dat" using 1:2 title "Polkadot Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
-     "../var/snapsize.ksmcc3.paritydb.archive.dat" using 1:2 title "Kusama Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
-     "../var/snapsize.paseo.paritydb.archive.dat" using 1:2 title "Paseo Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
-     "../var/snapsize.westend2.paritydb.archive.dat" using 1:2 title "Westend Paritydb Archive" with linespoints pointtype 19 linewidth 1
+set key below
+set ylabel "Size (TiB)"
+set ytics format "%.2f"
+set xtics
+set ytics
+
+# ─── Data-bestanden ─────────────────────────────────────────
+fileDOT = "../var/snapsize.polkadot.paritydb.archive.dat"
+fileKSM = "../var/snapsize.ksmcc3.paritydb.archive.dat"
+filePAS = "../var/snapsize.paseo.paritydb.archive.dat"
+fileWES = "../var/snapsize.westend2.paritydb.archive.dat"
+
+# ─── Plot ───────────────────────────────────────────────────
+plot \
+  fileDOT using 1:($2 / 1024.0**4) title "Polkadot Paritydb Archive" with lines lw 0.8 lt rgb "#0057b8", \
+  ''      using 1:($2 / 1024.0**4):(sprintf("%s: %.2f TiB", strcol(1), $2 / 1024.0**4)) \
+          with labels hypertext point pt 7 ps 0.5 lc rgb "#0057b8" tc rgb "#0057b8" notitle, \
+  fileKSM using 1:($2 / 1024.0**4) title "Kusama Paritydb Archive" with lines lw 0.8 lt rgb "#e6007a", \
+  ''      using 1:($2 / 1024.0**4):(sprintf("%s: %.2f TiB", strcol(1), $2 / 1024.0**4)) \
+          with labels hypertext point pt 7 ps 0.5 lc rgb "#e6007a" tc rgb "#e6007a" notitle, \
+  filePAS using 1:($2 / 1024.0**4) title "Paseo Paritydb Archive" with lines lw 0.8 lt rgb "#ff7f00", \
+  ''      using 1:($2 / 1024.0**4):(sprintf("%s: %.2f TiB", strcol(1), $2 / 1024.0**4)) \
+          with labels hypertext point pt 7 ps 0.5 lc rgb "#ff7f00" tc rgb "#ff7f00" notitle, \
+  fileWES using 1:($2 / 1024.0**4) title "Westend Paritydb Archive" with lines lw 0.8 lt rgb "#33a02c", \
+  ''      using 1:($2 / 1024.0**4):(sprintf("%s: %.2f TiB", strcol(1), $2 / 1024.0**4)) \
+          with labels hypertext point pt 7 ps 0.5 lc rgb "#33a02c" tc rgb "#33a02c" notitle
+

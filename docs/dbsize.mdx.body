@@ -1,12 +1,11 @@
+<object type="image/svg+xml" data="/img/archivesize.svg" width="800" height="300" style={{ border: "none", margin: 0}} />
 
-![snapsize](/img/archivesize.png)
+<object type="image/svg+xml" data="/img/dbdiffrelay.svg" width="800" height="300" style={{ border: "none", margin: 0}} />
 
-![dbdiffarchive](/img/dbdiffrelay.png)
+<object type="image/svg+xml" data="/img/prunedsize.svg" width="800" height="300" style={{ border: "none", margin: 0}} />
 
-![prunedsize](/img/prunedsize.png)
+<object type="image/svg+xml" data="/img/dbdiffpruned.svg" width="800" height="300" style={{ border: "none", margin: 0}} />
 
-![dbdiffpruned](/img/dbdiffpruned.png)
+<object type="image/svg+xml" data="/img/commonsize.svg" width="800" height="300" style={{ border: "none", margin: 0}} />
 
-![commonsize](/img/commonsize.png)
-
-![dbdiffcommon](/img/dbdiffcommon.png)
+<object type="image/svg+xml" data="/img/dbdiffcommon.svg" width="800" height="300" style={{ border: "none", margin: 0}} />

@@ -138,7 +138,7 @@ cd $workdir
 
 # Commit (with deploy workflow)
 git pull 2>/dev/null 
-git commit docs/dbsize.mdx static/img/*.png var/snapsize.*.dat -m "Automatic DBsize deploy"
+git commit docs/dbsize.mdx static/img/*.png static/img/*.svg var/snapsize.*.dat -m "Automatic DBsize deploy"
 # git push
 
 #The end

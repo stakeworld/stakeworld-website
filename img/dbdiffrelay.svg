@@ -976,9 +976,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M53.50,240.00 L53.50,236.25 M53.50,45.01 L53.50,48.76 M62.76,240.00 L62.76,236.25 M62.76,45.01 L62.76,48.76
-		M72.02,240.00 L72.02,236.25 M72.02,45.01 L72.02,48.76 M81.28,240.00 L81.28,236.25 M81.28,45.01 L81.28,48.76
-		M90.54,240.00 L90.54,236.25 M90.54,45.01 L90.54,48.76  '/></g>
+	<path stroke='black'  d='M73.33,240.00 L73.33,236.25 M73.33,45.01 L73.33,48.76  '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
@@ -991,39 +989,22 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M110.80,240.00 L110.80,236.25 M110.80,45.01 L110.80,48.76 M120.06,240.00 L120.06,236.25 M120.06,45.01 L120.06,48.76
-		M129.33,240.00 L129.33,236.25 M129.33,45.01 L129.33,48.76 M138.59,240.00 L138.59,236.25 M138.59,45.01 L138.59,48.76
-		M147.85,240.00 L147.85,236.25 M147.85,45.01 L147.85,48.76  '/></g>
+	<path stroke='black'  d='M129.71,240.00 L129.71,236.25 M129.71,45.01 L129.71,48.76 M157.92,240.00 L157.92,236.25 M157.92,45.01 L157.92,48.76
+		 '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M158.84,240.00 L158.84,45.01  '/></g>
+	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M186.09,240.00 L186.09,45.01  '/></g>
 <g fill="none" color="gray" stroke="gray" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M158.84,240.00 L158.84,232.50 M158.84,45.01 L158.84,52.51  '/>	<g transform="translate(158.84,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Helvetica" >01/09</tspan></text>
+	<path stroke='black'  d='M186.09,240.00 L186.09,232.50 M186.09,45.01 L186.09,52.51  '/>	<g transform="translate(186.09,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
+		<text><tspan font-family="Helvetica" >01/10</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M168.11,240.00 L168.11,236.25 M168.11,45.01 L168.11,48.76 M177.37,240.00 L177.37,236.25 M177.37,45.01 L177.37,48.76
-		M186.63,240.00 L186.63,236.25 M186.63,45.01 L186.63,48.76 M195.89,240.00 L195.89,236.25 M195.89,45.01 L195.89,48.76
-		M205.15,240.00 L205.15,236.25 M205.15,45.01 L205.15,48.76  '/></g>
-<g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
-<g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M215.22,240.00 L215.22,45.01  '/></g>
-<g fill="none" color="gray" stroke="gray" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M215.22,240.00 L215.22,232.50 M215.22,45.01 L215.22,52.51  '/>	<g transform="translate(215.22,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Helvetica" >01/11</tspan></text>
-	</g>
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M224.48,240.00 L224.48,236.25 M224.48,45.01 L224.48,48.76 M233.74,240.00 L233.74,236.25 M233.74,45.01 L233.74,48.76
-		M243.00,240.00 L243.00,236.25 M243.00,45.01 L243.00,48.76 M252.27,240.00 L252.27,236.25 M252.27,45.01 L252.27,48.76
-		M261.53,240.00 L261.53,236.25 M261.53,45.01 L261.53,48.76  '/></g>
+	<path stroke='black'  d='M214.26,240.00 L214.26,236.25 M214.26,45.01 L214.26,48.76 M242.46,240.00 L242.46,236.25 M242.46,45.01 L242.46,48.76
+		 '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
@@ -1036,39 +1017,22 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M280.86,240.00 L280.86,236.25 M280.86,45.01 L280.86,48.76 M290.12,240.00 L290.12,236.25 M290.12,45.01 L290.12,48.76
-		M299.38,240.00 L299.38,236.25 M299.38,45.01 L299.38,48.76 M308.64,240.00 L308.64,236.25 M308.64,45.01 L308.64,48.76
-		M317.90,240.00 L317.90,236.25 M317.90,45.01 L317.90,48.76  '/></g>
+	<path stroke='black'  d='M299.77,240.00 L299.77,236.25 M299.77,45.01 L299.77,48.76 M327.98,240.00 L327.98,236.25 M327.98,45.01 L327.98,48.76
+		 '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M327.05,240.00 L327.05,45.01  '/></g>
+	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M356.14,240.00 L356.14,45.01  '/></g>
 <g fill="none" color="gray" stroke="gray" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M327.05,240.00 L327.05,232.50 M327.05,45.01 L327.05,52.51  '/>	<g transform="translate(327.05,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Helvetica" >01/03</tspan></text>
+	<path stroke='black'  d='M356.14,240.00 L356.14,232.50 M356.14,45.01 L356.14,52.51  '/>	<g transform="translate(356.14,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
+		<text><tspan font-family="Helvetica" >01/04</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M336.31,240.00 L336.31,236.25 M336.31,45.01 L336.31,48.76 M345.57,240.00 L345.57,236.25 M345.57,45.01 L345.57,48.76
-		M354.83,240.00 L354.83,236.25 M354.83,45.01 L354.83,48.76 M364.09,240.00 L364.09,236.25 M364.09,45.01 L364.09,48.76
-		M373.35,240.00 L373.35,236.25 M373.35,45.01 L373.35,48.76  '/></g>
-<g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
-<g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M383.43,240.00 L383.43,45.01  '/></g>
-<g fill="none" color="gray" stroke="gray" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M383.43,240.00 L383.43,232.50 M383.43,45.01 L383.43,52.51  '/>	<g transform="translate(383.43,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Helvetica" >01/05</tspan></text>
-	</g>
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M392.69,240.00 L392.69,236.25 M392.69,45.01 L392.69,48.76 M401.95,240.00 L401.95,236.25 M401.95,45.01 L401.95,48.76
-		M411.21,240.00 L411.21,236.25 M411.21,45.01 L411.21,48.76 M420.47,240.00 L420.47,236.25 M420.47,45.01 L420.47,48.76
-		M429.73,240.00 L429.73,236.25 M429.73,45.01 L429.73,48.76  '/></g>
+	<path stroke='black'  d='M384.31,240.00 L384.31,236.25 M384.31,45.01 L384.31,48.76 M412.52,240.00 L412.52,236.25 M412.52,45.01 L412.52,48.76
+		 '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
@@ -1081,39 +1045,22 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M449.06,240.00 L449.06,236.25 M449.06,45.01 L449.06,48.76 M458.33,240.00 L458.33,236.25 M458.33,45.01 L458.33,48.76
-		M467.59,240.00 L467.59,236.25 M467.59,45.01 L467.59,48.76 M476.85,240.00 L476.85,236.25 M476.85,45.01 L476.85,48.76
-		M486.11,240.00 L486.11,236.25 M486.11,45.01 L486.11,48.76  '/></g>
+	<path stroke='black'  d='M467.97,240.00 L467.97,236.25 M467.97,45.01 L467.97,48.76 M496.18,240.00 L496.18,236.25 M496.18,45.01 L496.18,48.76
+		 '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M497.11,240.00 L497.11,45.01  '/></g>
+	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M525.27,240.00 L525.27,45.01  '/></g>
 <g fill="none" color="gray" stroke="gray" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M497.11,240.00 L497.11,232.50 M497.11,45.01 L497.11,52.51  '/>	<g transform="translate(497.11,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Helvetica" >01/09</tspan></text>
+	<path stroke='black'  d='M525.27,240.00 L525.27,232.50 M525.27,45.01 L525.27,52.51  '/>	<g transform="translate(525.27,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
+		<text><tspan font-family="Helvetica" >01/10</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M506.37,240.00 L506.37,236.25 M506.37,45.01 L506.37,48.76 M515.63,240.00 L515.63,236.25 M515.63,45.01 L515.63,48.76
-		M524.89,240.00 L524.89,236.25 M524.89,45.01 L524.89,48.76 M534.15,240.00 L534.15,236.25 M534.15,45.01 L534.15,48.76
-		M543.41,240.00 L543.41,236.25 M543.41,45.01 L543.41,48.76  '/></g>
-<g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
-<g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M554.41,240.00 L554.41,45.01  '/></g>
-<g fill="none" color="gray" stroke="gray" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M554.41,240.00 L554.41,232.50 M554.41,45.01 L554.41,52.51  '/>	<g transform="translate(554.41,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Helvetica" >01/11</tspan></text>
-	</g>
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M563.67,240.00 L563.67,236.25 M563.67,45.01 L563.67,48.76 M572.93,240.00 L572.93,236.25 M572.93,45.01 L572.93,48.76
-		M582.19,240.00 L582.19,236.25 M582.19,45.01 L582.19,48.76 M591.45,240.00 L591.45,236.25 M591.45,45.01 L591.45,48.76
-		M600.71,240.00 L600.71,236.25 M600.71,45.01 L600.71,48.76  '/></g>
+	<path stroke='black'  d='M553.44,240.00 L553.44,236.25 M553.44,45.01 L553.44,48.76 M581.65,240.00 L581.65,236.25 M581.65,45.01 L581.65,48.76
+		 '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
@@ -1126,39 +1073,22 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M620.05,240.00 L620.05,236.25 M620.05,45.01 L620.05,48.76 M629.31,240.00 L629.31,236.25 M629.31,45.01 L629.31,48.76
-		M638.57,240.00 L638.57,236.25 M638.57,45.01 L638.57,48.76 M647.83,240.00 L647.83,236.25 M647.83,45.01 L647.83,48.76
-		M657.09,240.00 L657.09,236.25 M657.09,45.01 L657.09,48.76  '/></g>
+	<path stroke='black'  d='M638.95,240.00 L638.95,236.25 M638.95,45.01 L638.95,48.76 M667.16,240.00 L667.16,236.25 M667.16,45.01 L667.16,48.76
+		 '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M665.31,240.00 L665.31,45.01  '/></g>
+	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M693.48,240.00 L693.48,45.01  '/></g>
 <g fill="none" color="gray" stroke="gray" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M665.31,240.00 L665.31,232.50 M665.31,45.01 L665.31,52.51  '/>	<g transform="translate(665.31,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Helvetica" >01/03</tspan></text>
+	<path stroke='black'  d='M693.48,240.00 L693.48,232.50 M693.48,45.01 L693.48,52.51  '/>	<g transform="translate(693.48,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
+		<text><tspan font-family="Helvetica" >01/04</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M674.57,240.00 L674.57,236.25 M674.57,45.01 L674.57,48.76 M683.83,240.00 L683.83,236.25 M683.83,45.01 L683.83,48.76
-		M693.09,240.00 L693.09,236.25 M693.09,45.01 L693.09,48.76 M702.35,240.00 L702.35,236.25 M702.35,45.01 L702.35,48.76
-		M711.62,240.00 L711.62,236.25 M711.62,45.01 L711.62,48.76  '/></g>
-<g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
-<g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='gray' stroke-dasharray='2,4' class="gridline"  d='M721.69,240.00 L721.69,45.01  '/></g>
-<g fill="none" color="gray" stroke="gray" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M721.69,240.00 L721.69,232.50 M721.69,45.01 L721.69,52.51  '/>	<g transform="translate(721.69,258.25)" stroke="none" fill="black" font-family="Helvetica" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Helvetica" >01/05</tspan></text>
-	</g>
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M730.95,240.00 L730.95,236.25 M730.95,45.01 L730.95,48.76 M740.21,240.00 L740.21,236.25 M740.21,45.01 L740.21,48.76
-		M749.47,240.00 L749.47,236.25 M749.47,45.01 L749.47,48.76 M758.73,240.00 L758.73,236.25 M758.73,45.01 L758.73,48.76
-		M767.99,240.00 L767.99,236.25 M767.99,45.01 L767.99,48.76  '/></g>
+	<path stroke='black'  d='M721.65,240.00 L721.65,236.25 M721.65,45.01 L721.65,48.76 M749.86,240.00 L749.86,236.25 M749.86,45.01 L749.86,48.76
+		 '/></g>
 <g fill="none" color="black" stroke="black" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="gray" stroke="currentColor" stroke-width="0.50" stroke-linecap="butt" stroke-linejoin="miter">
@@ -1269,7 +1199,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L708.26,108.73 L709.18,109.88 L710.11,110.32 L711.04,110.05 L711.96,108.76 L712.89,109.34 L713.82,109.43 L714.74,110.41
 		L715.67,109.62 L716.59,110.43 L717.52,111.64 L718.45,111.45 L719.37,109.25 L720.30,110.18 L721.22,108.25 L722.15,108.37
 		L723.08,111.56 L724.00,120.28 L724.93,112.81 L725.85,112.37 L726.78,124.73 L727.71,118.78 L728.63,109.37 L729.56,111.82
-		 '/></g>
+		L730.49,109.89  '/></g>
 	</g>
 	<g id="gnuplot_plot_2" ><title>gnuplot_plot_2</title>
 <g fill="none" color="white" stroke="rgb(  0,  87, 184)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -4936,6 +4866,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'11/05/2025: 3.3 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(730.49,109.89) scale(1.88)' color='rgb(  0,  87, 184)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
 	</g>
 	<g id="gnuplot_plot_3" ><title>Kusama Paritydb Archive</title>
 <g fill="none" color="white" stroke="black" stroke-width="0.80" stroke-linecap="butt" stroke-linejoin="miter">
@@ -5025,7 +4961,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L703.63,132.80 L704.55,131.35 L705.48,133.41 L706.41,129.08 L707.33,128.78 L708.26,127.29 L709.18,128.83 L710.11,127.90
 		L711.04,127.15 L711.96,128.35 L712.89,126.68 L713.82,128.40 L714.74,124.22 L715.67,128.23 L716.59,129.52 L717.52,128.31
 		L718.45,131.81 L719.37,130.25 L720.30,130.50 L721.22,122.50 L722.15,131.25 L723.08,130.54 L724.00,132.09 L724.93,131.14
-		L725.85,129.78 L726.78,133.75 L727.71,131.69 L728.63,131.34 L729.56,136.50  '/></g>
+		L725.85,129.78 L726.78,133.75 L727.71,131.69 L728.63,131.34 L729.56,136.50 L730.49,161.36  '/></g>
 	</g>
 	<g id="gnuplot_plot_4" ><title>gnuplot_plot_4</title>
 <g fill="none" color="white" stroke="rgb(230,   0, 122)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -8734,6 +8670,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'11/05/2025: 2.0 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(730.49,161.36) scale(1.88)' color='rgb(230,   0, 122)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
 	</g>
 	<g id="gnuplot_plot_5" ><title>Paseo Paritydb Archive</title>
 <g fill="none" color="white" stroke="black" stroke-width="0.80" stroke-linecap="butt" stroke-linejoin="miter">
@@ -8790,7 +8732,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L706.41,169.77 L707.33,167.71 L708.26,172.99 L709.18,173.90 L710.11,171.61 L711.04,172.25 L711.96,173.35 L712.89,168.38
 		L713.82,170.10 L714.74,170.17 L715.67,167.81 L716.59,169.87 L717.52,167.97 L718.45,169.63 L719.37,171.15 L720.30,171.02
 		L721.22,169.95 L722.15,170.13 L723.08,169.61 L724.00,169.85 L724.93,169.25 L725.85,170.55 L726.78,170.31 L727.71,171.55
-		L728.63,169.07 L729.56,170.42  '/></g>
+		L728.63,169.07 L729.56,170.42 L730.49,171.25  '/></g>
 	</g>
 	<g id="gnuplot_plot_6" ><title>gnuplot_plot_6</title>
 <g fill="none" color="white" stroke="rgb(255, 127,   0)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -10894,6 +10836,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g onmousemove="gnuplot_svg.showHypertext(evt,'10/05/2025: 1.8 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
 	<use xlink:href='#gpPt6' transform='translate(729.56,170.42) scale(1.88)' color='rgb(255, 127,   0)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'11/05/2025: 1.8 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(730.49,171.25) scale(1.88)' color='rgb(255, 127,   0)'/></g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>

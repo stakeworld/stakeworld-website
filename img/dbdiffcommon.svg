@@ -1227,7 +1227,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L724.02,116.17 L724.87,120.49 L725.72,117.93 L726.57,118.70 L727.42,121.50 L728.27,117.92 L729.12,118.54 L729.97,120.24
 		L730.82,117.29 L731.67,120.60 L732.51,117.39 L733.36,115.85 L734.21,120.28 L735.06,119.30 L735.91,117.69 L736.76,121.79
 		L737.61,120.16 L738.46,119.92 L739.31,120.86 L740.16,119.98 L741.01,123.88 L741.86,120.65 L742.71,121.30 L743.56,122.41
-		L744.41,121.63 L745.26,124.59 L746.11,122.75  '/></g>
+		L744.41,121.63 L745.26,124.59 L746.11,122.75 L746.96,123.35  '/></g>
 	</g>
 	<g id="gnuplot_plot_2" ><title>gnuplot_plot_2</title>
 <g fill="none" color="white" stroke="rgb(230,   0, 122)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -5608,6 +5608,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'25/08/2025: 0.6 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(746.96,123.35) scale(1.88)' color='rgb(230,   0, 122)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
 	</g>
 	<g id="gnuplot_plot_3" ><title>AssetHub Polkadot</title>
 <g fill="none" color="white" stroke="black" stroke-width="0.80" stroke-linecap="butt" stroke-linejoin="miter">
@@ -5710,7 +5716,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L724.02,158.71 L724.87,158.27 L725.72,158.40 L726.57,156.50 L727.42,159.90 L728.27,159.51 L729.12,158.16 L729.97,158.92
 		L730.82,156.37 L731.67,157.61 L732.51,158.20 L733.36,123.19 L734.21,157.51 L735.06,157.18 L735.91,160.26 L736.76,158.91
 		L737.61,159.30 L738.46,163.15 L739.31,161.17 L740.16,160.36 L741.01,158.97 L741.86,159.06 L742.71,158.39 L743.56,160.31
-		L744.41,159.63 L745.26,157.64 L746.11,158.85  '/></g>
+		L744.41,159.63 L745.26,157.64 L746.11,158.85 L746.96,158.82  '/></g>
 	</g>
 	<g id="gnuplot_plot_4" ><title>gnuplot_plot_4</title>
 <g fill="none" color="white" stroke="rgb(  0,  87, 184)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -10031,6 +10037,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'25/08/2025: 0.4 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(746.96,158.82) scale(1.88)' color='rgb(  0,  87, 184)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
 	</g>
 	<g id="gnuplot_plot_5" ><title>AssetHub Paseo</title>
 <g fill="none" color="white" stroke="black" stroke-width="0.80" stroke-linecap="butt" stroke-linejoin="miter">
@@ -10100,7 +10112,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L723.17,196.75 L724.02,198.66 L724.87,194.40 L725.72,196.95 L726.57,196.03 L727.42,198.45 L728.27,195.66 L729.12,195.97
 		L729.97,198.20 L730.82,195.63 L731.67,197.42 L732.51,195.08 L733.36,194.95 L734.21,197.51 L735.06,194.98 L735.91,190.05
 		L736.76,196.21 L737.61,193.95 L738.46,196.36 L739.31,194.95 L740.16,197.82 L741.01,195.66 L741.86,196.38 L742.71,195.51
-		L743.56,196.57 L744.41,193.79 L745.26,195.47 L746.11,196.34  '/></g>
+		L743.56,196.57 L744.41,193.79 L745.26,195.47 L746.11,196.34 L746.96,194.20  '/></g>
 	</g>
 	<g id="gnuplot_plot_6" ><title>gnuplot_plot_6</title>
 <g fill="none" color="white" stroke="rgb(255, 127,   0)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -12837,6 +12849,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'25/08/2025: 0.2 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(746.96,194.20) scale(1.88)' color='rgb(255, 127,   0)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
 	</g>
 	<g id="gnuplot_plot_7" ><title>AssetHub Westend</title>
 <g fill="none" color="white" stroke="black" stroke-width="0.80" stroke-linecap="butt" stroke-linejoin="miter">
@@ -15163,7 +15181,8 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L720.62,164.21 L721.47,163.76 L722.32,164.05 L723.17,166.92 L724.02,162.69 L724.87,165.81 L725.72,163.78 L726.57,166.52
 		L727.42,165.28 L728.27,165.50 L729.12,165.38 L729.97,166.88 L730.82,166.23 L731.67,170.40 L732.51,169.67 L733.36,166.53
 		L734.21,170.47 L735.06,171.96 L735.91,170.66 L736.76,168.95 L737.61,168.20 L738.46,172.28 L739.31,167.34 L740.16,164.93
-		L741.01,168.52 L741.86,164.85 L742.71,167.61 L743.56,178.90 L744.41,187.67 L745.26,187.05 L746.11,189.42  '/></g>
+		L741.01,168.52 L741.86,164.85 L742.71,167.61 L743.56,178.90 L744.41,187.67 L745.26,187.05 L746.11,189.42 L746.96,188.73
+		 '/></g>
 	</g>
 	<g id="gnuplot_plot_10" ><title>gnuplot_plot_10</title>
 <g fill="none" color="white" stroke="rgb(106,  61, 154)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -19520,6 +19539,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'25/08/2025: 0.3 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(746.96,188.73) scale(1.88)' color='rgb(106,  61, 154)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
 	</g>
 	<g id="gnuplot_plot_11" ><title>BridgeHub Polkadot</title>
 <g fill="none" color="white" stroke="black" stroke-width="0.80" stroke-linecap="butt" stroke-linejoin="miter">
@@ -19622,7 +19647,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L722.32,141.83 L723.17,142.50 L724.02,139.90 L724.87,141.89 L725.72,140.88 L726.57,142.56 L727.42,143.15 L728.27,141.10
 		L729.12,143.48 L729.97,140.70 L730.82,139.65 L731.67,141.04 L732.51,140.51 L733.36,142.30 L734.21,142.73 L735.06,146.52
 		L735.91,148.57 L736.76,148.31 L737.61,150.23 L738.46,147.04 L739.31,150.10 L740.16,145.19 L741.01,143.73 L741.86,144.64
-		L742.71,144.23 L743.56,164.20 L743.69,45.01  '/>	<path stroke='rgb( 31, 120, 180)'  d='M745.12,45.01 L745.26,169.97 L746.11,170.17  '/></g>
+		L742.71,144.23 L743.56,164.20 L743.69,45.01  '/>	<path stroke='rgb( 31, 120, 180)'  d='M745.12,45.01 L745.26,169.97 L746.11,170.17 L746.96,170.85  '/></g>
 	</g>
 	<g id="gnuplot_plot_12" ><title>gnuplot_plot_12</title>
 <g fill="none" color="white" stroke="rgb( 31, 120, 180)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -23949,6 +23974,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'25/08/2025: 0.4 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(746.96,170.85) scale(1.88)' color='rgb( 31, 120, 180)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
 	</g>
 	<g id="gnuplot_plot_13" ><title>Collectives Polkadot</title>
 <g fill="none" color="white" stroke="black" stroke-width="0.80" stroke-linecap="butt" stroke-linejoin="miter">
@@ -24051,7 +24082,7 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 		L726.57,201.27 L727.42,203.41 L728.27,201.16 L729.12,202.14 L729.97,201.79 L730.82,202.51 L731.67,201.45 L732.51,200.99
 		L733.36,201.48 L734.21,204.46 L735.06,202.38 L735.91,203.03 L736.76,202.53 L737.61,202.59 L738.46,200.88 L739.31,203.75
 		L740.16,203.18 L741.01,202.69 L741.86,203.35 L742.71,204.26 L743.56,202.79 L744.41,202.10 L745.26,202.92 L746.11,203.26
-		 '/></g>
+		L746.96,202.40  '/></g>
 	</g>
 	<g id="gnuplot_plot_14" ><title>gnuplot_plot_14</title>
 <g fill="none" color="white" stroke="rgb(177,  89,  40)" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -28363,6 +28394,12 @@ onclick="gnuplot_svg.toggleCoordBox(evt)"  onmousemove="gnuplot_svg.moveCoordBox
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g onmousemove="gnuplot_svg.showHypertext(evt,'24/08/2025: 0.2 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
 	<use xlink:href='#gpPt6' transform='translate(746.11,203.26) scale(1.88)' color='rgb(177,  89,  40)'/></g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g onmousemove="gnuplot_svg.showHypertext(evt,'25/08/2025: 0.2 GiB')" onmouseout="gnuplot_svg.hideHypertext()"><title> </title>
+	<use xlink:href='#gpPt6' transform='translate(746.96,202.40) scale(1.88)' color='rgb(177,  89,  40)'/></g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>

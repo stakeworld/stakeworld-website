@@ -112,7 +112,7 @@ do
 	if grep -q 'encointer-kusama' "/etc/systemd/system/$i.service"; then
   		chain="encointer-kusama"
 	fi
-        if grep -q 'chain paseo' "/etc/systemd/system/$i.service"; then
+        if grep -q 'paseo.raw.json' "/etc/systemd/system/$i.service"; then
                 chain="paseo"
         fi
         if grep -q 'paseo-asset-hub.json' "/etc/systemd/system/$i.service"; then

@@ -30,12 +30,8 @@ const config = {
                       fromExtensions: ['html', 'htm'], // /myPage.html -> /myPage
                       redirects: [
                         {
-                          from: '/rpc',
-                          to: '/docs/rpc',
-                        },
-                        {
-                          from: '/snapshot',
-                          to: '/docs/snapshot',
+                          from: '/snapshots',
+                          to: '/docs/dbsize',
                         },
                       ],
                     },
@@ -90,24 +86,6 @@ const config = {
             label: 'Database sizes',
           },
           {
-            type: 'doc',
-            docId: 'validate',
-            position: 'left',
-            label: 'Validators',
-          },
-          {
-            type: 'doc',
-            docId: 'snapshot',
-            position: 'left',
-            label: 'Snapshots',
-          },
-          {
-            type: 'doc',
-            docId: 'rpc',
-            position: 'left',
-            label: 'Public RPC',
-          },
-          {
             label: 'Nominate on Polkadot',
             position: 'right',
 	    href: 'https://polkadot.js.org/apps/#/staking/targets?rpc=wss%3A%2F%2Fdot-rpc.stakeworld.io&filter=stakeworld',
@@ -125,14 +103,6 @@ const config = {
           {
             title: 'Services',
             items: [
-              {
-                label: 'Snapshots',
-                to: '/docs/snapshot',
-              },
-              {
-                label: 'RPC',
-                to: '/docs/rpc',
-              },
               {
                 label: 'Database sizes',
                 to: '/docs/dbsize',

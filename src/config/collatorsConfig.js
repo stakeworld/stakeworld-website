@@ -5,7 +5,6 @@ const collatorsConfig = {
     'Kusama Assethub',
     'Kusama Bridgehub',
     'Kusama Coretime',
-    'Kusama Encointer',
     'Kusama People'
   ],
   polkadot: [

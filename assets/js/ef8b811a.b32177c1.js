@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkstakeworld_io=globalThis.webpackChunkstakeworld_io||[]).push([[947],{6600:t=>{t.exports=JSON.parse('{"authors":[{"name":"Stakeworld","title":"Maintainer of Stakeworld","url":"https://github.com/stakeworld","imageURL":"https://github.com/stakeworld.png","key":"stakeworld","page":null,"count":0}]}')}}]);

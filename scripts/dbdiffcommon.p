@@ -18,7 +18,6 @@ set ytics
 fileSMN = "../var/snapsize.statemine.paritydb.archive.dbdiff.dat"
 fileSMT = "../var/snapsize.statemint.paritydb.archive.dbdiff.dat"
 filePAS = "../var/snapsize.asset-hub-paseo.paritydb.archive.dbdiff.dat"
-fileWMT = "../var/snapsize.westmint.paritydb.archive.dbdiff.dat"
 fileBHK = "../var/snapsize.bridge-hub-kusama.paritydb.archive.dbdiff.dat"
 fileBHP = "../var/snapsize.bridge-hub-polkadot.paritydb.archive.dbdiff.dat"
 fileCOL = "../var/snapsize.collectives-polkadot.paritydb.archive.dbdiff.dat"
@@ -30,8 +29,6 @@ plot \
   '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#0057b8" notitle, \
   filePAS using 1:($2 / 1024.0**3) title "AssetHub Paseo" with lines lw 0.8 lt rgb "#ff7f00", \
   '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#ff7f00" notitle, \
-  fileWMT using 1:($2 / 1024.0**3) title "AssetHub Westend" with lines lw 0.8 lt rgb "#33a02c", \
-  '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#33a02c" notitle, \
   fileBHK using 1:($2 / 1024.0**3) title "BridgeHub Kusama" with lines lw 0.8 lt rgb "#6a3d9a", \
   '' using 1:($2 / 1024.0**3):(sprintf("%s: %.1f GiB", strcol(1), $2 / 1024.0**3)) with labels hypertext point pt 7 ps 0.5 lc rgb "#6a3d9a" notitle, \
   fileBHP using 1:($2 / 1024.0**3) title "BridgeHub Polkadot" with lines lw 0.8 lt rgb "#1f78b4", \

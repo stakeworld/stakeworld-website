@@ -1,5 +1,4 @@
 #!/bin/bash
-# STAKEWORLD 2023
 # Make snapshots of substrate nodes
 # Run this script in crontab
 

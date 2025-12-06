@@ -17,12 +17,10 @@ set key below
 set grid
 plot "../var/snapsize.polkadot.paritydb.archive.dbdiff.dat" using 1:2 title "Polkadot Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
      "../var/snapsize.ksmcc3.paritydb.archive.dbdiff.dat" using 1:2 title "Kusama Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
-     "../var/snapsize.westend2.paritydb.archive.dbdiff.dat" using 1:2 title "Westend Paritydb Archive" with linespoints pointtype 19 linewidth 1, \
-"../var/snapsize.ksmcc3.paritydb.pruned.dbdiff.dat" using 1:2 title "Kusama Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \
+     "../var/snapsize.ksmcc3.paritydb.pruned.dbdiff.dat" using 1:2 title "Kusama Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \
      "../var/snapsize.polkadot.paritydb.pruned.dbdiff.dat" using 1:2 title "Polkadot Paritydb Pruned" with linespoints pointtype 20 linewidth 2, \
-"../var/snapsize.statemine.paritydb.archive.dbdiff.dat" using 1:2 title "AssetHub Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
+     "../var/snapsize.statemine.paritydb.archive.dbdiff.dat" using 1:2 title "AssetHub Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.statemint.paritydb.archive.dbdiff.dat" using 1:2 title "AssetHub Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
-     "../var/snapsize.westmint.paritydb.archive.dbdiff.dat" using 1:2 title "AssetHub Westend Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.bridge-hub-kusama.paritydb.archive.dbdiff.dat" using 1:2 title "BridgeHub Kusama Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.bridge-hub-polkadot.paritydb.archive.dbdiff.dat" using 1:2 title "BridgeHub Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1, \
      "../var/snapsize.collectives-polkadot.paritydb.archive.dbdiff.dat" using 1:2 title "Collectives Polkadot Paritydb Archive" with linespoints pointtype 20 linewidth 1

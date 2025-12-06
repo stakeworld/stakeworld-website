@@ -1,5 +1,4 @@
 #!/bin/bash
-# STAKEWORLD 2022
 # Display the snapshot size of kusama and polkadot nodes
 
 # Error handling

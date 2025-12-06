@@ -20,7 +20,6 @@ set ytics
 fileDOT = "../var/snapsize.polkadot.paritydb.archive.dat"
 fileKSM = "../var/snapsize.ksmcc3.paritydb.archive.dat"
 filePAS = "../var/snapsize.paseo.paritydb.archive.dat"
-fileWES = "../var/snapsize.westend2.paritydb.archive.dat"
 
 # ─── Plot ───────────────────────────────────────────────────
 plot \
@@ -32,8 +31,5 @@ plot \
           with labels hypertext point pt 7 ps 0.5 lc rgb "#e6007a" tc rgb "#e6007a" notitle, \
   filePAS using 1:($2 / 1024.0**4) title "Paseo Paritydb Archive" with lines lw 0.8 lt rgb "#ff7f00", \
   ''      using 1:($2 / 1024.0**4):(sprintf("%s: %.2f TiB", strcol(1), $2 / 1024.0**4)) \
-          with labels hypertext point pt 7 ps 0.5 lc rgb "#ff7f00" tc rgb "#ff7f00" notitle, \
-  fileWES using 1:($2 / 1024.0**4) title "Westend Paritydb Archive" with lines lw 0.8 lt rgb "#33a02c", \
-  ''      using 1:($2 / 1024.0**4):(sprintf("%s: %.2f TiB", strcol(1), $2 / 1024.0**4)) \
-          with labels hypertext point pt 7 ps 0.5 lc rgb "#33a02c" tc rgb "#33a02c" notitle
+          with labels hypertext point pt 7 ps 0.5 lc rgb "#ff7f00" tc rgb "#ff7f00" notitle
 
